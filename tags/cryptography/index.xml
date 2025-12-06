@@ -1,83 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cryptography on Yue's Notes</title><link>https://ofuro.me/tags/cryptography/</link><description>Recent content in Cryptography on Yue's Notes</description><generator>Hugo -- 0.143.1</generator><language>en-us</language><lastBuildDate>Tue, 11 Feb 2025 02:36:16 -0600</lastBuildDate><atom:link href="https://ofuro.me/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding SimplePIR &amp; DoublePIR</title><link>https://ofuro.me/posts/simple-double/</link><pubDate>Tue, 11 Feb 2025 02:36:16 -0600</pubDate><guid>https://ofuro.me/posts/simple-double/</guid><description>&lt;h3 id="notations">Notations&lt;/h3>
-&lt;ul>
-&lt;li>
-&lt;p>Database size: $N$&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Plaintext modulus:$p \in \mathbb{N}$. In SimplePIR, $\log(p) \leq 10$.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Ciphertext modulus: $q \in \mathbb{N}$. In SimplePIR, $\log(q) = 32$.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>LWE Dimension: $n = 1024$&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>LWE secret vector: $\vec{s} \in \mathbb{Z}_q^{n}$.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>LWE enc factor: $\Delta = q / p$.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>LWE Randomized matrix $A \gets \mathbb{Z}_q^{m \times n}$, where $m$ is the number of samples you want to encrypt.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Plain message vector: $\vec{\mu} \in \mathbb{Z}_p^m$. In simplePIR, we also write $\mu_i$ to denote the vector with all zero entries except a single $1$ at index $i$.&lt;/p></description></item><item><title>Commitment and Signatures</title><link>https://ofuro.me/posts/commitment-and-signatures/</link><pubDate>Fri, 13 Dec 2024 00:03:24 -0600</pubDate><guid>https://ofuro.me/posts/commitment-and-signatures/</guid><description>&lt;h3 id="span-stylecolor28a745definitionspan-commitment">&lt;span style="color:#28a745">Definition&lt;/span> Commitment&lt;/h3>
-&lt;ul>
-&lt;li>Parameters $\mathsf{pp} \gets \mathsf{Gen}(1^n)$.&lt;/li>
-&lt;li>$\mathsf{com} \gets \mathsf{Commit}(m, r)$&lt;/li>
-&lt;li>$\set{0, 1} \gets \mathsf{Open}(\mathsf{com}, m, r)$.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>Binding:&lt;/strong> an adversary can’t open the commitment to a different message $m&amp;rsquo;$.&lt;/p>
-&lt;p>&lt;strong>Hiding:&lt;/strong> $\mathsf{com}$ does not reveal any information about the message $m$.&lt;/p>
-&lt;blockquote>
-&lt;p>One naive approach is to use hash. However, hash is not hiding.&lt;/p>&lt;/blockquote>
-&lt;h3 id="pedersen-commitment">Pedersen commitment&lt;/h3>
-&lt;ul>
-&lt;li>$\mathsf{Gen}(1^n)$: group $\mathbb{G}$ with order $q$ and random generators $g, h$.&lt;/li>
-&lt;li>$\mathsf{Commit}(m, r)$: pick a random $r \gets \mathbb{Z}_q$, compute $\mathsf{com} = g^mh^r$.&lt;/li>
-&lt;li>$\mathsf{Open}(\mathsf{com}, m, r)$: check if $\mathsf{com} = g^mh^r$.&lt;/li>
-&lt;/ul>
-&lt;p>This scheme is computationally binding: if we express $h = g^x$ for some $x$, then finding $m&amp;rsquo; \neq m$ such that $g^mh^r = g^{m+rx} = g^{m&amp;rsquo; + r&amp;rsquo;x} = g^{m&amp;rsquo;}h^{r&amp;rsquo;}$ is hard by discrete log assumption.&lt;/p></description></item><item><title>RSA in pure number theory</title><link>https://ofuro.me/posts/some_rsa/</link><pubDate>Tue, 29 Oct 2024 17:02:49 -0500</pubDate><guid>https://ofuro.me/posts/some_rsa/</guid><description>&lt;h3 id="binomial-theorem">Binomial Theorem&lt;/h3>
-&lt;p>Given $a, b \in \mathbb{R}, n \in \mathbb{N}$, then
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cryptography on Yue's Notes</title><link>https://ofuro.me/tags/cryptography/</link><description>Recent content in Cryptography on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Tue, 11 Feb 2025 02:36:16 -0600</lastBuildDate><atom:link href="https://ofuro.me/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding SimplePIR &amp; DoublePIR</title><link>https://ofuro.me/posts/simple-double/</link><pubDate>Tue, 11 Feb 2025 02:36:16 -0600</pubDate><guid>https://ofuro.me/posts/simple-double/</guid><description>&lt;h3 id="notations"&gt;Notations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Database size: $N$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Plaintext modulus:$p \in \mathbb{N}$. In SimplePIR, $\log(p) \leq 10$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ciphertext modulus: $q \in \mathbb{N}$. In SimplePIR, $\log(q) = 32$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LWE Dimension: $n = 1024$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LWE secret vector: $\vec{s} \in \mathbb{Z}_q^{n}$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LWE enc factor: $\Delta = q / p$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LWE Randomized matrix $A \gets \mathbb{Z}_q^{m \times n}$, where $m$ is the number of samples you want to encrypt.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Plain message vector: $\vec{\mu} \in \mathbb{Z}_p^m$. In simplePIR, we also write $\mu_i$ to denote the vector with all zero entries except a single $1$ at index $i$.&lt;/p&gt;</description></item><item><title>Commitment and Signatures</title><link>https://ofuro.me/posts/commitment-and-signatures/</link><pubDate>Fri, 13 Dec 2024 00:03:24 -0600</pubDate><guid>https://ofuro.me/posts/commitment-and-signatures/</guid><description>&lt;h3 id="definition-commitment"&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; Commitment&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Parameters $\mathsf{pp} \gets \mathsf{Gen}(1^n)$.&lt;/li&gt;
+&lt;li&gt;$\mathsf{com} \gets \mathsf{Commit}(m, r)$&lt;/li&gt;
+&lt;li&gt;$\set{0, 1} \gets \mathsf{Open}(\mathsf{com}, m, r)$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Binding:&lt;/strong&gt; an adversary can’t open the commitment to a different message $m&amp;rsquo;$.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hiding:&lt;/strong&gt; $\mathsf{com}$ does not reveal any information about the message $m$.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One naive approach is to use hash. However, hash is not hiding.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="pedersen-commitment"&gt;Pedersen commitment&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$\mathsf{Gen}(1^n)$: group $\mathbb{G}$ with order $q$ and random generators $g, h$.&lt;/li&gt;
+&lt;li&gt;$\mathsf{Commit}(m, r)$: pick a random $r \gets \mathbb{Z}_q$, compute $\mathsf{com} = g^mh^r$.&lt;/li&gt;
+&lt;li&gt;$\mathsf{Open}(\mathsf{com}, m, r)$: check if $\mathsf{com} = g^mh^r$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This scheme is computationally binding: if we express $h = g^x$ for some $x$, then finding $m&amp;rsquo; \neq m$ such that $g^mh^r = g^{m+rx} = g^{m&amp;rsquo; + r&amp;rsquo;x} = g^{m&amp;rsquo;}h^{r&amp;rsquo;}$ is hard by discrete log assumption.&lt;/p&gt;</description></item><item><title>RSA in pure number theory</title><link>https://ofuro.me/posts/some_rsa/</link><pubDate>Tue, 29 Oct 2024 17:02:49 -0500</pubDate><guid>https://ofuro.me/posts/some_rsa/</guid><description>&lt;h3 id="binomial-theorem"&gt;Binomial Theorem&lt;/h3&gt;
+&lt;p&gt;Given $a, b \in \mathbb{R}, n \in \mathbb{N}$, then
 $$
 (a + b)^n = \sum_{k = 0}^{n} \binom{n}{k}a^k b^{n-k}
 $$
-&lt;span style="color:#599eff">Proposition&lt;/span> Let $p$ be prime. $\forall a, b \in \mathbb{Z}$, we have:
+&lt;span style="color:#599eff"&gt;Proposition&lt;/span&gt; Let $p$ be prime. $\forall a, b \in \mathbb{Z}$, we have:
 $$
 (a+b)^p \equiv a^p + b^p \mod p
 $$
-&lt;span style="color:#eb861c">Proof&lt;/span> It suffices to show that $\binom{p}{k} \equiv 0 \mod p$ if $0 &amp;lt; k &amp;lt; p$. Observe: $p \mid p!, p \nmid k!, p \nmid (p-k)!$, hence $p \mid \binom{p}{k}$. $\blacksquare$&lt;/p></description></item><item><title>Taste of Fully Homomorphic Encryption</title><link>https://ofuro.me/posts/taste_of_fhe/</link><pubDate>Wed, 18 Sep 2024 17:56:58 -0600</pubDate><guid>https://ofuro.me/posts/taste_of_fhe/</guid><description>&lt;blockquote>
-&lt;p>The following is a note for my talk during Ling&amp;rsquo;s group meeting.&lt;/p>&lt;/blockquote>
-&lt;h3 id="what-is-fhe">What is FHE?&lt;/h3>
-&lt;p>Homomorphic encryption allows some computation (addition, scalar multiplication, ct-ct multiplication) directly on ciphertexts without first having to decrypt it.&lt;/p>
-&lt;p>Partially Homomorphic Encryption support only one of those possible operation. RSA is an example:
+&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt; It suffices to show that $\binom{p}{k} \equiv 0 \mod p$ if $0 &amp;lt; k &amp;lt; p$. Observe: $p \mid p!, p \nmid k!, p \nmid (p-k)!$, hence $p \mid \binom{p}{k}$. $\blacksquare$&lt;/p&gt;</description></item><item><title>Taste of Fully Homomorphic Encryption</title><link>https://ofuro.me/posts/taste_of_fhe/</link><pubDate>Wed, 18 Sep 2024 17:56:58 -0600</pubDate><guid>https://ofuro.me/posts/taste_of_fhe/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;The following is a note for my talk during Ling&amp;rsquo;s group meeting.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="what-is-fhe"&gt;What is FHE?&lt;/h3&gt;
+&lt;p&gt;Homomorphic encryption allows some computation (addition, scalar multiplication, ct-ct multiplication) directly on ciphertexts without first having to decrypt it.&lt;/p&gt;
+&lt;p&gt;Partially Homomorphic Encryption support only one of those possible operation. RSA is an example:
 $$
 \text{Enc}(m_1) \cdot \text{Enc}(m_2) = m_1^e \cdot m_2^e = (m_1 \cdot m_2)^e = \text{Enc}(m_1 \cdot m_2)
-$$&lt;/p>
-&lt;p>FHE supports Addition AND Scalar Multiplicaiton:
-&lt;div>
+$$&lt;/p&gt;
+&lt;p&gt;FHE supports Addition AND Scalar Multiplicaiton:
+&lt;div&gt;
 $$
 \begin{cases}
 \text{Enc}(m_1) + \text{Enc}(m_2) = \text{Enc}(m_1 + m_2)\\
 \text{Enc}(m) \cdot c = \text{Enc}(m \cdot c)
 \end{cases}
 $$
-&lt;/div>
-Fancy! And it exsists!&lt;/p></description></item><item><title>Understanding GSW</title><link>https://ofuro.me/posts/understanding-gsw/</link><pubDate>Fri, 23 Aug 2024 21:56:04 -0600</pubDate><guid>https://ofuro.me/posts/understanding-gsw/</guid><description>&lt;p>The goal of this file is to help understand the GSW scheme and the implementation of &lt;code>GSWCiphertext&lt;/code>in OnionPIR code. Let&amp;rsquo;s start with my understanding of GSW scheme.&lt;/p>
-&lt;h3 id="from-tgsw-to-rgsw">From TGSW to RGSW&lt;/h3>
-&lt;p>RGSW is a ring variation of &lt;a href="https://eprint.iacr.org/2013/340">GSW scheme&lt;/a>. I do not see any formal paper defining RGSW. However, I do find this particular paper helpful: &lt;a href="https:/print.iacr.org/2016/870">Faster Fully Homomorphic Encryption: Bootstrapping in less than 0.1 Seconds&lt;/a>. This paper defines TLWE and TGSW.&lt;/p></description></item><item><title>Comparisons on Keyword Support Methods</title><link>https://ofuro.me/posts/keyword-support-methods/</link><pubDate>Wed, 03 Jul 2024 18:29:54 -0600</pubDate><guid>https://ofuro.me/posts/keyword-support-methods/</guid><description>&lt;p>The goal is to compare three methods for supporting keyword feature in PIR: Key-value filter in ChalametPIR, Sparse PIR, and the Cuckoo hashing method. In the beginning, we don&amp;rsquo;t want to start by comparing the detailed experimental performances, but we want to list their properties. What they are good / bad at.&lt;/p>
-&lt;h3 id="metrics">Metrics&lt;/h3>
-&lt;ul>
-&lt;li>Client storage&lt;/li>
-&lt;li>Client computation&lt;/li>
-&lt;li>Online communication&lt;/li>
-&lt;li>Download size&lt;/li>
-&lt;li>Offline communication (if any)&lt;/li>
-&lt;li>Server storage&lt;/li>
-&lt;li>Server computation&lt;/li>
-&lt;li>Ability to support multiple clients&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h3 id="notations">Notations:&lt;/h3>
-&lt;p>$m$: the number of key-value pairs.&lt;/p></description></item></channel></rss>
+&lt;/div&gt;
+Fancy! And it exsists!&lt;/p&gt;</description></item><item><title>Understanding GSW</title><link>https://ofuro.me/posts/understanding-gsw/</link><pubDate>Fri, 23 Aug 2024 21:56:04 -0600</pubDate><guid>https://ofuro.me/posts/understanding-gsw/</guid><description>&lt;p&gt;The goal of this file is to help understand the GSW scheme and the implementation of &lt;code&gt;GSWCiphertext&lt;/code&gt;in OnionPIR code. Let&amp;rsquo;s start with my understanding of GSW scheme.&lt;/p&gt;
+&lt;h3 id="from-tgsw-to-rgsw"&gt;From TGSW to RGSW&lt;/h3&gt;
+&lt;p&gt;RGSW is a ring variation of &lt;a href="https://eprint.iacr.org/2013/340"&gt;GSW scheme&lt;/a&gt;. I do not see any formal paper defining RGSW. However, I do find this particular paper helpful: &lt;a href="https:/print.iacr.org/2016/870"&gt;Faster Fully Homomorphic Encryption: Bootstrapping in less than 0.1 Seconds&lt;/a&gt;. This paper defines TLWE and TGSW.&lt;/p&gt;</description></item><item><title>Comparisons on Keyword Support Methods</title><link>https://ofuro.me/posts/keyword-support-methods/</link><pubDate>Wed, 03 Jul 2024 18:29:54 -0600</pubDate><guid>https://ofuro.me/posts/keyword-support-methods/</guid><description>&lt;p&gt;The goal is to compare three methods for supporting keyword feature in PIR: Key-value filter in ChalametPIR, Sparse PIR, and the Cuckoo hashing method. In the beginning, we don&amp;rsquo;t want to start by comparing the detailed experimental performances, but we want to list their properties. What they are good / bad at.&lt;/p&gt;
+&lt;h3 id="metrics"&gt;Metrics&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Client storage&lt;/li&gt;
+&lt;li&gt;Client computation&lt;/li&gt;
+&lt;li&gt;Online communication&lt;/li&gt;
+&lt;li&gt;Download size&lt;/li&gt;
+&lt;li&gt;Offline communication (if any)&lt;/li&gt;
+&lt;li&gt;Server storage&lt;/li&gt;
+&lt;li&gt;Server computation&lt;/li&gt;
+&lt;li&gt;Ability to support multiple clients&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="notations"&gt;Notations:&lt;/h3&gt;
+&lt;p&gt;$m$: the number of key-value pairs.&lt;/p&gt;</description></item></channel></rss>

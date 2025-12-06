@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>CS 374 on Yue's Notes</title><link>https://ofuro.me/tags/cs-374/</link><description>Recent content in CS 374 on Yue's Notes</description><generator>Hugo -- 0.143.1</generator><language>en-us</language><lastBuildDate>Wed, 30 Aug 2023 13:10:06 -0500</lastBuildDate><atom:link href="https://ofuro.me/tags/cs-374/index.xml" rel="self" type="application/rss+xml"/><item><title>Interesting DFA</title><link>https://ofuro.me/posts/interesting_dfa/</link><pubDate>Wed, 30 Aug 2023 13:10:06 -0500</pubDate><guid>https://ofuro.me/posts/interesting_dfa/</guid><description>&lt;h3 id="deterministic-finite-automaition">Deterministic Finite Automaition&lt;/h3>
-&lt;p>Definition: $(Q, s, A, \delta)$&lt;/p>
-&lt;p>$Q$: A set of all the possible state.&lt;/p>
-&lt;p>$s \in Q$ : starting state. The state to start the machine.&lt;/p>
-&lt;p>$A \subseteq Q$: The set of states we accept. Return &amp;ldquo;good&amp;rdquo; when we end there.&lt;/p>
-&lt;p>$\delta$: A function $Q \times \Sigma \rightarrow Q$. The set of all transition functions.&lt;/p>
-&lt;hr>
-&lt;p>There is an interesting DFA design question. The question is as follows:&lt;/p>
-&lt;p>&lt;strong>Given a bit-string (a string that contains only 0s and 1s), design a DFA that accepts the string if and only if the number represented by the string is divisible by 5.&lt;/strong>&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>CS 374 on Yue's Notes</title><link>https://ofuro.me/tags/cs-374/</link><description>Recent content in CS 374 on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Wed, 30 Aug 2023 13:10:06 -0500</lastBuildDate><atom:link href="https://ofuro.me/tags/cs-374/index.xml" rel="self" type="application/rss+xml"/><item><title>Interesting DFA</title><link>https://ofuro.me/posts/interesting_dfa/</link><pubDate>Wed, 30 Aug 2023 13:10:06 -0500</pubDate><guid>https://ofuro.me/posts/interesting_dfa/</guid><description>&lt;h3 id="deterministic-finite-automaition"&gt;Deterministic Finite Automaition&lt;/h3&gt;
+&lt;p&gt;Definition: $(Q, s, A, \delta)$&lt;/p&gt;
+&lt;p&gt;$Q$: A set of all the possible state.&lt;/p&gt;
+&lt;p&gt;$s \in Q$ : starting state. The state to start the machine.&lt;/p&gt;
+&lt;p&gt;$A \subseteq Q$: The set of states we accept. Return &amp;ldquo;good&amp;rdquo; when we end there.&lt;/p&gt;
+&lt;p&gt;$\delta$: A function $Q \times \Sigma \rightarrow Q$. The set of all transition functions.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;There is an interesting DFA design question. The question is as follows:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Given a bit-string (a string that contains only 0s and 1s), design a DFA that accepts the string if and only if the number represented by the string is divisible by 5.&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>

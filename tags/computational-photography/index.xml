@@ -1,84 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Computational Photography on Yue's Notes</title><link>https://ofuro.me/tags/computational-photography/</link><description>Recent content in Computational Photography on Yue's Notes</description><generator>Hugo -- 0.143.1</generator><language>en-us</language><lastBuildDate>Mon, 30 Oct 2023 10:36:20 -0500</lastBuildDate><atom:link href="https://ofuro.me/tags/computational-photography/index.xml" rel="self" type="application/rss+xml"/><item><title>445_camera</title><link>https://ofuro.me/posts/445_camera/</link><pubDate>Mon, 30 Oct 2023 10:36:20 -0500</pubDate><guid>https://ofuro.me/posts/445_camera/</guid><description>&lt;h1 id="world-coordinates-and-image-coordinates">World Coordinates and Image coordinates&lt;/h1>
-&lt;h2 id="pinhole-camera-model">Pinhole Camera Model&lt;/h2>
-&lt;p>$$
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Computational Photography on Yue's Notes</title><link>https://ofuro.me/tags/computational-photography/</link><description>Recent content in Computational Photography on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Mon, 30 Oct 2023 10:36:20 -0500</lastBuildDate><atom:link href="https://ofuro.me/tags/computational-photography/index.xml" rel="self" type="application/rss+xml"/><item><title>445_camera</title><link>https://ofuro.me/posts/445_camera/</link><pubDate>Mon, 30 Oct 2023 10:36:20 -0500</pubDate><guid>https://ofuro.me/posts/445_camera/</guid><description>&lt;h1 id="world-coordinates-and-image-coordinates"&gt;World Coordinates and Image coordinates&lt;/h1&gt;
+&lt;h2 id="pinhole-camera-model"&gt;Pinhole Camera Model&lt;/h2&gt;
+&lt;p&gt;$$
 x = K \left[
 \begin{array}{ll}
 R &amp;amp; t
 \end{array}
 \right] x
-$$&lt;/p>
-&lt;p>&lt;strong>x&lt;/strong>: Image Coordinates: $(u, v, 1)$
-&lt;strong>K&lt;/strong>: Intrinsic Matrix $(3 \times 3)$
-&lt;strong>R&lt;/strong>: Rotation $(3 \times 3)$
-&lt;strong>t&lt;/strong>: Translation $(3 \times 1)$
-&lt;strong>X&lt;/strong>: World Coordinates: $(X, Y, Z, 1)$&lt;/p>
-&lt;p>Basically, from the right side to the leftside, it is transforming a point (1) from the world coordinates to camera coordinates, and then project the point (2) from camera coordinates down to the image plane.&lt;/p></description></item><item><title>445_Blending</title><link>https://ofuro.me/posts/445_blending-warping/</link><pubDate>Mon, 30 Oct 2023 10:34:53 -0500</pubDate><guid>https://ofuro.me/posts/445_blending-warping/</guid><description>&lt;h3 id="pasting-images">Pasting Images&lt;/h3>
-&lt;h4 id="method-1--cut-and-paste-the-images">Method 1 — Cut and paste the images.&lt;/h4>
-&lt;ul>
-&lt;li>
-&lt;p>Feathering&lt;/p>
-&lt;ul>
-&lt;li>Gives a smoother transition. But that&amp;rsquo;s all&amp;hellip;&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>Alpha composting&lt;/p>
-&lt;ul>
-&lt;li>Output = foreground $\times$ mask + background $\times$ (1 $-$ mask). We can also use alpha compositing together with the feathering — simply bluring the mask will give us a good feathering. This method is also good for multilayer processing, which allwos the compositing to be more complicated.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h4 id="method-2--pyramid-blending">Method 2 — Pyramid Blending&lt;/h4>
-&lt;ul>
-&lt;li>At low frequencies, blend slowly&lt;/li>
-&lt;li>At high frequencies, blend quickly&lt;/li>
-&lt;/ul>
-&lt;center>
-&lt;figure>
-&lt;img src=" https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231014195402853.png " style="width:25%;" />
-&lt;img src=" https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231014195459497.png " style="width:25%;" />
-&lt;figcaption> Burt and Adelson 1983 &lt;/figcaption>
-&lt;/figure>
-&lt;/center>
-&lt;h4 id="implementation">Implementation:&lt;/h4>
-&lt;ol>
-&lt;li>Build Laplacian pyramids for each image&lt;/li>
-&lt;li>Build a Gaussian pyramid of region mask&lt;/li>
-&lt;li>Blend each level of pyramid using region mask from the same level&lt;/li>
-&lt;/ol>
-&lt;p>$$
+$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;x&lt;/strong&gt;: Image Coordinates: $(u, v, 1)$
+&lt;strong&gt;K&lt;/strong&gt;: Intrinsic Matrix $(3 \times 3)$
+&lt;strong&gt;R&lt;/strong&gt;: Rotation $(3 \times 3)$
+&lt;strong&gt;t&lt;/strong&gt;: Translation $(3 \times 1)$
+&lt;strong&gt;X&lt;/strong&gt;: World Coordinates: $(X, Y, Z, 1)$&lt;/p&gt;
+&lt;p&gt;Basically, from the right side to the leftside, it is transforming a point (1) from the world coordinates to camera coordinates, and then project the point (2) from camera coordinates down to the image plane.&lt;/p&gt;</description></item><item><title>445_Blending</title><link>https://ofuro.me/posts/445_blending-warping/</link><pubDate>Mon, 30 Oct 2023 10:34:53 -0500</pubDate><guid>https://ofuro.me/posts/445_blending-warping/</guid><description>&lt;h3 id="pasting-images"&gt;Pasting Images&lt;/h3&gt;
+&lt;h4 id="method-1--cut-and-paste-the-images"&gt;Method 1 — Cut and paste the images.&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Feathering&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gives a smoother transition. But that&amp;rsquo;s all&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Alpha composting&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Output = foreground $\times$ mask + background $\times$ (1 $-$ mask). We can also use alpha compositing together with the feathering — simply bluring the mask will give us a good feathering. This method is also good for multilayer processing, which allwos the compositing to be more complicated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="method-2--pyramid-blending"&gt;Method 2 — Pyramid Blending&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;At low frequencies, blend slowly&lt;/li&gt;
+&lt;li&gt;At high frequencies, blend quickly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;center&gt;
+&lt;figure&gt;
+&lt;img src=" https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231014195402853.png " style="width:25%;" /&gt;
+&lt;img src=" https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231014195459497.png " style="width:25%;" /&gt;
+&lt;figcaption&gt; Burt and Adelson 1983 &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;h4 id="implementation"&gt;Implementation:&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Build Laplacian pyramids for each image&lt;/li&gt;
+&lt;li&gt;Build a Gaussian pyramid of region mask&lt;/li&gt;
+&lt;li&gt;Blend each level of pyramid using region mask from the same level&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
 L_{12}^i=L_1^i \cdot R^i+L_2^i \cdot\left(1-R^i\right)
-$$&lt;/p></description></item><item><title>445_Synthesizing and Cutting</title><link>https://ofuro.me/posts/445_synthesizing-cutting/</link><pubDate>Mon, 30 Oct 2023 10:33:26 -0500</pubDate><guid>https://ofuro.me/posts/445_synthesizing-cutting/</guid><description>&lt;h2 id="texture-synthesis-and-hole-filling">Texture Synthesis and Hole-Filling&lt;/h2>
-&lt;blockquote>
-&lt;p>How do we cut something out of an image, and fill the hole naturally?&lt;/p>&lt;/blockquote>
-&lt;p>&lt;span style="color:#28a745">Definition&lt;/span> Texture depicts spacially repeating patterns.&lt;/p>
-&lt;h3 id="texture-synthesis">Texture Synthesis&lt;/h3>
-&lt;p>Create new samples of a given texture. Many applications: virtual environments, hole-filling, texturing surfaces.&lt;/p>
-&lt;p>&lt;strong>The challenge:&lt;/strong>&lt;/p>
-&lt;p>Need to model the whole spectrum: from repeated to stochastic texture.&lt;/p>
-&lt;p>One idea:&lt;/p>
-&lt;ol>
-&lt;li>Compute statistics of input texture&lt;/li>
-&lt;li>Generate a new texture that keeps those same statistics.&lt;/li>
-&lt;/ol>
-&lt;p>But it is hard to model those probabilities distributions.&lt;/p></description></item><item><title>445_color_basics</title><link>https://ofuro.me/posts/445_color_basics/</link><pubDate>Mon, 30 Oct 2023 10:32:37 -0500</pubDate><guid>https://ofuro.me/posts/445_color_basics/</guid><description>&lt;h3 id="how-do-you-view-the-world">How do you view the world&lt;/h3>
-&lt;img src="https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231009180859272.png" alt="image-20231009180859272" style="zoom: 33%;" />
-&lt;p>&lt;strong>Cones:&lt;/strong> cone-shaped, less sensitive, operate in high light, color vision&lt;/p>
-&lt;p>&lt;strong>Rods:&lt;/strong> rod-shaped, highly sensitive, operate at night, gray-scale vision, slower to respond&lt;/p>
-&lt;img src="https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231009181400266.png" alt="image-20231009181400266" style="zoom:50%;" />
-&lt;p>&lt;span style="color:#9650af">Observation&lt;/span> In a clear night, there are more stars off-center. This is because you have more rods in the middle, while more cones elsewhere.&lt;/p>
-&lt;h3 id="how-to-express-colors">How to express colors?&lt;/h3>
-&lt;p>Basically, the most intuitive expression is the RGB color space. But it is not a linear color space. We perfer expressing using CIE-XYZ color space, which makes the calculation much easier.&lt;/p></description></item><item><title>445_texture</title><link>https://ofuro.me/posts/445_texture/</link><pubDate>Sun, 17 Sep 2023 15:24:34 -0500</pubDate><guid>https://ofuro.me/posts/445_texture/</guid><description>&lt;h1 id="texture-synthesis--hole-filling">Texture Synthesis &amp;amp; Hole Filling&lt;/h1>
-&lt;h4 id="texture">Texture&lt;/h4>
-&lt;p>Texture depicts spacially repeating patterns.&lt;/p>
-&lt;h3 id="texture-synthesis">Texture Synthesis&lt;/h3>
-&lt;p>Create new samples of a given texture. Many applications: virtual environments, hole-filling, texturing surfaces.&lt;/p>
-&lt;p>&lt;strong>The challenge:&lt;/strong>&lt;/p>
-&lt;p>Need to model the whole spectrum: from repeated to stochastic texture.&lt;/p>
-&lt;p>One idea:&lt;/p>
-&lt;ol>
-&lt;li>Compute statistics of input texture&lt;/li>
-&lt;li>Generate a new texture that keeps those same statistics.&lt;/li>
-&lt;/ol>
-&lt;p>But it is hard to model those probabilities distributions.&lt;/p>
-&lt;p>Another idea: ==Efros &amp;amp; Leung algorithm==&lt;/p></description></item></channel></rss>
+$$&lt;/p&gt;</description></item><item><title>445_Synthesizing and Cutting</title><link>https://ofuro.me/posts/445_synthesizing-cutting/</link><pubDate>Mon, 30 Oct 2023 10:33:26 -0500</pubDate><guid>https://ofuro.me/posts/445_synthesizing-cutting/</guid><description>&lt;h2 id="texture-synthesis-and-hole-filling"&gt;Texture Synthesis and Hole-Filling&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How do we cut something out of an image, and fill the hole naturally?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; Texture depicts spacially repeating patterns.&lt;/p&gt;
+&lt;h3 id="texture-synthesis"&gt;Texture Synthesis&lt;/h3&gt;
+&lt;p&gt;Create new samples of a given texture. Many applications: virtual environments, hole-filling, texturing surfaces.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The challenge:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Need to model the whole spectrum: from repeated to stochastic texture.&lt;/p&gt;
+&lt;p&gt;One idea:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Compute statistics of input texture&lt;/li&gt;
+&lt;li&gt;Generate a new texture that keeps those same statistics.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;But it is hard to model those probabilities distributions.&lt;/p&gt;</description></item><item><title>445_color_basics</title><link>https://ofuro.me/posts/445_color_basics/</link><pubDate>Mon, 30 Oct 2023 10:32:37 -0500</pubDate><guid>https://ofuro.me/posts/445_color_basics/</guid><description>&lt;h3 id="how-do-you-view-the-world"&gt;How do you view the world&lt;/h3&gt;
+&lt;img src="https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231009180859272.png" alt="image-20231009180859272" style="zoom: 33%;" /&gt;
+&lt;p&gt;&lt;strong&gt;Cones:&lt;/strong&gt; cone-shaped, less sensitive, operate in high light, color vision&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Rods:&lt;/strong&gt; rod-shaped, highly sensitive, operate at night, gray-scale vision, slower to respond&lt;/p&gt;
+&lt;img src="https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231009181400266.png" alt="image-20231009181400266" style="zoom:50%;" /&gt;
+&lt;p&gt;&lt;span style="color:#9650af"&gt;Observation&lt;/span&gt; In a clear night, there are more stars off-center. This is because you have more rods in the middle, while more cones elsewhere.&lt;/p&gt;
+&lt;h3 id="how-to-express-colors"&gt;How to express colors?&lt;/h3&gt;
+&lt;p&gt;Basically, the most intuitive expression is the RGB color space. But it is not a linear color space. We perfer expressing using CIE-XYZ color space, which makes the calculation much easier.&lt;/p&gt;</description></item><item><title>445_texture</title><link>https://ofuro.me/posts/445_texture/</link><pubDate>Sun, 17 Sep 2023 15:24:34 -0500</pubDate><guid>https://ofuro.me/posts/445_texture/</guid><description>&lt;h1 id="texture-synthesis--hole-filling"&gt;Texture Synthesis &amp;amp; Hole Filling&lt;/h1&gt;
+&lt;h4 id="texture"&gt;Texture&lt;/h4&gt;
+&lt;p&gt;Texture depicts spacially repeating patterns.&lt;/p&gt;
+&lt;h3 id="texture-synthesis"&gt;Texture Synthesis&lt;/h3&gt;
+&lt;p&gt;Create new samples of a given texture. Many applications: virtual environments, hole-filling, texturing surfaces.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The challenge:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Need to model the whole spectrum: from repeated to stochastic texture.&lt;/p&gt;
+&lt;p&gt;One idea:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Compute statistics of input texture&lt;/li&gt;
+&lt;li&gt;Generate a new texture that keeps those same statistics.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;But it is hard to model those probabilities distributions.&lt;/p&gt;
+&lt;p&gt;Another idea: ==Efros &amp;amp; Leung algorithm==&lt;/p&gt;</description></item></channel></rss>

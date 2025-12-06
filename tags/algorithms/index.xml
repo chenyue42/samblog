@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Algorithms on Yue's Notes</title><link>https://ofuro.me/tags/algorithms/</link><description>Recent content in Algorithms on Yue's Notes</description><generator>Hugo -- 0.143.1</generator><language>en-us</language><lastBuildDate>Thu, 29 Aug 2024 15:30:07 -0500</lastBuildDate><atom:link href="https://ofuro.me/tags/algorithms/index.xml" rel="self" type="application/rss+xml"/><item><title>Fast Fourier Transform</title><link>https://ofuro.me/posts/473_fft/</link><pubDate>Thu, 29 Aug 2024 15:30:07 -0500</pubDate><guid>https://ofuro.me/posts/473_fft/</guid><description>&lt;blockquote>
-&lt;p>I know this name for a long time. But never learnt it. Now it&amp;rsquo;s time.&lt;/p>&lt;/blockquote>
-&lt;h4 id="recap">Recap&lt;/h4>
-&lt;p>Previously, Karatsuba&amp;rsquo;s algorithm for integer multiplication. It computes the result in $O(n^{\log_2 3})$ where $n$ is the number of digits.&lt;/p>
-&lt;p>Another recap: polynomial representation:
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Algorithms on Yue's Notes</title><link>https://ofuro.me/tags/algorithms/</link><description>Recent content in Algorithms on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Thu, 29 Aug 2024 15:30:07 -0500</lastBuildDate><atom:link href="https://ofuro.me/tags/algorithms/index.xml" rel="self" type="application/rss+xml"/><item><title>Fast Fourier Transform</title><link>https://ofuro.me/posts/473_fft/</link><pubDate>Thu, 29 Aug 2024 15:30:07 -0500</pubDate><guid>https://ofuro.me/posts/473_fft/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;I know this name for a long time. But never learnt it. Now it&amp;rsquo;s time.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id="recap"&gt;Recap&lt;/h4&gt;
+&lt;p&gt;Previously, Karatsuba&amp;rsquo;s algorithm for integer multiplication. It computes the result in $O(n^{\log_2 3})$ where $n$ is the number of digits.&lt;/p&gt;
+&lt;p&gt;Another recap: polynomial representation:
 $$
 p(x) = \sum_{i = 0}^{n}p_ix^i
 $$
-And we can represent this polynomial using an array of size $n$.&lt;/p>
-&lt;p>Evaluations and additions of polynomials are straightforward computation. Can be done in $O(n)$ time. Naive multiplication is slow, however. It takes $O(n^2)$ time to compute all the coefficient multiplications. FFT helps us speed up this multiplication.&lt;/p></description></item><item><title>473 NP</title><link>https://ofuro.me/posts/473-np/</link><pubDate>Tue, 16 Apr 2024 20:29:53 -0600</pubDate><guid>https://ofuro.me/posts/473-np/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+And we can represent this polynomial using an array of size $n$.&lt;/p&gt;
+&lt;p&gt;Evaluations and additions of polynomials are straightforward computation. Can be done in $O(n)$ time. Naive multiplication is slow, however. It takes $O(n^2)$ time to compute all the coefficient multiplications. FFT helps us speed up this multiplication.&lt;/p&gt;</description></item><item><title>473 NP</title><link>https://ofuro.me/posts/473-np/</link><pubDate>Tue, 16 Apr 2024 20:29:53 -0600</pubDate><guid>https://ofuro.me/posts/473-np/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -83,24 +84,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-af020e14">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-af020e14">
-&lt;div class="pdf-loading" id="pdf-loading-af020e14">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-af020e14">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-af020e14">
-&lt;button id="pdf-prev-af020e14" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-af020e14" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-af020e14">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-af020e14">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-af020e14" href="https://ofuro.me/mypdfs/473_notes/473-NP.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-af020e14" href="https://ofuro.me/mypdfs/473_notes/473-NP.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-af020e14"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-af020e14"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-af020e14"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-af020e14"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-af020e14"&gt;
+&lt;button id="pdf-prev-af020e14" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-af020e14" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-af020e14"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-af020e14"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-af020e14" href="https://ofuro.me/mypdfs/473_notes/473-NP.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-af020e14" href="https://ofuro.me/mypdfs/473_notes/473-NP.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473-NP.pdf';
 var hidePaginator = "" === "true";
@@ -171,7 +172,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-af020e14').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -182,17 +183,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-af020e14').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Linear Programming IV</title><link>https://ofuro.me/posts/473-l21/</link><pubDate>Tue, 09 Apr 2024 20:29:43 -0600</pubDate><guid>https://ofuro.me/posts/473-l21/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Linear Programming IV</title><link>https://ofuro.me/posts/473-l21/</link><pubDate>Tue, 09 Apr 2024 20:29:43 -0600</pubDate><guid>https://ofuro.me/posts/473-l21/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -266,24 +267,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-a7ee4672">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-a7ee4672">
-&lt;div class="pdf-loading" id="pdf-loading-a7ee4672">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-a7ee4672">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-a7ee4672">
-&lt;button id="pdf-prev-a7ee4672" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-a7ee4672" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-a7ee4672">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-a7ee4672">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-a7ee4672" href="https://ofuro.me/mypdfs/473_notes/473%20L21.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-a7ee4672" href="https://ofuro.me/mypdfs/473_notes/473%20L21.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-a7ee4672"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-a7ee4672"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-a7ee4672"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-a7ee4672"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-a7ee4672"&gt;
+&lt;button id="pdf-prev-a7ee4672" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-a7ee4672" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-a7ee4672"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-a7ee4672"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-a7ee4672" href="https://ofuro.me/mypdfs/473_notes/473%20L21.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-a7ee4672" href="https://ofuro.me/mypdfs/473_notes/473%20L21.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L21.pdf';
 var hidePaginator = "" === "true";
@@ -354,7 +355,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-a7ee4672').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -365,17 +366,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-a7ee4672').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Linear Programming II</title><link>https://ofuro.me/posts/473-l19/</link><pubDate>Thu, 28 Mar 2024 20:29:37 -0600</pubDate><guid>https://ofuro.me/posts/473-l19/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Linear Programming II</title><link>https://ofuro.me/posts/473-l19/</link><pubDate>Thu, 28 Mar 2024 20:29:37 -0600</pubDate><guid>https://ofuro.me/posts/473-l19/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -449,24 +450,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-81f337a8">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-81f337a8">
-&lt;div class="pdf-loading" id="pdf-loading-81f337a8">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-81f337a8">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-81f337a8">
-&lt;button id="pdf-prev-81f337a8" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-81f337a8" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-81f337a8">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-81f337a8">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-81f337a8" href="https://ofuro.me/mypdfs/473_notes/473%20L19.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-81f337a8" href="https://ofuro.me/mypdfs/473_notes/473%20L19.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-81f337a8"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-81f337a8"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-81f337a8"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-81f337a8"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-81f337a8"&gt;
+&lt;button id="pdf-prev-81f337a8" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-81f337a8" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-81f337a8"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-81f337a8"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-81f337a8" href="https://ofuro.me/mypdfs/473_notes/473%20L19.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-81f337a8" href="https://ofuro.me/mypdfs/473_notes/473%20L19.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L19.pdf';
 var hidePaginator = "" === "true";
@@ -537,7 +538,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-81f337a8').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -548,17 +549,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-81f337a8').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Linear Programming I</title><link>https://ofuro.me/posts/473-l18/</link><pubDate>Tue, 26 Mar 2024 20:29:35 -0600</pubDate><guid>https://ofuro.me/posts/473-l18/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Linear Programming I</title><link>https://ofuro.me/posts/473-l18/</link><pubDate>Tue, 26 Mar 2024 20:29:35 -0600</pubDate><guid>https://ofuro.me/posts/473-l18/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -632,24 +633,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-a844da09">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-a844da09">
-&lt;div class="pdf-loading" id="pdf-loading-a844da09">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-a844da09">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-a844da09">
-&lt;button id="pdf-prev-a844da09" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-a844da09" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-a844da09">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-a844da09">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-a844da09" href="https://ofuro.me/mypdfs/473_notes/473%20L18.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-a844da09" href="https://ofuro.me/mypdfs/473_notes/473%20L18.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-a844da09"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-a844da09"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-a844da09"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-a844da09"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-a844da09"&gt;
+&lt;button id="pdf-prev-a844da09" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-a844da09" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-a844da09"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-a844da09"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-a844da09" href="https://ofuro.me/mypdfs/473_notes/473%20L18.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-a844da09" href="https://ofuro.me/mypdfs/473_notes/473%20L18.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L18.pdf';
 var hidePaginator = "" === "true";
@@ -720,7 +721,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-a844da09').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -731,17 +732,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-a844da09').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Randomized Algorithms VI</title><link>https://ofuro.me/posts/473-l17/</link><pubDate>Thu, 21 Mar 2024 20:29:33 -0600</pubDate><guid>https://ofuro.me/posts/473-l17/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms VI</title><link>https://ofuro.me/posts/473-l17/</link><pubDate>Thu, 21 Mar 2024 20:29:33 -0600</pubDate><guid>https://ofuro.me/posts/473-l17/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -815,24 +816,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-52b6942b">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-52b6942b">
-&lt;div class="pdf-loading" id="pdf-loading-52b6942b">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-52b6942b">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-52b6942b">
-&lt;button id="pdf-prev-52b6942b" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-52b6942b" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-52b6942b">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-52b6942b">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-52b6942b" href="https://ofuro.me/mypdfs/473_notes/473%20L17.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-52b6942b" href="https://ofuro.me/mypdfs/473_notes/473%20L17.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-52b6942b"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-52b6942b"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-52b6942b"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-52b6942b"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-52b6942b"&gt;
+&lt;button id="pdf-prev-52b6942b" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-52b6942b" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-52b6942b"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-52b6942b"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-52b6942b" href="https://ofuro.me/mypdfs/473_notes/473%20L17.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-52b6942b" href="https://ofuro.me/mypdfs/473_notes/473%20L17.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L17.pdf';
 var hidePaginator = "" === "true";
@@ -903,7 +904,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-52b6942b').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -914,17 +915,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-52b6942b').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Randomized Algorithms V</title><link>https://ofuro.me/posts/473-l16/</link><pubDate>Wed, 20 Mar 2024 20:29:31 -0600</pubDate><guid>https://ofuro.me/posts/473-l16/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms V</title><link>https://ofuro.me/posts/473-l16/</link><pubDate>Wed, 20 Mar 2024 20:29:31 -0600</pubDate><guid>https://ofuro.me/posts/473-l16/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -998,24 +999,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-49c8f5e3">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-49c8f5e3">
-&lt;div class="pdf-loading" id="pdf-loading-49c8f5e3">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-49c8f5e3">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-49c8f5e3">
-&lt;button id="pdf-prev-49c8f5e3" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-49c8f5e3" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-49c8f5e3">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-49c8f5e3">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-49c8f5e3" href="https://ofuro.me/mypdfs/473_notes/473%20L16.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-49c8f5e3" href="https://ofuro.me/mypdfs/473_notes/473%20L16.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-49c8f5e3"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-49c8f5e3"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-49c8f5e3"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-49c8f5e3"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-49c8f5e3"&gt;
+&lt;button id="pdf-prev-49c8f5e3" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-49c8f5e3" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-49c8f5e3"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-49c8f5e3"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-49c8f5e3" href="https://ofuro.me/mypdfs/473_notes/473%20L16.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-49c8f5e3" href="https://ofuro.me/mypdfs/473_notes/473%20L16.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L16.pdf';
 var hidePaginator = "" === "true";
@@ -1086,7 +1087,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-49c8f5e3').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -1097,17 +1098,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-49c8f5e3').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Randomized Algorithms IV</title><link>https://ofuro.me/posts/473-l15/</link><pubDate>Thu, 07 Mar 2024 20:29:30 -0600</pubDate><guid>https://ofuro.me/posts/473-l15/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms IV</title><link>https://ofuro.me/posts/473-l15/</link><pubDate>Thu, 07 Mar 2024 20:29:30 -0600</pubDate><guid>https://ofuro.me/posts/473-l15/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -1181,24 +1182,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-f8b95bab">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-f8b95bab">
-&lt;div class="pdf-loading" id="pdf-loading-f8b95bab">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-f8b95bab">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-f8b95bab">
-&lt;button id="pdf-prev-f8b95bab" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-f8b95bab" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-f8b95bab">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-f8b95bab">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-f8b95bab" href="https://ofuro.me/mypdfs/473_notes/473%20L15.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-f8b95bab" href="https://ofuro.me/mypdfs/473_notes/473%20L15.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-f8b95bab"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-f8b95bab"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-f8b95bab"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-f8b95bab"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-f8b95bab"&gt;
+&lt;button id="pdf-prev-f8b95bab" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-f8b95bab" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-f8b95bab"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-f8b95bab"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-f8b95bab" href="https://ofuro.me/mypdfs/473_notes/473%20L15.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-f8b95bab" href="https://ofuro.me/mypdfs/473_notes/473%20L15.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L15.pdf';
 var hidePaginator = "" === "true";
@@ -1269,7 +1270,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-f8b95bab').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -1280,17 +1281,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-f8b95bab').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Randomized Algorithms III</title><link>https://ofuro.me/posts/473-l14/</link><pubDate>Tue, 05 Mar 2024 20:29:27 -0600</pubDate><guid>https://ofuro.me/posts/473-l14/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms III</title><link>https://ofuro.me/posts/473-l14/</link><pubDate>Tue, 05 Mar 2024 20:29:27 -0600</pubDate><guid>https://ofuro.me/posts/473-l14/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -1364,24 +1365,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-f84ce296">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-f84ce296">
-&lt;div class="pdf-loading" id="pdf-loading-f84ce296">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-f84ce296">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-f84ce296">
-&lt;button id="pdf-prev-f84ce296" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-f84ce296" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-f84ce296">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-f84ce296">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-f84ce296" href="https://ofuro.me/mypdfs/473_notes/473%20L14.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-f84ce296" href="https://ofuro.me/mypdfs/473_notes/473%20L14.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-f84ce296"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-f84ce296"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-f84ce296"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-f84ce296"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-f84ce296"&gt;
+&lt;button id="pdf-prev-f84ce296" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-f84ce296" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-f84ce296"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-f84ce296"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-f84ce296" href="https://ofuro.me/mypdfs/473_notes/473%20L14.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-f84ce296" href="https://ofuro.me/mypdfs/473_notes/473%20L14.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L14.pdf';
 var hidePaginator = "" === "true";
@@ -1452,7 +1453,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-f84ce296').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -1463,17 +1464,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-f84ce296').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Randomized Algorithms I</title><link>https://ofuro.me/posts/473-l12/</link><pubDate>Tue, 27 Feb 2024 20:29:22 -0600</pubDate><guid>https://ofuro.me/posts/473-l12/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms I</title><link>https://ofuro.me/posts/473-l12/</link><pubDate>Tue, 27 Feb 2024 20:29:22 -0600</pubDate><guid>https://ofuro.me/posts/473-l12/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -1547,24 +1548,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-46acbec5">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-46acbec5">
-&lt;div class="pdf-loading" id="pdf-loading-46acbec5">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-46acbec5">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-46acbec5">
-&lt;button id="pdf-prev-46acbec5" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-46acbec5" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-46acbec5">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-46acbec5">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-46acbec5" href="https://ofuro.me/mypdfs/473_notes/473%20L12.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-46acbec5" href="https://ofuro.me/mypdfs/473_notes/473%20L12.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-46acbec5"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-46acbec5"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-46acbec5"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-46acbec5"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-46acbec5"&gt;
+&lt;button id="pdf-prev-46acbec5" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-46acbec5" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-46acbec5"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-46acbec5"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-46acbec5" href="https://ofuro.me/mypdfs/473_notes/473%20L12.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-46acbec5" href="https://ofuro.me/mypdfs/473_notes/473%20L12.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L12.pdf';
 var hidePaginator = "" === "true";
@@ -1635,7 +1636,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-46acbec5').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -1646,17 +1647,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-46acbec5').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Flows III</title><link>https://ofuro.me/posts/473-l9/</link><pubDate>Tue, 13 Feb 2024 20:29:10 -0600</pubDate><guid>https://ofuro.me/posts/473-l9/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Flows III</title><link>https://ofuro.me/posts/473-l9/</link><pubDate>Tue, 13 Feb 2024 20:29:10 -0600</pubDate><guid>https://ofuro.me/posts/473-l9/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -1730,24 +1731,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-7663a835">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-7663a835">
-&lt;div class="pdf-loading" id="pdf-loading-7663a835">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-7663a835">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-7663a835">
-&lt;button id="pdf-prev-7663a835" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-7663a835" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-7663a835">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-7663a835">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-7663a835" href="https://ofuro.me/mypdfs/473_notes/473%20L9.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-7663a835" href="https://ofuro.me/mypdfs/473_notes/473%20L9.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-7663a835"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-7663a835"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-7663a835"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-7663a835"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-7663a835"&gt;
+&lt;button id="pdf-prev-7663a835" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-7663a835" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-7663a835"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-7663a835"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-7663a835" href="https://ofuro.me/mypdfs/473_notes/473%20L9.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-7663a835" href="https://ofuro.me/mypdfs/473_notes/473%20L9.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L9.pdf';
 var hidePaginator = "" === "true";
@@ -1818,7 +1819,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-7663a835').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -1829,17 +1830,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-7663a835').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Flows II</title><link>https://ofuro.me/posts/473-l8/</link><pubDate>Thu, 08 Feb 2024 20:29:08 -0600</pubDate><guid>https://ofuro.me/posts/473-l8/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Flows II</title><link>https://ofuro.me/posts/473-l8/</link><pubDate>Thu, 08 Feb 2024 20:29:08 -0600</pubDate><guid>https://ofuro.me/posts/473-l8/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -1913,24 +1914,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-8772f7b1">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-8772f7b1">
-&lt;div class="pdf-loading" id="pdf-loading-8772f7b1">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-8772f7b1">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-8772f7b1">
-&lt;button id="pdf-prev-8772f7b1" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-8772f7b1" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-8772f7b1">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-8772f7b1">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-8772f7b1" href="https://ofuro.me/mypdfs/473_notes/473%20L8.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-8772f7b1" href="https://ofuro.me/mypdfs/473_notes/473%20L8.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-8772f7b1"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-8772f7b1"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-8772f7b1"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-8772f7b1"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-8772f7b1"&gt;
+&lt;button id="pdf-prev-8772f7b1" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-8772f7b1" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-8772f7b1"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-8772f7b1"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-8772f7b1" href="https://ofuro.me/mypdfs/473_notes/473%20L8.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-8772f7b1" href="https://ofuro.me/mypdfs/473_notes/473%20L8.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L8.pdf';
 var hidePaginator = "" === "true";
@@ -2001,7 +2002,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-8772f7b1').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -2012,17 +2013,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-8772f7b1').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Flows I</title><link>https://ofuro.me/posts/473-l7/</link><pubDate>Tue, 06 Feb 2024 20:29:06 -0600</pubDate><guid>https://ofuro.me/posts/473-l7/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Flows I</title><link>https://ofuro.me/posts/473-l7/</link><pubDate>Tue, 06 Feb 2024 20:29:06 -0600</pubDate><guid>https://ofuro.me/posts/473-l7/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -2096,24 +2097,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-22683edd">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-22683edd">
-&lt;div class="pdf-loading" id="pdf-loading-22683edd">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-22683edd">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-22683edd">
-&lt;button id="pdf-prev-22683edd" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-22683edd" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-22683edd">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-22683edd">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-22683edd" href="https://ofuro.me/mypdfs/473_notes/473%20L7.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-22683edd" href="https://ofuro.me/mypdfs/473_notes/473%20L7.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-22683edd"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-22683edd"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-22683edd"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-22683edd"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-22683edd"&gt;
+&lt;button id="pdf-prev-22683edd" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-22683edd" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-22683edd"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-22683edd"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-22683edd" href="https://ofuro.me/mypdfs/473_notes/473%20L7.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-22683edd" href="https://ofuro.me/mypdfs/473_notes/473%20L7.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L7.pdf';
 var hidePaginator = "" === "true";
@@ -2184,7 +2185,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-22683edd').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -2195,17 +2196,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-22683edd').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Dynmaic Programming IV</title><link>https://ofuro.me/posts/473-l6/</link><pubDate>Thu, 01 Feb 2024 20:29:03 -0600</pubDate><guid>https://ofuro.me/posts/473-l6/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming IV</title><link>https://ofuro.me/posts/473-l6/</link><pubDate>Thu, 01 Feb 2024 20:29:03 -0600</pubDate><guid>https://ofuro.me/posts/473-l6/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -2279,24 +2280,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-89756f25">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-89756f25">
-&lt;div class="pdf-loading" id="pdf-loading-89756f25">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-89756f25">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-89756f25">
-&lt;button id="pdf-prev-89756f25" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-89756f25" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-89756f25">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-89756f25">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-89756f25" href="https://ofuro.me/mypdfs/473_notes/473%20L6.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-89756f25" href="https://ofuro.me/mypdfs/473_notes/473%20L6.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-89756f25"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-89756f25"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-89756f25"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-89756f25"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-89756f25"&gt;
+&lt;button id="pdf-prev-89756f25" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-89756f25" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-89756f25"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-89756f25"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-89756f25" href="https://ofuro.me/mypdfs/473_notes/473%20L6.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-89756f25" href="https://ofuro.me/mypdfs/473_notes/473%20L6.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L6.pdf';
 var hidePaginator = "" === "true";
@@ -2367,7 +2368,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-89756f25').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -2378,17 +2379,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-89756f25').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Dynmaic Programming III</title><link>https://ofuro.me/posts/473-l5/</link><pubDate>Tue, 30 Jan 2024 20:28:59 -0600</pubDate><guid>https://ofuro.me/posts/473-l5/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming III</title><link>https://ofuro.me/posts/473-l5/</link><pubDate>Tue, 30 Jan 2024 20:28:59 -0600</pubDate><guid>https://ofuro.me/posts/473-l5/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -2462,24 +2463,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-1df0680e">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-1df0680e">
-&lt;div class="pdf-loading" id="pdf-loading-1df0680e">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-1df0680e">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-1df0680e">
-&lt;button id="pdf-prev-1df0680e" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-1df0680e" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-1df0680e">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-1df0680e">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-1df0680e" href="https://ofuro.me/mypdfs/473_notes/473%20L5.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-1df0680e" href="https://ofuro.me/mypdfs/473_notes/473%20L5.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-1df0680e"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-1df0680e"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-1df0680e"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-1df0680e"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-1df0680e"&gt;
+&lt;button id="pdf-prev-1df0680e" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-1df0680e" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-1df0680e"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-1df0680e"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-1df0680e" href="https://ofuro.me/mypdfs/473_notes/473%20L5.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-1df0680e" href="https://ofuro.me/mypdfs/473_notes/473%20L5.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L5.pdf';
 var hidePaginator = "" === "true";
@@ -2550,7 +2551,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-1df0680e').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -2561,17 +2562,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-1df0680e').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Dynmaic Programming II</title><link>https://ofuro.me/posts/473-l4/</link><pubDate>Thu, 25 Jan 2024 20:28:56 -0600</pubDate><guid>https://ofuro.me/posts/473-l4/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming II</title><link>https://ofuro.me/posts/473-l4/</link><pubDate>Thu, 25 Jan 2024 20:28:56 -0600</pubDate><guid>https://ofuro.me/posts/473-l4/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -2645,24 +2646,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-44fed70d">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-44fed70d">
-&lt;div class="pdf-loading" id="pdf-loading-44fed70d">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-44fed70d">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-44fed70d">
-&lt;button id="pdf-prev-44fed70d" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-44fed70d" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-44fed70d">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-44fed70d">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-44fed70d" href="https://ofuro.me/mypdfs/473_notes/473%20L4.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-44fed70d" href="https://ofuro.me/mypdfs/473_notes/473%20L4.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-44fed70d"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-44fed70d"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-44fed70d"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-44fed70d"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-44fed70d"&gt;
+&lt;button id="pdf-prev-44fed70d" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-44fed70d" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-44fed70d"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-44fed70d"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-44fed70d" href="https://ofuro.me/mypdfs/473_notes/473%20L4.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-44fed70d" href="https://ofuro.me/mypdfs/473_notes/473%20L4.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L4.pdf';
 var hidePaginator = "" === "true";
@@ -2733,7 +2734,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-44fed70d').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -2744,17 +2745,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-44fed70d').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Dynmaic Programming I</title><link>https://ofuro.me/posts/473-l3/</link><pubDate>Tue, 23 Jan 2024 20:28:54 -0600</pubDate><guid>https://ofuro.me/posts/473-l3/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming I</title><link>https://ofuro.me/posts/473-l3/</link><pubDate>Tue, 23 Jan 2024 20:28:54 -0600</pubDate><guid>https://ofuro.me/posts/473-l3/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -2828,24 +2829,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-d6c72b1f">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-d6c72b1f">
-&lt;div class="pdf-loading" id="pdf-loading-d6c72b1f">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-d6c72b1f">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-d6c72b1f">
-&lt;button id="pdf-prev-d6c72b1f" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-d6c72b1f" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-d6c72b1f">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-d6c72b1f">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-d6c72b1f" href="https://ofuro.me/mypdfs/473_notes/473%20L3.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-d6c72b1f" href="https://ofuro.me/mypdfs/473_notes/473%20L3.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-d6c72b1f"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-d6c72b1f"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-d6c72b1f"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-d6c72b1f"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-d6c72b1f"&gt;
+&lt;button id="pdf-prev-d6c72b1f" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-d6c72b1f" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-d6c72b1f"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-d6c72b1f"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-d6c72b1f" href="https://ofuro.me/mypdfs/473_notes/473%20L3.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-d6c72b1f" href="https://ofuro.me/mypdfs/473_notes/473%20L3.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L3.pdf';
 var hidePaginator = "" === "true";
@@ -2916,7 +2917,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-d6c72b1f').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -2927,17 +2928,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-d6c72b1f').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Divide and Conquer</title><link>https://ofuro.me/posts/473-l2/</link><pubDate>Thu, 18 Jan 2024 20:28:53 -0600</pubDate><guid>https://ofuro.me/posts/473-l2/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Divide and Conquer</title><link>https://ofuro.me/posts/473-l2/</link><pubDate>Thu, 18 Jan 2024 20:28:53 -0600</pubDate><guid>https://ofuro.me/posts/473-l2/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -3011,24 +3012,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-f2b18655">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-f2b18655">
-&lt;div class="pdf-loading" id="pdf-loading-f2b18655">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-f2b18655">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-f2b18655">
-&lt;button id="pdf-prev-f2b18655" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-f2b18655" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-f2b18655">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-f2b18655">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-f2b18655" href="https://ofuro.me/mypdfs/473_notes/473%20L2.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-f2b18655" href="https://ofuro.me/mypdfs/473_notes/473%20L2.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-f2b18655"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-f2b18655"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-f2b18655"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-f2b18655"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-f2b18655"&gt;
+&lt;button id="pdf-prev-f2b18655" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-f2b18655" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-f2b18655"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-f2b18655"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-f2b18655" href="https://ofuro.me/mypdfs/473_notes/473%20L2.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-f2b18655" href="https://ofuro.me/mypdfs/473_notes/473%20L2.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L2.pdf';
 var hidePaginator = "" === "true";
@@ -3099,7 +3100,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-f2b18655').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -3110,17 +3111,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-f2b18655').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item><item><title>473 Intro, Divide and Conquer</title><link>https://ofuro.me/posts/473-l1/</link><pubDate>Tue, 16 Jan 2024 20:28:47 -0600</pubDate><guid>https://ofuro.me/posts/473-l1/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
-&lt;style>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Intro, Divide and Conquer</title><link>https://ofuro.me/posts/473-l1/</link><pubDate>Tue, 16 Jan 2024 20:28:47 -0600</pubDate><guid>https://ofuro.me/posts/473-l1/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;style&gt;
 #embed-pdf-container {
 position: relative;
 width: 100%;
@@ -3194,24 +3195,24 @@ to { -webkit-transform: rotate(360deg); }
 @-webkit-keyframes spin {
 to { -webkit-transform: rotate(360deg); }
 }
-&lt;/style>&lt;div class="embed-pdf-container" id="embed-pdf-container-2e7ff598">
-&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-2e7ff598">
-&lt;div class="pdf-loading" id="pdf-loading-2e7ff598">&lt;/div>
-&lt;/div>
-&lt;canvas class="pdf-canvas" id="pdf-canvas-2e7ff598">&lt;/canvas>
-&lt;/div>
-&lt;div class="pdf-paginator" id="pdf-paginator-2e7ff598">
-&lt;button id="pdf-prev-2e7ff598" class="prevNext">Previous&lt;/button>
-&lt;button id="pdf-next-2e7ff598" class="prevNext">Next&lt;/button> &amp;nbsp; &amp;nbsp;
-&lt;span>
-&lt;span class="pdf-pagenum" id="pdf-pagenum-2e7ff598">&lt;/span> / &lt;span class="pdf-pagecount" id="pdf-pagecount-2e7ff598">&lt;/span>
-&lt;/span>
-&lt;a class="pdf-source" id="pdf-source-2e7ff598" href="https://ofuro.me/mypdfs/473_notes/473%20L1.pdf"> [Downlaod]&lt;/a>
-&lt;/div>
-&lt;noscript>
-View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-2e7ff598" href="https://ofuro.me/mypdfs/473_notes/473%20L1.pdf">here&lt;/a>.
-&lt;/noscript>
-&lt;script type="text/javascript">
+&lt;/style&gt;&lt;div class="embed-pdf-container" id="embed-pdf-container-2e7ff598"&gt;
+&lt;div class="pdf-loadingWrapper" id="pdf-loadingWrapper-2e7ff598"&gt;
+&lt;div class="pdf-loading" id="pdf-loading-2e7ff598"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;canvas class="pdf-canvas" id="pdf-canvas-2e7ff598"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="pdf-paginator" id="pdf-paginator-2e7ff598"&gt;
+&lt;button id="pdf-prev-2e7ff598" class="prevNext"&gt;Previous&lt;/button&gt;
+&lt;button id="pdf-next-2e7ff598" class="prevNext"&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+&lt;span&gt;
+&lt;span class="pdf-pagenum" id="pdf-pagenum-2e7ff598"&gt;&lt;/span&gt; / &lt;span class="pdf-pagecount" id="pdf-pagecount-2e7ff598"&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class="pdf-source" id="pdf-source-2e7ff598" href="https://ofuro.me/mypdfs/473_notes/473%20L1.pdf"&gt; [Downlaod]&lt;/a&gt;
+&lt;/div&gt;
+&lt;noscript&gt;
+View the PDF file &lt;a class="pdf-source" id="pdf-source-noscript-2e7ff598" href="https://ofuro.me/mypdfs/473_notes/473%20L1.pdf"&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+&lt;script type="text/javascript"&gt;
 (function(){
 var url = '\/mypdfs\/473_notes\/473 L1.pdf';
 var hidePaginator = "" === "true";
@@ -3282,7 +3283,7 @@ queueRenderPage(pageNum);
 }
 document.getElementById('pdf-prev-2e7ff598').addEventListener('click', onPrevPage);
 function onNextPage() {
-if (pageNum >= pdfDoc.numPages) {
+if (pageNum &gt;= pdfDoc.numPages) {
 return;
 }
 pageNum++;
@@ -3293,12 +3294,12 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 pdfDoc = pdfDoc_;
 var numPages = pdfDoc.numPages;
 document.getElementById('pdf-pagecount-2e7ff598').textContent = numPages;
-if(pageNum > numPages) {
+if(pageNum &gt; numPages) {
 pageNum = numPages
 }
 renderPage(pageNum);
 });
 })();
-&lt;/script>
-&lt;h3 id="reference">Reference&lt;/h3>
-&lt;p>UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/">Michael A. Forbes&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;/script&gt;
+&lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
