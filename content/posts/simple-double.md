@@ -21,14 +21,12 @@ tags: ["cryptography"]
 ### LWE Revisit
 
 Regev's LWE-based encryption scheme: 
-`
 $$
 \begin{align*}
 \mathsf{Enc}(\vec{\mu}) = (c_1, c_2) &= (A,  A \cdot \vec{s} + \vec{e} + \Delta \vec{\mu})\\
 \mathsf{Dec}(c_1, c_2) &= \frac{\mathsf{round}_{\Delta}(c_2 - c_1 \cdot \vec{s})}{\Delta}\\
 \end{align*}
 $$
-`
 ### SimplePIR
 
 High-level: parse the database into $\sqrt N \times \sqrt N$ square, then use matrix-vector multiplication to retrieve one column. Upload and download size are both $\sqrt N$ many $\mathbb{Z}_q$ elements. 
@@ -40,7 +38,6 @@ High-level: parse the database into $\sqrt N \times \sqrt N$ square, then use ma
   </figure>
 </center>
 
-`
 $$
 \begin{align*}
 \mathsf{DB}&: \mathbb{Z}_p^{\sqrt N \times \sqrt N}\\
@@ -50,11 +47,9 @@ A &: \mathbb{Z}_q^{\sqrt N \times n}\\
 \mathsf{ans} &= \mathsf{DB} \cdot \vec{\mathsf{q_1}}&& \text{one encrypted column}
 \end{align*}
 $$
-`
 
 We can recover the whole column: 
 
-`
 $$
 \begin{align*}
 \vec{d'} &= \mathsf{ans} - \mathsf{H} \cdot \vec{s}\\
@@ -64,7 +59,6 @@ $$
 &= \mathsf{DB} \cdot \vec{e} + \Delta \cdot \mathsf{DB} \cdot \vec{\mu_i}
 \end{align*}
 $$
-`
 
 Now, you can round this result to closest multiple of $\Delta$, then divide the resulting vector by $\Delta$ to get the retrieved data. 
 
