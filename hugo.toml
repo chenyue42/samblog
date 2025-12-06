@@ -1,55 +1,67 @@
 baseURL = 'https://ofuro.me/'
-
 languageCode = 'en-us'
 title = "Yue's Notes"
 theme = 'hugo-PaperMod'
 
+[params]
+  ShowCodeCopyButtons = true
+  math = true  # enable math for all pages by default
 
-[params.homeInfoParams]
-Title = "Stay 😎. Be 😊. Keep 📚"
-Content = 'おふろ🛁 => Bathe in the sea of knowledge.'
+  [params.homeInfoParams]
+    Title = "Stay 😎. Be 😊. Keep 📚"
+    Content = 'おふろ🛁 => Bathe in the sea of knowledge.'
 
-[[params.socialIcons]]
-name = "github"
-url = "https://github.com/helloboyxxx"
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/helloboyxxx"
 
-[[params.socialIcons]]
-name = "email"
-url = "mailto:yuec12@illinois.edu"
-
-[[menu.main]]
-name = "Notes"
-url = "/"
-weight = 6
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:yuec12@illinois.edu"
 
 [[menu.main]]
-name = "About Me"
-url = "about"
-weight = 7
+  name = "Notes"
+  url = "/"
+  weight = 6
 
 [[menu.main]]
-name = "Archive"
-url = "archives"
-weight = 8
+  name = "About Me"
+  url = "about"
+  weight = 7
 
 [[menu.main]]
-name = "Search"
-url = "search/"
-weight = 9
+  name = "Archive"
+  url = "archives"
+  weight = 8
 
 [[menu.main]]
-name = "Tags"
-url = "tags/"
-weight = 10
+  name = "Search"
+  url = "search/"
+  weight = 9
 
+[[menu.main]]
+  name = "Tags"
+  url = "tags/"
+  weight = 10
 
 [outputs]
-home = [ "HTML", "RSS", "JSON" ]
+  home = [ "HTML", "RSS", "JSON" ]
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
-[params]
-ShowCodeCopyButtons = true
-
-
-[markup.goldmark.renderer]
-unsafe= true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          # block math delimiters
+          block = [
+            ['\\[', '\\]'],
+            ['$$', '$$']
+          ]
+          # inline math delimiters
+          inline = [
+            ['\\(', '\\)']
+          ]
