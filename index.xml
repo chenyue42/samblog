@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Yue's Notes</title><link>https://ofuro.me/</link><description>Recent content on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Tue, 11 Feb 2025 02:36:16 -0600</lastBuildDate><atom:link href="https://ofuro.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding SimplePIR &amp; DoublePIR</title><link>https://ofuro.me/posts/simple-double/</link><pubDate>Tue, 11 Feb 2025 02:36:16 -0600</pubDate><guid>https://ofuro.me/posts/simple-double/</guid><description>&lt;h3 id="notations"&gt;Notations&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Yue's Notes</title><link>https://ofuro.me/</link><description>Recent content on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Sat, 06 Dec 2025 00:10:46 -0600</lastBuildDate><atom:link href="https://ofuro.me/index.xml" rel="self" type="application/rss+xml"/><item><title>580 Fair Division of Divisibles via Competitive Equilibrium</title><link>https://ofuro.me/posts/580-fair-division-divisibles/</link><pubDate>Sat, 06 Dec 2025 00:10:46 -0600</pubDate><guid>https://ofuro.me/posts/580-fair-division-divisibles/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Divisibles means that the item can be divided to any sizes. A cake is an example.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;: Fair and efficient allocation&lt;/p&gt;
+&lt;h3 id="model"&gt;Model&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$A$: set of $n$ agents&lt;/li&gt;
+&lt;li&gt;$M$: set of $m$ divisible goods&lt;/li&gt;
+&lt;li&gt;Each agent $i$ has
+&lt;ul&gt;
+&lt;li&gt;Valuation function: $V_i: R_+^m \to R_+$ over bundles of items. (doesn&amp;rsquo;t have to be linear)&lt;/li&gt;
+&lt;li&gt;Concave: Captures decreasing marginal returns (looks like $\sqrt{x}$ curve)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Allocation $X = (X_1, \ldots, X_n)$ is the allocation of goods to all agents, $X_{ij}$ is the allocation of good $j$ to agent $i$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="fair-agreeable"&gt;Fair (agreeable)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Envy-free&lt;/strong&gt;: no agent &lt;em&gt;envies&lt;/em&gt; other&amp;rsquo;s allocation over her own
+&lt;ul&gt;
+&lt;li&gt;For each agent $i$, $V_i(X_i) \geq V_i(X_j), \forall j \in [n]$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Proportional&lt;/strong&gt;: Each agent $i$ gets value at least $V_i(M) / n$ $\equiv$ for each agent $i$, $V_i(X_i) \geq V_i(M)/n$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="efficientnon-wasteful"&gt;Efficient(non-wasteful)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Pareto-optimal&lt;/strong&gt;: no other allocation is better for all.&lt;/p&gt;</description></item><item><title>Understanding SimplePIR &amp; DoublePIR</title><link>https://ofuro.me/posts/simple-double/</link><pubDate>Tue, 11 Feb 2025 02:36:16 -0600</pubDate><guid>https://ofuro.me/posts/simple-double/</guid><description>&lt;h3 id="notations"&gt;Notations&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Database size: $N$&lt;/p&gt;
