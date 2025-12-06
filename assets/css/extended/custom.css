@@ -28,8 +28,8 @@ code {
   --entry: #fff5cf;
   --content: rgb(31, 31, 31);
   --code-block-bg: #fff5cf;
-  --border: #ffe064;
-  --code-font-color: #3c3c3c;
+  --border: #ffeeab;
+  --code-font-color: #493813;
   color-scheme: light;
 }
 
@@ -41,13 +41,13 @@ code {
   --tertiary: rgb(65, 66, 68);
   --content: rgb(177, 195, 165);
   --code-block-bg: rgb(30, 59, 67);
-  --code-bg: #1f1f1f;
+  --code-bg: rgb(30, 59, 67);
   --border: rgb(51, 51, 51);
   --code-font-color: rgb(152, 204, 207);
   color-scheme: dark;
 }
 
 .post-content pre code {
-    color: #493813;
+    color: var(--code-font-color);
     tab-size: 2;
 }

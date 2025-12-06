@@ -25,14 +25,14 @@ Hi `$z = x + y$`.
 
 `$$a^2 + b^2 = c^2$$`
 
-`$$\begin{vmatrix}a & b\\
+$$\begin{vmatrix}a & b\\
 c & d
-\end{vmatrix}=ad-bc$$`
+\end{vmatrix}=ad-bc$$
 
 from: https://yihui.org/en/2018/07/latex-math-markdown/
 
 ### complex math (array)
-`$$
+$$
 \begin{array} {lcl}
   L(p,w_i) &=& \dfrac{1}{N}\Sigma_{i=1}^N(\underbrace{f_r(x_2
   \rightarrow x_1
@@ -48,16 +48,16 @@ from: https://yihui.org/en/2018/07/latex-math-markdown/
   \longleftrightarrow x_{k-1})L_e(x_k
   \rightarrow x_{k-1})}{p_a(x_{k-1})p_a(x_k)})
 \end{array}
-$$`
+$$
 
 
 ### Testing alignments
 
-`$$
+$$
 \begin{align*}
 \frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u
 \end{align*}
-$$`
+$$
 
 
 ### Hx tests
@@ -73,14 +73,14 @@ $$
 $$
 
 3. 
-`$$
+$$
 \begin{align*}
     \text{(1) } 0\oplus 0 & = 0\\
     \text{(2) } 1\oplus 0 & = 1\\
     \text{(3) } 0\oplus 1 & = 1\\
     \text{(4) } 1\oplus 1 & = 0
 \end{align*}
-$$`
+$$
 
 We observe that:
 
@@ -113,7 +113,6 @@ $$
 If you need these source codes: 
 
 ```
-
 Consider a $n \times m$ chessboard...
 
 
@@ -127,19 +126,21 @@ Since $94 = 4 + 5x$ for some $x \in \mathbb{N}$, my claim is that the first play
 
 $\mathfrak{ABCDEFG}$
 
+$\mathscr{ABCDEFG}$
+
 
 Hi `$z = x + y$`.
 
 `$$a^2 + b^2 = c^2$$`
 
-`$$\begin{vmatrix}a & b\\
+$$\begin{vmatrix}a & b\\
 c & d
-\end{vmatrix}=ad-bc$$`
+\end{vmatrix}=ad-bc$$
 
 from: https://yihui.org/en/2018/07/latex-math-markdown/
 
 ### complex math (array)
-`$$
+$$
 \begin{array} {lcl}
   L(p,w_i) &=& \dfrac{1}{N}\Sigma_{i=1}^N(\underbrace{f_r(x_2
   \rightarrow x_1
@@ -155,16 +156,16 @@ from: https://yihui.org/en/2018/07/latex-math-markdown/
   \longleftrightarrow x_{k-1})L_e(x_k
   \rightarrow x_{k-1})}{p_a(x_{k-1})p_a(x_k)})
 \end{array}
-$$`
+$$
 
 
 ### Testing alignments
 
-`$$
+$$
 \begin{align*}
 \frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u
 \end{align*}
-$$`
+$$
 
 
 ### Hx tests
@@ -180,14 +181,14 @@ $$
 $$
 
 3. 
-`$$
+$$
 \begin{align*}
-  \text{(1) } 0\oplus 0 & = 0\\
-  \text{(2) } 1\oplus 0 & = 1\\
-  \text{(3) } 0\oplus 1 & = 1\\
-  \text{(4) } 1\oplus 1 & = 0
+    \text{(1) } 0\oplus 0 & = 0\\
+    \text{(2) } 1\oplus 0 & = 1\\
+    \text{(3) } 0\oplus 1 & = 1\\
+    \text{(4) } 1\oplus 1 & = 0
 \end{align*}
-$$`
+$$
 
 We observe that:
 
@@ -199,3 +200,21 @@ $$
   \item $y=0$ iff $x$ and $z$ agree; $y=1$ iff $x$ and $z$ disagree.
 \end{itemize}
 $$
+
+### <span style="color:#3c66b5">Theorem</span>
+
+<span style="color:#eb861c">Proof</span>
+
+<span style="color:#28a745">Definition</span>
+
+<span style="color:#34ce57">Notation</span>
+
+<span style="color:#04c2b2">Exercise</span>
+
+<span style="color:#599eff">Proposition</span>
+
+<span style="color:#3c66b5">Corollary</span>
+
+<span style="color:#9650af">Observation</span>
+
+```
