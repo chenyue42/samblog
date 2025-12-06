@@ -41,23 +41,25 @@
 &lt;/ul&gt;
 &lt;p&gt;This scheme is computationally binding: if we express $h = g^x$ for some $x$, then finding $m&amp;rsquo; \neq m$ such that $g^mh^r = g^{m+rx} = g^{m&amp;rsquo; + r&amp;rsquo;x} = g^{m&amp;rsquo;}h^{r&amp;rsquo;}$ is hard by discrete log assumption.&lt;/p&gt;</description></item><item><title>RSA in pure number theory</title><link>https://ofuro.me/posts/some_rsa/</link><pubDate>Tue, 29 Oct 2024 17:02:49 -0500</pubDate><guid>https://ofuro.me/posts/some_rsa/</guid><description>&lt;h3 id="binomial-theorem"&gt;Binomial Theorem&lt;/h3&gt;
 &lt;p&gt;Given $a, b \in \mathbb{R}, n \in \mathbb{N}$, then
+&lt;/p&gt;
 $$
 (a + b)^n = \sum_{k = 0}^{n} \binom{n}{k}a^k b^{n-k}
-$$
+$$&lt;p&gt;
 &lt;span style="color:#599eff"&gt;Proposition&lt;/span&gt; Let $p$ be prime. $\forall a, b \in \mathbb{Z}$, we have:
+&lt;/p&gt;
 $$
 (a+b)^p \equiv a^p + b^p \mod p
-$$
+$$&lt;p&gt;
 &lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt; It suffices to show that $\binom{p}{k} \equiv 0 \mod p$ if $0 &amp;lt; k &amp;lt; p$. Observe: $p \mid p!, p \nmid k!, p \nmid (p-k)!$, hence $p \mid \binom{p}{k}$. $\blacksquare$&lt;/p&gt;</description></item><item><title>Taste of Fully Homomorphic Encryption</title><link>https://ofuro.me/posts/taste_of_fhe/</link><pubDate>Wed, 18 Sep 2024 17:56:58 -0600</pubDate><guid>https://ofuro.me/posts/taste_of_fhe/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;The following is a note for my talk during Ling&amp;rsquo;s group meeting.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id="what-is-fhe"&gt;What is FHE?&lt;/h3&gt;
 &lt;p&gt;Homomorphic encryption allows some computation (addition, scalar multiplication, ct-ct multiplication) directly on ciphertexts without first having to decrypt it.&lt;/p&gt;
 &lt;p&gt;Partially Homomorphic Encryption support only one of those possible operation. RSA is an example:
+&lt;/p&gt;
 $$
 \text{Enc}(m_1) \cdot \text{Enc}(m_2) = m_1^e \cdot m_2^e = (m_1 \cdot m_2)^e = \text{Enc}(m_1 \cdot m_2)
-$$&lt;/p&gt;
-&lt;p&gt;FHE supports Addition AND Scalar Multiplicaiton:
+$$&lt;p&gt;FHE supports Addition AND Scalar Multiplicaiton:
 &lt;div&gt;
 $$
 \begin{cases}
@@ -81,9 +83,10 @@ Fancy! And it exsists!&lt;/p&gt;</description></item><item><title>Convex Hull in
 &lt;h4 id="recap"&gt;Recap&lt;/h4&gt;
 &lt;p&gt;Previously, Karatsuba&amp;rsquo;s algorithm for integer multiplication. It computes the result in $O(n^{\log_2 3})$ where $n$ is the number of digits.&lt;/p&gt;
 &lt;p&gt;Another recap: polynomial representation:
+&lt;/p&gt;
 $$
 p(x) = \sum_{i = 0}^{n}p_ix^i
-$$
+$$&lt;p&gt;
 And we can represent this polynomial using an array of size $n$.&lt;/p&gt;
 &lt;p&gt;Evaluations and additions of polynomials are straightforward computation. Can be done in $O(n)$ time. Naive multiplication is slow, however. It takes $O(n^2)$ time to compute all the coefficient multiplications. FFT helps us speed up this multiplication.&lt;/p&gt;</description></item><item><title>Understanding GSW</title><link>https://ofuro.me/posts/understanding-gsw/</link><pubDate>Fri, 23 Aug 2024 21:56:04 -0600</pubDate><guid>https://ofuro.me/posts/understanding-gsw/</guid><description>&lt;p&gt;The goal of this file is to help understand the GSW scheme and the implementation of &lt;code&gt;GSWCiphertext&lt;/code&gt;in OnionPIR code. Let&amp;rsquo;s start with my understanding of GSW scheme.&lt;/p&gt;
 &lt;h3 id="from-tgsw-to-rgsw"&gt;From TGSW to RGSW&lt;/h3&gt;
@@ -3403,10 +3406,9 @@ renderPage(pageNum);
 --- --&gt;
 &lt;h4 id="question"&gt;Question&lt;/h4&gt;
 &lt;p&gt;Can you find a closed formula for the sum of the $p$-th powers of the first $n$ positive integers? That is, we need a closed formulat for the sequence:&lt;/p&gt;
-&lt;p&gt;$$
+$$
 h_n=a_p n^p+a_{p-1} n^{p-1}+\cdots+a_1 n+a_0, \quad(n \geq 0)
-$$&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
+$$&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The method is to use difference sequences. We already know the following:&lt;/p&gt;</description></item><item><title>413_None Homogeneous Recurrence Relation</title><link>https://ofuro.me/posts/413_nhrr/</link><pubDate>Mon, 11 Dec 2023 14:59:52 -0600</pubDate><guid>https://ofuro.me/posts/413_nhrr/</guid><description>&lt;p&gt;&lt;span style="color:#04c2b2"&gt;Example&lt;/span&gt; sums of cubes&lt;/p&gt;
 &lt;p&gt;Solve $h_n=h_{n-1}+n^3,(n \geq 1)$ and $h_0=0$.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
@@ -3422,35 +3424,28 @@ h_n &amp;= n^3 + (n-1)^3 + h_{n-2}
 $$
 &lt;/div&gt;
 And we can keep doing this. Using this as the intuition, we guess the closed form:
+&lt;/p&gt;
 $$
 h_n = n^3 + (n-1)^3 + \ldots + 2^3 + 1
-$$
+$$&lt;p&gt;
 To formally prove this, we can use induction! Assume it holds for some $n \geq 1$, we want to show that $h_{n+1} = h_n + (n+1)^3 = 1 + 2^3 + \ldots + (n+1)^3$.&lt;/p&gt;</description></item><item><title>413_generating Functions</title><link>https://ofuro.me/posts/413_generating-functions/</link><pubDate>Wed, 01 Nov 2023 22:48:35 -0500</pubDate><guid>https://ofuro.me/posts/413_generating-functions/</guid><description>&lt;h1 id="generating-functions"&gt;Generating Functions&lt;/h1&gt;
 &lt;p&gt;Generating functions can be regarded as algebraic objects whose formal manipulation allows us to count the number of possibilities for a problem by means of algebra.&lt;/p&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Let $h_0, h_1, h_2, h_3, \ldots$ be an infinite sequence of numbers. Its generating function is defined to be the infinite series:
+&lt;/p&gt;
 $$
 g(x) = h_0 + h_1x + h_2x^2 + \cdots + h_nx^n + \cdots
-$$&lt;/p&gt;
-&lt;h4 id="example-1"&gt;&lt;span style="color:#04c2b2"&gt;Example 1&lt;/span&gt;&lt;/h4&gt;
+$$&lt;h4 id="example-1"&gt;&lt;span style="color:#04c2b2"&gt;Example 1&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;The generating function of the infinite sequence $1, 1, 1, \ldots$ is:
-$$
-g(x) = 1 + x + x^2 + x^3 + \cdots
-$$
-for $|x| &amp;lt; 1$. This generating function $g(x)$ is the sum of a geometric series with value:
-$$
-g(x) = \frac{1}{1-x}
-$$
-&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>445_camera</title><link>https://ofuro.me/posts/445_camera/</link><pubDate>Mon, 30 Oct 2023 10:36:20 -0500</pubDate><guid>https://ofuro.me/posts/445_camera/</guid><description>&lt;h1 id="world-coordinates-and-image-coordinates"&gt;World Coordinates and Image coordinates&lt;/h1&gt;
+&lt;/p&gt;</description></item><item><title>445_camera</title><link>https://ofuro.me/posts/445_camera/</link><pubDate>Mon, 30 Oct 2023 10:36:20 -0500</pubDate><guid>https://ofuro.me/posts/445_camera/</guid><description>&lt;h1 id="world-coordinates-and-image-coordinates"&gt;World Coordinates and Image coordinates&lt;/h1&gt;
 &lt;h2 id="pinhole-camera-model"&gt;Pinhole Camera Model&lt;/h2&gt;
-&lt;p&gt;$$
+$$
 x = K \left[
 \begin{array}{ll}
-R &amp;amp; t
+R &amp; t
 \end{array}
 \right] x
-$$&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;x&lt;/strong&gt;: Image Coordinates: $(u, v, 1)$
+$$&lt;p&gt;&lt;strong&gt;x&lt;/strong&gt;: Image Coordinates: $(u, v, 1)$
 &lt;strong&gt;K&lt;/strong&gt;: Intrinsic Matrix $(3 \times 3)$
 &lt;strong&gt;R&lt;/strong&gt;: Rotation $(3 \times 3)$
 &lt;strong&gt;t&lt;/strong&gt;: Translation $(3 \times 1)$
@@ -3489,9 +3484,13 @@ $$&lt;/p&gt;
 &lt;li&gt;Build a Gaussian pyramid of region mask&lt;/li&gt;
 &lt;li&gt;Blend each level of pyramid using region mask from the same level&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;$$
+$$
 L_{12}^i=L_1^i \cdot R^i+L_2^i \cdot\left(1-R^i\right)
-$$&lt;/p&gt;</description></item><item><title>445_Synthesizing and Cutting</title><link>https://ofuro.me/posts/445_synthesizing-cutting/</link><pubDate>Mon, 30 Oct 2023 10:33:26 -0500</pubDate><guid>https://ofuro.me/posts/445_synthesizing-cutting/</guid><description>&lt;h2 id="texture-synthesis-and-hole-filling"&gt;Texture Synthesis and Hole-Filling&lt;/h2&gt;
+$$&lt;ol start="4"&gt;
+&lt;li&gt;Collapse the pyramid to get the final blended image&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id="method-3-poisson-blending"&gt;Method 3: Poisson Blending&lt;/h4&gt;
+&lt;p&gt;A good blend should preserve gradient of source region withough changing the background&lt;/p&gt;</description></item><item><title>445_Synthesizing and Cutting</title><link>https://ofuro.me/posts/445_synthesizing-cutting/</link><pubDate>Mon, 30 Oct 2023 10:33:26 -0500</pubDate><guid>https://ofuro.me/posts/445_synthesizing-cutting/</guid><description>&lt;h2 id="texture-synthesis-and-hole-filling"&gt;Texture Synthesis and Hole-Filling&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;How do we cut something out of an image, and fill the hole naturally?&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3513,44 +3512,38 @@ $$&lt;/p&gt;</description></item><item><title>445_Synthesizing and Cutting</titl
 &lt;p&gt;&lt;span style="color:#9650af"&gt;Observation&lt;/span&gt; In a clear night, there are more stars off-center. This is because you have more rods in the middle, while more cones elsewhere.&lt;/p&gt;
 &lt;h3 id="how-to-express-colors"&gt;How to express colors?&lt;/h3&gt;
 &lt;p&gt;Basically, the most intuitive expression is the RGB color space. But it is not a linear color space. We perfer expressing using CIE-XYZ color space, which makes the calculation much easier.&lt;/p&gt;</description></item><item><title>413_Multinomial Coefficient</title><link>https://ofuro.me/posts/413_multinomial/</link><pubDate>Mon, 30 Oct 2023 10:30:51 -0500</pubDate><guid>https://ofuro.me/posts/413_multinomial/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; A multinomial coefficient is:&lt;/p&gt;
-&lt;p&gt;$$
+$$
 \binom{n}{n_1 n_2 \cdots n_t}
 =\frac{n !}{n_{1} ! n_{2} ! \cdots n_{t} !}
-$$&lt;/p&gt;
-&lt;p&gt;Here, $n_1, n_2, \ldots, n_t$ are nonnegative integers with
+$$&lt;p&gt;Here, $n_1, n_2, \ldots, n_t$ are nonnegative integers with
+&lt;/p&gt;
 $$
 n_1+n_2+\cdots+n_t=n
-$$&lt;/p&gt;
-&lt;h3 id="pascals-theorem-for-multinomial-coefficients"&gt;&lt;span style="color:#3c66b5"&gt;Pascal&amp;rsquo;s theorem for multinomial coefficients&lt;/span&gt;&lt;/h3&gt;
+$$&lt;h3 id="pascals-theorem-for-multinomial-coefficients"&gt;&lt;span style="color:#3c66b5"&gt;Pascal&amp;rsquo;s theorem for multinomial coefficients&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Pascal&amp;rsquo;s theorem for
 Let $n, k \in \mathbb{N}$ and $(n)_{i=1}^k$ be natural numbers so that
+&lt;/p&gt;
 $$
 n_1+\cdots+n_k=n
-$$
+$$&lt;p&gt;
 Then,&lt;/p&gt;
-&lt;p&gt;$$
+$$
 \binom{n}{n_1, n_2, \ldots, n_k} =
 \binom{n-1}{n_1-1, n_2, \ldots, n_k} + \ldots +
 \binom{n-1}{n_1, n_2, \ldots, n_k-1}
-$$&lt;/p&gt;</description></item><item><title>413_Unimodality of binomial coef &amp; Sperner's theorem</title><link>https://ofuro.me/posts/413_unimodality/</link><pubDate>Tue, 10 Oct 2023 22:55:46 -0500</pubDate><guid>https://ofuro.me/posts/413_unimodality/</guid><description>&lt;h1 id="unimodality-of-binomial-coefficients-and-sperners-theorem"&gt;Unimodality of Binomial Coefficients and Sperner&amp;rsquo;s Theorem&lt;/h1&gt;
+$$&lt;p&gt;&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;</description></item><item><title>413_Unimodality of binomial coef &amp; Sperner's theorem</title><link>https://ofuro.me/posts/413_unimodality/</link><pubDate>Tue, 10 Oct 2023 22:55:46 -0500</pubDate><guid>https://ofuro.me/posts/413_unimodality/</guid><description>&lt;h1 id="unimodality-of-binomial-coefficients-and-sperners-theorem"&gt;Unimodality of Binomial Coefficients and Sperner&amp;rsquo;s Theorem&lt;/h1&gt;
 &lt;p&gt;If we examine the binomial coefficients in a row of Pascal&amp;rsquo;s triangle, we notice that the numbers increase for a while and then decrease. A sequence of numbers with this property is called &lt;strong&gt;unimodal&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Let $n$ be a positive integer. The sequence of binomial coefficients
+&lt;/p&gt;
 $$
 {{n} \choose {0}}, {{n} \choose {1}}, \ldots, {{n} \choose {n}}
-$$
+$$&lt;p&gt;
 is a unimodal sequence. Mor precisely,
+&lt;/p&gt;</description></item><item><title>413_lower bounded Ramsey</title><link>https://ofuro.me/posts/413_lower-bounded-ramsey/</link><pubDate>Wed, 04 Oct 2023 17:28:53 -0500</pubDate><guid>https://ofuro.me/posts/413_lower-bounded-ramsey/</guid><description>&lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
 $$
-{{n} \choose {0}} &amp;lt; {{n} \choose {1}} &amp;lt; \ldots &amp;lt; {{n} \choose {\lfloor n/2\rfloor}}
-$$
-and
-$$
-{{n} \choose {\lceil n/2 \rceil}} &amp;gt; \ldots {{n} \choose {n-1}} &amp;gt; {{n} \choose {n}}
-$$&lt;/p&gt;</description></item><item><title>413_lower bounded Ramsey</title><link>https://ofuro.me/posts/413_lower-bounded-ramsey/</link><pubDate>Wed, 04 Oct 2023 17:28:53 -0500</pubDate><guid>https://ofuro.me/posts/413_lower-bounded-ramsey/</guid><description>&lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;$$
 \text{For every } k \in \mathbb{N}, \text{we have } R(k)\ge 2^{k/2}
-$$&lt;/p&gt;
-&lt;p&gt;Before we start the proof, let&amp;rsquo;s look at 3 ingredients we need:&lt;/p&gt;
+$$&lt;p&gt;Before we start the proof, let&amp;rsquo;s look at 3 ingredients we need:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The probabilistic method&lt;/li&gt;
 &lt;li&gt;The union bound&lt;/li&gt;
@@ -3558,9 +3551,12 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h4 id="the-probabilistic-method"&gt;&lt;span style="color:#599eff"&gt;The probabilistic method&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Let $\Omega$ be the set of all possible outcomes of an experiment. Suppose that each outcome is equally likely. Let $A \subseteq \Omega$ be an event.
+&lt;/p&gt;
 $$
-\text{If } \operatorname{Prob}(A) &amp;lt; 1 \text{, then } \operatorname{Prob}(A^c) &amp;gt; 0
-$$&lt;/p&gt;</description></item><item><title>413_General Ramsey Theories</title><link>https://ofuro.me/posts/413_general_ramsey-theories/</link><pubDate>Mon, 02 Oct 2023 15:00:37 -0500</pubDate><guid>https://ofuro.me/posts/413_general_ramsey-theories/</guid><description>&lt;h3 id="general-ramsey-on-normal-graph"&gt;General Ramsey on normal graph&lt;/h3&gt;
+\text{If } \operatorname{Prob}(A) &lt; 1 \text{, then } \operatorname{Prob}(A^c) &gt; 0
+$$&lt;h4 id="union-bound"&gt;&lt;span style="color:#599eff"&gt;Union Bound&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;Let $\Omega$ be the set of all possible outcome of an experiment. Suppose that each outcome is equally likely. Let $A_1, \ldots, A_t \subseteq \Omega$ be some events. Then:
+&lt;/p&gt;</description></item><item><title>413_General Ramsey Theories</title><link>https://ofuro.me/posts/413_general_ramsey-theories/</link><pubDate>Mon, 02 Oct 2023 15:00:37 -0500</pubDate><guid>https://ofuro.me/posts/413_general_ramsey-theories/</guid><description>&lt;h3 id="general-ramsey-on-normal-graph"&gt;General Ramsey on normal graph&lt;/h3&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Notation&lt;/span&gt; &lt;strong&gt;General notation for Ramsey theory:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;$K_n \to (K_s,K_t)$ is the assertion that for any coloring of the edges of $K_n$ with red and blue, we can always find a red $K_s$ or a blue $K_t$.&lt;/p&gt;
 &lt;p&gt;$K_n \not \to (K_s,K_t)$ is the assertion that there exists a coloring of the edges of $K_n$ with red and blue with no red $K_s$ nor blue $K_t$.&lt;/p&gt;
@@ -3603,9 +3599,7 @@ Note that this conclusion doesn&amp;rsquo;t hole if you have $n$ objects or less
 &lt;p&gt;&lt;code&gt;\begin{matrix} {0 \choose 0}\\ {1 \choose 0} &amp;amp; {1 \choose 1}\\ {2 \choose 0} &amp;amp; {2 \choose 1} &amp;amp; {2 \choose 2}\\ {3 \choose 0} &amp;amp; {3 \choose 1} &amp;amp; {3 \choose 2} &amp;amp; {3 \choose 3}\\ {4 \choose 0} &amp;amp; {4 \choose 1} &amp;amp; {4 \choose 2} &amp;amp; {4 \choose 3} &amp;amp; {4 \choose 4}\\ .\\ .\\ . \end{matrix}&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id="pascals-formula"&gt;&lt;span style="color:#3c66b5"&gt;Pascal&amp;rsquo;s Formula&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;For all integers $n$ and $k$ with $1 \leq k \leq n - 1$, we have:
-$$
-{n \choose k} = {{n-1} \choose k} + {{n-1} \choose {k-1}}
-$$&lt;/p&gt;</description></item><item><title>413_combinations</title><link>https://ofuro.me/posts/413_combinations/</link><pubDate>Fri, 08 Sep 2023 13:23:54 -0500</pubDate><guid>https://ofuro.me/posts/413_combinations/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt;&lt;/p&gt;
+&lt;/p&gt;</description></item><item><title>413_combinations</title><link>https://ofuro.me/posts/413_combinations/</link><pubDate>Fri, 08 Sep 2023 13:23:54 -0500</pubDate><guid>https://ofuro.me/posts/413_combinations/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;A &lt;strong&gt;combination&lt;/strong&gt; of a set $S$ is a term usually used to denote an unordered selection of the element of $S$. It is simply a selection of a subset of $S$.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$r$-combination = $r$-subset.&lt;/li&gt;
@@ -3613,10 +3607,11 @@ $$&lt;/p&gt;</description></item><item><title>413_combinations</title><link>http
 &lt;/ul&gt;
 &lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;For $0 \leq r \leq n$, we have:
+&lt;/p&gt;
 $$
 P(n, r) = r! {n \choose r} \text{ and }
 {n \choose r} = \frac{n!}{r!(n-r)!}
-$$
+$$&lt;p&gt;
 &lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;</description></item><item><title>Interesting DFA</title><link>https://ofuro.me/posts/interesting_dfa/</link><pubDate>Wed, 30 Aug 2023 13:10:06 -0500</pubDate><guid>https://ofuro.me/posts/interesting_dfa/</guid><description>&lt;h3 id="deterministic-finite-automaition"&gt;Deterministic Finite Automaition&lt;/h3&gt;
 &lt;p&gt;Definition: $(Q, s, A, \delta)$&lt;/p&gt;
 &lt;p&gt;$Q$: A set of all the possible state.&lt;/p&gt;
@@ -3636,10 +3631,9 @@ $$
 &lt;/center&gt;
 &lt;p&gt;Choose the two cells to be removed, and the closed path we have will be sperated into two paths.&lt;/p&gt;
 &lt;p&gt;If we lable the close path we chose in the beginning from 1 to 64 in the order we drew it, white cells have odd numbers, and black cells have even numbers (or reversed).&lt;/p&gt;</description></item><item><title>Some latex tests</title><link>https://ofuro.me/posts/latex_test/</link><pubDate>Mon, 28 Aug 2023 22:39:19 -0500</pubDate><guid>https://ofuro.me/posts/latex_test/</guid><description>&lt;p&gt;Consider a $n \times m$ chessboard&amp;hellip;&lt;/p&gt;
-&lt;p&gt;$$
+$$
 \int{f(x)dx}
-$$&lt;/p&gt;
-&lt;p&gt;Since $94 = 4 + 5x$ for some $x \in \mathbb{N}$, my claim is that the first player wins when it chooses $4$ in the beginning. Then, whenever the second player choose $a, x \in\set{1, 2, 3, 4}$, the first player just add it to 5. So choose $5-a$. By doing this, the first player always reaches $10x + 9$ or $10x + 4$ for $x \in \mathbb{N}$. Since $94$ is included, the first player must win.&lt;/p&gt;</description></item><item><title>My Math 417 review notes</title><link>https://ofuro.me/posts/417_review/</link><pubDate>Mon, 28 Aug 2023 15:50:48 -0500</pubDate><guid>https://ofuro.me/posts/417_review/</guid><description>&lt;p&gt;I have had a wonderful summer as I have been able to take Math 417 with Professor Chales Rezk. He is a very very good teacher and I have learnt a lot from him. Thanks!&lt;/p&gt;
+$$&lt;p&gt;Since $94 = 4 + 5x$ for some $x \in \mathbb{N}$, my claim is that the first player wins when it chooses $4$ in the beginning. Then, whenever the second player choose $a, x \in\set{1, 2, 3, 4}$, the first player just add it to 5. So choose $5-a$. By doing this, the first player always reaches $10x + 9$ or $10x + 4$ for $x \in \mathbb{N}$. Since $94$ is included, the first player must win.&lt;/p&gt;</description></item><item><title>My Math 417 review notes</title><link>https://ofuro.me/posts/417_review/</link><pubDate>Mon, 28 Aug 2023 15:50:48 -0500</pubDate><guid>https://ofuro.me/posts/417_review/</guid><description>&lt;p&gt;I have had a wonderful summer as I have been able to take Math 417 with Professor Chales Rezk. He is a very very good teacher and I have learnt a lot from him. Thanks!&lt;/p&gt;
 &lt;p&gt;These are the notes I have taken during the course. It includes the greate Theorems, Lemmas and Propositions that we have learnt in the course.&lt;/p&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
@@ -3825,10 +3819,9 @@ renderPage(pageNum);
 &lt;/script&gt;</description></item><item><title>413_basic counting</title><link>https://ofuro.me/posts/413_basic_counting/</link><pubDate>Mon, 28 Aug 2023 14:35:27 -0500</pubDate><guid>https://ofuro.me/posts/413_basic_counting/</guid><description>&lt;h1 id="the-four-basic-counting-principle"&gt;The four basic counting principle&lt;/h1&gt;
 &lt;p&gt;Suppose that a set $S$ is partitioned into pairwise disjoint parts $S_1, S_2, &amp;hellip;, S_n$.&lt;/p&gt;
 &lt;h3 id="addition-principle"&gt;&lt;strong&gt;Addition principle:&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;$$
-|S| = |S_1| + |S_2| + &amp;hellip; + |S_m|
-$$&lt;/p&gt;
-&lt;p&gt;Ex:&lt;/p&gt;
+$$
+|S| = |S_1| + |S_2| + ... + |S_m|
+$$&lt;p&gt;Ex:&lt;/p&gt;
 &lt;p&gt;Path counting: In a $3 \times 3$ grid, if you can move 1 step upward or 1 step to the right. How many ways do we have to move from bottom-left to top-right corner?&lt;/p&gt;
 &lt;p&gt;The idea is to break this problem into smaller problems. Addition principle guarrantees that we can add the numbers together.&lt;/p&gt;</description></item><item><title>341 Networking Epoll</title><link>https://ofuro.me/posts/341-33-networking-epoll/</link><pubDate>Fri, 21 Apr 2023 19:35:39 -0600</pubDate><guid>https://ofuro.me/posts/341-33-networking-epoll/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;

@@ -6,10 +6,9 @@
 --- --&gt;
 &lt;h4 id="question"&gt;Question&lt;/h4&gt;
 &lt;p&gt;Can you find a closed formula for the sum of the $p$-th powers of the first $n$ positive integers? That is, we need a closed formulat for the sequence:&lt;/p&gt;
-&lt;p&gt;$$
+$$
 h_n=a_p n^p+a_{p-1} n^{p-1}+\cdots+a_1 n+a_0, \quad(n \geq 0)
-$$&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
+$$&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The method is to use difference sequences. We already know the following:&lt;/p&gt;</description></item><item><title>413_None Homogeneous Recurrence Relation</title><link>https://ofuro.me/posts/413_nhrr/</link><pubDate>Mon, 11 Dec 2023 14:59:52 -0600</pubDate><guid>https://ofuro.me/posts/413_nhrr/</guid><description>&lt;p&gt;&lt;span style="color:#04c2b2"&gt;Example&lt;/span&gt; sums of cubes&lt;/p&gt;
 &lt;p&gt;Solve $h_n=h_{n-1}+n^3,(n \geq 1)$ and $h_0=0$.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
@@ -25,64 +24,52 @@ h_n &amp;= n^3 + (n-1)^3 + h_{n-2}
 $$
 &lt;/div&gt;
 And we can keep doing this. Using this as the intuition, we guess the closed form:
+&lt;/p&gt;
 $$
 h_n = n^3 + (n-1)^3 + \ldots + 2^3 + 1
-$$
+$$&lt;p&gt;
 To formally prove this, we can use induction! Assume it holds for some $n \geq 1$, we want to show that $h_{n+1} = h_n + (n+1)^3 = 1 + 2^3 + \ldots + (n+1)^3$.&lt;/p&gt;</description></item><item><title>413_generating Functions</title><link>https://ofuro.me/posts/413_generating-functions/</link><pubDate>Wed, 01 Nov 2023 22:48:35 -0500</pubDate><guid>https://ofuro.me/posts/413_generating-functions/</guid><description>&lt;h1 id="generating-functions"&gt;Generating Functions&lt;/h1&gt;
 &lt;p&gt;Generating functions can be regarded as algebraic objects whose formal manipulation allows us to count the number of possibilities for a problem by means of algebra.&lt;/p&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Let $h_0, h_1, h_2, h_3, \ldots$ be an infinite sequence of numbers. Its generating function is defined to be the infinite series:
+&lt;/p&gt;
 $$
 g(x) = h_0 + h_1x + h_2x^2 + \cdots + h_nx^n + \cdots
-$$&lt;/p&gt;
-&lt;h4 id="example-1"&gt;&lt;span style="color:#04c2b2"&gt;Example 1&lt;/span&gt;&lt;/h4&gt;
+$$&lt;h4 id="example-1"&gt;&lt;span style="color:#04c2b2"&gt;Example 1&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;The generating function of the infinite sequence $1, 1, 1, \ldots$ is:
+&lt;/p&gt;</description></item><item><title>413_Multinomial Coefficient</title><link>https://ofuro.me/posts/413_multinomial/</link><pubDate>Mon, 30 Oct 2023 10:30:51 -0500</pubDate><guid>https://ofuro.me/posts/413_multinomial/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; A multinomial coefficient is:&lt;/p&gt;
 $$
-g(x) = 1 + x + x^2 + x^3 + \cdots
-$$
-for $|x| &amp;lt; 1$. This generating function $g(x)$ is the sum of a geometric series with value:
-$$
-g(x) = \frac{1}{1-x}
-$$
-&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>413_Multinomial Coefficient</title><link>https://ofuro.me/posts/413_multinomial/</link><pubDate>Mon, 30 Oct 2023 10:30:51 -0500</pubDate><guid>https://ofuro.me/posts/413_multinomial/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; A multinomial coefficient is:&lt;/p&gt;
-&lt;p&gt;$$
 \binom{n}{n_1 n_2 \cdots n_t}
 =\frac{n !}{n_{1} ! n_{2} ! \cdots n_{t} !}
-$$&lt;/p&gt;
-&lt;p&gt;Here, $n_1, n_2, \ldots, n_t$ are nonnegative integers with
+$$&lt;p&gt;Here, $n_1, n_2, \ldots, n_t$ are nonnegative integers with
+&lt;/p&gt;
 $$
 n_1+n_2+\cdots+n_t=n
-$$&lt;/p&gt;
-&lt;h3 id="pascals-theorem-for-multinomial-coefficients"&gt;&lt;span style="color:#3c66b5"&gt;Pascal&amp;rsquo;s theorem for multinomial coefficients&lt;/span&gt;&lt;/h3&gt;
+$$&lt;h3 id="pascals-theorem-for-multinomial-coefficients"&gt;&lt;span style="color:#3c66b5"&gt;Pascal&amp;rsquo;s theorem for multinomial coefficients&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Pascal&amp;rsquo;s theorem for
 Let $n, k \in \mathbb{N}$ and $(n)_{i=1}^k$ be natural numbers so that
+&lt;/p&gt;
 $$
 n_1+\cdots+n_k=n
-$$
+$$&lt;p&gt;
 Then,&lt;/p&gt;
-&lt;p&gt;$$
+$$
 \binom{n}{n_1, n_2, \ldots, n_k} =
 \binom{n-1}{n_1-1, n_2, \ldots, n_k} + \ldots +
 \binom{n-1}{n_1, n_2, \ldots, n_k-1}
-$$&lt;/p&gt;</description></item><item><title>413_Unimodality of binomial coef &amp; Sperner's theorem</title><link>https://ofuro.me/posts/413_unimodality/</link><pubDate>Tue, 10 Oct 2023 22:55:46 -0500</pubDate><guid>https://ofuro.me/posts/413_unimodality/</guid><description>&lt;h1 id="unimodality-of-binomial-coefficients-and-sperners-theorem"&gt;Unimodality of Binomial Coefficients and Sperner&amp;rsquo;s Theorem&lt;/h1&gt;
+$$&lt;p&gt;&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;</description></item><item><title>413_Unimodality of binomial coef &amp; Sperner's theorem</title><link>https://ofuro.me/posts/413_unimodality/</link><pubDate>Tue, 10 Oct 2023 22:55:46 -0500</pubDate><guid>https://ofuro.me/posts/413_unimodality/</guid><description>&lt;h1 id="unimodality-of-binomial-coefficients-and-sperners-theorem"&gt;Unimodality of Binomial Coefficients and Sperner&amp;rsquo;s Theorem&lt;/h1&gt;
 &lt;p&gt;If we examine the binomial coefficients in a row of Pascal&amp;rsquo;s triangle, we notice that the numbers increase for a while and then decrease. A sequence of numbers with this property is called &lt;strong&gt;unimodal&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Let $n$ be a positive integer. The sequence of binomial coefficients
+&lt;/p&gt;
 $$
 {{n} \choose {0}}, {{n} \choose {1}}, \ldots, {{n} \choose {n}}
-$$
+$$&lt;p&gt;
 is a unimodal sequence. Mor precisely,
+&lt;/p&gt;</description></item><item><title>413_lower bounded Ramsey</title><link>https://ofuro.me/posts/413_lower-bounded-ramsey/</link><pubDate>Wed, 04 Oct 2023 17:28:53 -0500</pubDate><guid>https://ofuro.me/posts/413_lower-bounded-ramsey/</guid><description>&lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
 $$
-{{n} \choose {0}} &amp;lt; {{n} \choose {1}} &amp;lt; \ldots &amp;lt; {{n} \choose {\lfloor n/2\rfloor}}
-$$
-and
-$$
-{{n} \choose {\lceil n/2 \rceil}} &amp;gt; \ldots {{n} \choose {n-1}} &amp;gt; {{n} \choose {n}}
-$$&lt;/p&gt;</description></item><item><title>413_lower bounded Ramsey</title><link>https://ofuro.me/posts/413_lower-bounded-ramsey/</link><pubDate>Wed, 04 Oct 2023 17:28:53 -0500</pubDate><guid>https://ofuro.me/posts/413_lower-bounded-ramsey/</guid><description>&lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;$$
 \text{For every } k \in \mathbb{N}, \text{we have } R(k)\ge 2^{k/2}
-$$&lt;/p&gt;
-&lt;p&gt;Before we start the proof, let&amp;rsquo;s look at 3 ingredients we need:&lt;/p&gt;
+$$&lt;p&gt;Before we start the proof, let&amp;rsquo;s look at 3 ingredients we need:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The probabilistic method&lt;/li&gt;
 &lt;li&gt;The union bound&lt;/li&gt;
@@ -90,9 +77,12 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h4 id="the-probabilistic-method"&gt;&lt;span style="color:#599eff"&gt;The probabilistic method&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Let $\Omega$ be the set of all possible outcomes of an experiment. Suppose that each outcome is equally likely. Let $A \subseteq \Omega$ be an event.
+&lt;/p&gt;
 $$
-\text{If } \operatorname{Prob}(A) &amp;lt; 1 \text{, then } \operatorname{Prob}(A^c) &amp;gt; 0
-$$&lt;/p&gt;</description></item><item><title>413_General Ramsey Theories</title><link>https://ofuro.me/posts/413_general_ramsey-theories/</link><pubDate>Mon, 02 Oct 2023 15:00:37 -0500</pubDate><guid>https://ofuro.me/posts/413_general_ramsey-theories/</guid><description>&lt;h3 id="general-ramsey-on-normal-graph"&gt;General Ramsey on normal graph&lt;/h3&gt;
+\text{If } \operatorname{Prob}(A) &lt; 1 \text{, then } \operatorname{Prob}(A^c) &gt; 0
+$$&lt;h4 id="union-bound"&gt;&lt;span style="color:#599eff"&gt;Union Bound&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;Let $\Omega$ be the set of all possible outcome of an experiment. Suppose that each outcome is equally likely. Let $A_1, \ldots, A_t \subseteq \Omega$ be some events. Then:
+&lt;/p&gt;</description></item><item><title>413_General Ramsey Theories</title><link>https://ofuro.me/posts/413_general_ramsey-theories/</link><pubDate>Mon, 02 Oct 2023 15:00:37 -0500</pubDate><guid>https://ofuro.me/posts/413_general_ramsey-theories/</guid><description>&lt;h3 id="general-ramsey-on-normal-graph"&gt;General Ramsey on normal graph&lt;/h3&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Notation&lt;/span&gt; &lt;strong&gt;General notation for Ramsey theory:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;$K_n \to (K_s,K_t)$ is the assertion that for any coloring of the edges of $K_n$ with red and blue, we can always find a red $K_s$ or a blue $K_t$.&lt;/p&gt;
 &lt;p&gt;$K_n \not \to (K_s,K_t)$ is the assertion that there exists a coloring of the edges of $K_n$ with red and blue with no red $K_s$ nor blue $K_t$.&lt;/p&gt;
@@ -122,9 +112,7 @@ Note that this conclusion doesn&amp;rsquo;t hole if you have $n$ objects or less
 &lt;p&gt;&lt;code&gt;\begin{matrix} {0 \choose 0}\\ {1 \choose 0} &amp;amp; {1 \choose 1}\\ {2 \choose 0} &amp;amp; {2 \choose 1} &amp;amp; {2 \choose 2}\\ {3 \choose 0} &amp;amp; {3 \choose 1} &amp;amp; {3 \choose 2} &amp;amp; {3 \choose 3}\\ {4 \choose 0} &amp;amp; {4 \choose 1} &amp;amp; {4 \choose 2} &amp;amp; {4 \choose 3} &amp;amp; {4 \choose 4}\\ .\\ .\\ . \end{matrix}&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id="pascals-formula"&gt;&lt;span style="color:#3c66b5"&gt;Pascal&amp;rsquo;s Formula&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;For all integers $n$ and $k$ with $1 \leq k \leq n - 1$, we have:
-$$
-{n \choose k} = {{n-1} \choose k} + {{n-1} \choose {k-1}}
-$$&lt;/p&gt;</description></item><item><title>413_combinations</title><link>https://ofuro.me/posts/413_combinations/</link><pubDate>Fri, 08 Sep 2023 13:23:54 -0500</pubDate><guid>https://ofuro.me/posts/413_combinations/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt;&lt;/p&gt;
+&lt;/p&gt;</description></item><item><title>413_combinations</title><link>https://ofuro.me/posts/413_combinations/</link><pubDate>Fri, 08 Sep 2023 13:23:54 -0500</pubDate><guid>https://ofuro.me/posts/413_combinations/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;A &lt;strong&gt;combination&lt;/strong&gt; of a set $S$ is a term usually used to denote an unordered selection of the element of $S$. It is simply a selection of a subset of $S$.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$r$-combination = $r$-subset.&lt;/li&gt;
@@ -132,10 +120,11 @@ $$&lt;/p&gt;</description></item><item><title>413_combinations</title><link>http
 &lt;/ul&gt;
 &lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;For $0 \leq r \leq n$, we have:
+&lt;/p&gt;
 $$
 P(n, r) = r! {n \choose r} \text{ and }
 {n \choose r} = \frac{n!}{r!(n-r)!}
-$$
+$$&lt;p&gt;
 &lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;</description></item><item><title>413_chessboard</title><link>https://ofuro.me/posts/413_chessboard/</link><pubDate>Tue, 29 Aug 2023 17:24:30 -0500</pubDate><guid>https://ofuro.me/posts/413_chessboard/</guid><description>&lt;h3 id="gomorys-theorem"&gt;&lt;span style="color:#3c66b5"&gt;Gomory&amp;rsquo;s Theorem&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;If you move two cells of a $8 \times 8$ chessboard of opposite colors, the remaining cells can be fully domino tiled.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;
@@ -149,9 +138,8 @@ $$
 &lt;p&gt;If we lable the close path we chose in the beginning from 1 to 64 in the order we drew it, white cells have odd numbers, and black cells have even numbers (or reversed).&lt;/p&gt;</description></item><item><title>413_basic counting</title><link>https://ofuro.me/posts/413_basic_counting/</link><pubDate>Mon, 28 Aug 2023 14:35:27 -0500</pubDate><guid>https://ofuro.me/posts/413_basic_counting/</guid><description>&lt;h1 id="the-four-basic-counting-principle"&gt;The four basic counting principle&lt;/h1&gt;
 &lt;p&gt;Suppose that a set $S$ is partitioned into pairwise disjoint parts $S_1, S_2, &amp;hellip;, S_n$.&lt;/p&gt;
 &lt;h3 id="addition-principle"&gt;&lt;strong&gt;Addition principle:&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;$$
-|S| = |S_1| + |S_2| + &amp;hellip; + |S_m|
-$$&lt;/p&gt;
-&lt;p&gt;Ex:&lt;/p&gt;
+$$
+|S| = |S_1| + |S_2| + ... + |S_m|
+$$&lt;p&gt;Ex:&lt;/p&gt;
 &lt;p&gt;Path counting: In a $3 \times 3$ grid, if you can move 1 step upward or 1 step to the right. How many ways do we have to move from bottom-left to top-right corner?&lt;/p&gt;
 &lt;p&gt;The idea is to break this problem into smaller problems. Addition principle guarrantees that we can add the numbers together.&lt;/p&gt;</description></item></channel></rss>

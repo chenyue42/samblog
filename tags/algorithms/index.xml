@@ -4,9 +4,10 @@
 &lt;h4 id="recap"&gt;Recap&lt;/h4&gt;
 &lt;p&gt;Previously, Karatsuba&amp;rsquo;s algorithm for integer multiplication. It computes the result in $O(n^{\log_2 3})$ where $n$ is the number of digits.&lt;/p&gt;
 &lt;p&gt;Another recap: polynomial representation:
+&lt;/p&gt;
 $$
 p(x) = \sum_{i = 0}^{n}p_ix^i
-$$
+$$&lt;p&gt;
 And we can represent this polynomial using an array of size $n$.&lt;/p&gt;
 &lt;p&gt;Evaluations and additions of polynomials are straightforward computation. Can be done in $O(n)$ time. Naive multiplication is slow, however. It takes $O(n^2)$ time to compute all the coefficient multiplications. FFT helps us speed up this multiplication.&lt;/p&gt;</description></item><item><title>473 NP</title><link>https://ofuro.me/posts/473-np/</link><pubDate>Tue, 16 Apr 2024 20:29:53 -0600</pubDate><guid>https://ofuro.me/posts/473-np/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
