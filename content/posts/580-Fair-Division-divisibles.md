@@ -31,7 +31,7 @@ tags: ["Game Theory"]
   - There is no allocation $Y$ such taht $V_i(Y_i)\geq V_i(X_i), \forall i \in [n]$.
 
 - **Welfare Maximizing**:  $\max \sum_{i}V_i$ . Doesn't makes sense sometimes. If a person has very huge values on one thing, should we just give the item to  the person?
-- **(Nash) Welfare Maximizing: **  $ \max \prod_i V_i$. This is the alternative using multipilcations.
+- **(Nash) Welfare Maximizing:**  $ \max \prod_i V_i$. This is the alternative using multipilcations.
 
 ---
 
@@ -71,7 +71,7 @@ $$
 \end{align*}
 $$
 
-On the otherhand, since $Y$ PO dominates $X$, we must have for all $i \in [n]$, $V_i(Y_i) \geq V_i(X_i)$. **If ** these $Y_i$'s are affordable (i.e. $Y_i p < 1$), then $Y_i$ would be an **affordable** bundle that is at least as good as $X_i$, but this contradicts the fact that $X_i$ is the actual demand at CEEI. Therefore, for all $i$, we must have $Y_i \cdot p \geq 1$. Also, $\exists k \in [n]$ such that  $V_k(Y_k) > V_k(X_k)$, by the same logic, we must have $Y_k \cdot p > 1$. Summing them up: 
+On the otherhand, since $Y$ PO dominates $X$, we must have for all $i \in [n]$, $V_i(Y_i) \geq V_i(X_i)$. **If** these $Y_i$'s are affordable (i.e. $Y_i p < 1$), then $Y_i$ would be an **affordable** bundle that is at least as good as $X_i$, but this contradicts the fact that $X_i$ is the actual demand at CEEI. Therefore, for all $i$, we must have $Y_i \cdot p \geq 1$. Also, $\exists k \in [n]$ such that  $V_k(Y_k) > V_k(X_k)$, by the same logic, we must have $Y_k \cdot p > 1$. Summing them up: 
 $$
 \sum_{i \in [n]} Y_i \cdot p > n \cdot 1
 $$
