@@ -28,7 +28,7 @@
 &lt;li&gt;$\mathsf{com} \gets \mathsf{Commit}(m, r)$&lt;/li&gt;
 &lt;li&gt;$\set{0, 1} \gets \mathsf{Open}(\mathsf{com}, m, r)$.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Binding:&lt;/strong&gt; an adversary can’t open the commitment to a different message $m&amp;rsquo;$.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Binding:&lt;/strong&gt; an adversary can’t open the commitment to a different message $m'$.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Hiding:&lt;/strong&gt; $\mathsf{com}$ does not reveal any information about the message $m$.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;One naive approach is to use hash. However, hash is not hiding.&lt;/p&gt;
@@ -39,7 +39,7 @@
 &lt;li&gt;$\mathsf{Commit}(m, r)$: pick a random $r \gets \mathbb{Z}_q$, compute $\mathsf{com} = g^mh^r$.&lt;/li&gt;
 &lt;li&gt;$\mathsf{Open}(\mathsf{com}, m, r)$: check if $\mathsf{com} = g^mh^r$.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;This scheme is computationally binding: if we express $h = g^x$ for some $x$, then finding $m&amp;rsquo; \neq m$ such that $g^mh^r = g^{m+rx} = g^{m&amp;rsquo; + r&amp;rsquo;x} = g^{m&amp;rsquo;}h^{r&amp;rsquo;}$ is hard by discrete log assumption.&lt;/p&gt;</description></item><item><title>RSA in pure number theory</title><link>https://ofuro.me/posts/some_rsa/</link><pubDate>Tue, 29 Oct 2024 17:02:49 -0500</pubDate><guid>https://ofuro.me/posts/some_rsa/</guid><description>&lt;h3 id="binomial-theorem"&gt;Binomial Theorem&lt;/h3&gt;
+&lt;p&gt;This scheme is computationally binding: if we express $h = g^x$ for some $x$, then finding $m' \neq m$ such that $g^mh^r = g^{m+rx} = g^{m' + r'x} = g^{m'}h^{r'}$ is hard by discrete log assumption.&lt;/p&gt;</description></item><item><title>RSA in pure number theory</title><link>https://ofuro.me/posts/some_rsa/</link><pubDate>Tue, 29 Oct 2024 17:02:49 -0500</pubDate><guid>https://ofuro.me/posts/some_rsa/</guid><description>&lt;h3 id="binomial-theorem"&gt;Binomial Theorem&lt;/h3&gt;
 &lt;p&gt;Given $a, b \in \mathbb{R}, n \in \mathbb{N}$, then
 &lt;/p&gt;
 $$
@@ -50,7 +50,7 @@ $$&lt;p&gt;
 $$
 (a+b)^p \equiv a^p + b^p \mod p
 $$&lt;p&gt;
-&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt; It suffices to show that $\binom{p}{k} \equiv 0 \mod p$ if $0 &amp;lt; k &amp;lt; p$. Observe: $p \mid p!, p \nmid k!, p \nmid (p-k)!$, hence $p \mid \binom{p}{k}$. $\blacksquare$&lt;/p&gt;</description></item><item><title>Taste of Fully Homomorphic Encryption</title><link>https://ofuro.me/posts/taste_of_fhe/</link><pubDate>Wed, 18 Sep 2024 17:56:58 -0600</pubDate><guid>https://ofuro.me/posts/taste_of_fhe/</guid><description>&lt;blockquote&gt;
+&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt; It suffices to show that $\binom{p}{k} \equiv 0 \mod p$ if $0 &lt; k &lt; p$. Observe: $p \mid p!, p \nmid k!, p \nmid (p-k)!$, hence $p \mid \binom{p}{k}$. $\blacksquare$&lt;/p&gt;</description></item><item><title>Taste of Fully Homomorphic Encryption</title><link>https://ofuro.me/posts/taste_of_fhe/</link><pubDate>Wed, 18 Sep 2024 17:56:58 -0600</pubDate><guid>https://ofuro.me/posts/taste_of_fhe/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;The following is a note for my talk during Ling&amp;rsquo;s group meeting.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id="what-is-fhe"&gt;What is FHE?&lt;/h3&gt;

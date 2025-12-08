@@ -88,24 +88,24 @@ $$&lt;h4 id="union-bound"&gt;&lt;span style="color:#599eff"&gt;Union Bound&lt;/s
 &lt;p&gt;$K_n \not \to (K_s,K_t)$ is the assertion that there exists a coloring of the edges of $K_n$ with red and blue with no red $K_s$ nor blue $K_t$.&lt;/p&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Notation&lt;/span&gt; &lt;strong&gt;Off-diagonal Ramsey numbers:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>413_Erdos-Szekeres Theorem and Ramsey Theory</title><link>https://ofuro.me/posts/413_erdos-szekeres-theorem-and-ramsey-theory/</link><pubDate>Wed, 27 Sep 2023 20:56:13 -0500</pubDate><guid>https://ofuro.me/posts/413_erdos-szekeres-theorem-and-ramsey-theory/</guid><description>&lt;h3 id="erdos-szekeres-theorem"&gt;&lt;span style="color:#3c66b5"&gt;Erdos-Szekeres Theorem&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Given $r, s$ any sequence of distinct real numbers with length at least $(r-1)(s-1)+1$ contains a monotonically increasing subsequence of length $r$ or a monotonically decreasing subsequece of length $s$.&lt;/p&gt;
-&lt;p&gt;That is, given the subsequence: $a_1, a_2, &amp;hellip;, a_{(s-1)(r-1)+1}$, we can find:&lt;/p&gt;
+&lt;p&gt;That is, given the subsequence: $a_1, a_2, ..., a_{(s-1)(r-1)+1}$, we can find:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Indicies $i_1 &amp;lt; i_2 &amp;lt; &amp;hellip;&amp;lt; i_r$ so that $a_{i1} &amp;lt; a_{i2} &amp;lt; &amp;hellip;&amp;lt; a_{ir}$&lt;/li&gt;
+&lt;li&gt;Indicies $i_1 &lt; i_2 &lt; ...&lt; i_r$ so that $a_{i1} &lt; a_{i2} &lt; ...&lt; a_{ir}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;OR&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Indicies $j_1 &amp;lt; j_2 &amp;lt; &amp;hellip;&amp;lt; j_r$ so that $a_{j1} &amp;gt; a_{j2} &amp;gt; &amp;hellip; &amp;gt; a_{jr}$&lt;/li&gt;
+&lt;li&gt;Indicies $j_1 &lt; j_2 &lt; ...&lt; j_r$ so that $a_{j1} &gt; a_{j2} &gt; ... &gt; a_{jr}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; $s = 3, r = 3$, Sequence: $10, 11, 7, 8$ has no such property.&lt;/p&gt;</description></item><item><title>413_permutation</title><link>https://ofuro.me/posts/413_permutation/</link><pubDate>Mon, 18 Sep 2023 13:45:07 -0500</pubDate><guid>https://ofuro.me/posts/413_permutation/</guid><description>&lt;h1 id="permutation-of-sets"&gt;Permutation of Sets&lt;/h1&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; permutation
 A permutation of a set $S$ can be thought of as a listing of the elements $S$ in some order.&lt;/p&gt;
 &lt;p&gt;$P(n, r)$ denotes the number of $r$-permutations of an $n$-element set.&lt;/p&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; $r$-permutation&lt;/p&gt;
-&lt;p&gt;An $r$-permutation of a set $S$ is a string $a_1, a_2, &amp;hellip; a_r$ where $a_i \in S, \forall i \in [r]$ and $a_i \neq a_j$ for $i \neq j$.&lt;/p&gt;
-&lt;p&gt;Note: $[r] = {1, 2, &amp;hellip;, r}$&lt;/p&gt;</description></item><item><title>413_Pigeonhole Principle</title><link>https://ofuro.me/posts/413_pigeonhole/</link><pubDate>Fri, 15 Sep 2023 17:28:11 -0500</pubDate><guid>https://ofuro.me/posts/413_pigeonhole/</guid><description>&lt;h1 id="pigeonhole-principle"&gt;Pigeonhole Principle&lt;/h1&gt;
+&lt;p&gt;An $r$-permutation of a set $S$ is a string $a_1, a_2, ... a_r$ where $a_i \in S, \forall i \in [r]$ and $a_i \neq a_j$ for $i \neq j$.&lt;/p&gt;
+&lt;p&gt;Note: $[r] = {1, 2, ..., r}$&lt;/p&gt;</description></item><item><title>413_Pigeonhole Principle</title><link>https://ofuro.me/posts/413_pigeonhole/</link><pubDate>Fri, 15 Sep 2023 17:28:11 -0500</pubDate><guid>https://ofuro.me/posts/413_pigeonhole/</guid><description>&lt;h1 id="pigeonhole-principle"&gt;Pigeonhole Principle&lt;/h1&gt;
 &lt;p&gt;If $n+1$ objects are distributed into $n$ boxes, then at least one box contains two or more of the objects.&lt;/p&gt;
 &lt;p&gt;&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;For each $i\in \set{1, &amp;hellip;, n}$, let $a_i = $ number of objects in box $i$. Then, $a_1 + &amp;hellip; + a_n = n+1$ Let $a_j = \text{max } a_i$. Then,
+&lt;p&gt;For each $i\in \set{1, ..., n}$, let $a_i = $ number of objects in box $i$. Then, $a_1 + ... + a_n = n+1$ Let $a_j = \text{max } a_i$. Then,
 &lt;code&gt;\begin{align*} n+1 &amp;amp;\leq n\cdot a_j \\ \frac{n+1}{n} &amp;amp;\leq a_j \\ 1 &amp;lt; \frac{n+1}{n} &amp;amp;\leq a_j\\ 1 &amp;amp;&amp;lt; a_j \end{align*}&lt;/code&gt;
 Note that this conclusion doesn&amp;rsquo;t hole if you have $n$ objects or less.&lt;/p&gt;</description></item><item><title>413_binomial</title><link>https://ofuro.me/posts/413_binomial/</link><pubDate>Tue, 12 Sep 2023 17:35:33 -0500</pubDate><guid>https://ofuro.me/posts/413_binomial/</guid><description>&lt;h1 id="binomial-coefficient-and-binomial-identity"&gt;Binomial Coefficient and Binomial Identity&lt;/h1&gt;
 &lt;h3 id="pascals-triangle"&gt;&lt;span style="color:#3c66b5"&gt;Pascal&amp;rsquo;s Triangle&lt;/span&gt;&lt;/h3&gt;
@@ -136,7 +136,7 @@ $$&lt;p&gt;
 &lt;/center&gt;
 &lt;p&gt;Choose the two cells to be removed, and the closed path we have will be sperated into two paths.&lt;/p&gt;
 &lt;p&gt;If we lable the close path we chose in the beginning from 1 to 64 in the order we drew it, white cells have odd numbers, and black cells have even numbers (or reversed).&lt;/p&gt;</description></item><item><title>413_basic counting</title><link>https://ofuro.me/posts/413_basic_counting/</link><pubDate>Mon, 28 Aug 2023 14:35:27 -0500</pubDate><guid>https://ofuro.me/posts/413_basic_counting/</guid><description>&lt;h1 id="the-four-basic-counting-principle"&gt;The four basic counting principle&lt;/h1&gt;
-&lt;p&gt;Suppose that a set $S$ is partitioned into pairwise disjoint parts $S_1, S_2, &amp;hellip;, S_n$.&lt;/p&gt;
+&lt;p&gt;Suppose that a set $S$ is partitioned into pairwise disjoint parts $S_1, S_2, ..., S_n$.&lt;/p&gt;
 &lt;h3 id="addition-principle"&gt;&lt;strong&gt;Addition principle:&lt;/strong&gt;&lt;/h3&gt;
 $$
 |S| = |S_1| + |S_2| + ... + |S_m|
