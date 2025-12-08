@@ -178,35 +178,35 @@ By this theorem, since $\mu_i \leq 1$, getting $\geq (1 - \epsilon) \cdot 1 \geq
 
 > A technique that helps us reduce fair division instance to a smaller instance. Can also see the definition in [GMT19 paper](https://drops.dagstuhl.de/storage/01oasics/oasics-vol069-sosa2019/OASIcs.SOSA.2019.20/OASIcs.SOSA.2019.20.pdf).
 
-If there exists $S \subseteq M$ and some $i^\* \in N$ such that: 
+If there exists $S \subseteq M$ and some $i^* \in N$ such that: 
 
-- $i^\*$ gets $\alpha$-MMS value from $S$, i.e. $v_{i^\*}(S) \geq \alpha \cdot \mu_{i^\*}^n(M)$. 
-- Once we give $S$ to $i^\*$, and remove both, the MMS value of the remaining agents **does not decrease**. $\mu_i^{n-1}(M \backslash S) \geq \mu_i^n(M), \forall i \neq i^\*$. 
+- $i^*$ gets $\alpha$-MMS value from $S$, i.e. $v_{i^*}(S) \geq \alpha \cdot \mu_{i^*}^n(M)$. 
+- Once we give $S$ to $i^*$, and remove both, the MMS value of the remaining agents **does not decrease**. $\mu_i^{n-1}(M \backslash S) \geq \mu_i^n(M), \forall i \neq i^*$. 
 
 <span style="color:#28a745">Definition(Valid Reduction).</span> If the above two properties are satisfied, then the removal of such $S$ induces a **valid reduction**.
 
 <span style="color:#9650af">Idea.</span> If $S$ includes the item in the maxmin share of agent $i$, then agent $i$ actually gets better off (more chance to get more valuable item). Otherwise, it is not affecting the original maxmin share. 
 
-<span style="color:#599eff">Claim.</span> Suppose agent $i \neq i^\*$ gets $X_i$ in an $\alpha$-MMS allocation of $M \backslash S$ to agents $N \backslash\set{i^\*}$, then $\left(X_1, \ldots, X_{i^\*-1}, S, X_{i^\*+1}, \ldots, X_n\right)$ is an $\alpha$-MMS allocation in the original instance.
+<span style="color:#599eff">Claim.</span> Suppose agent $i \neq i^*$ gets $X_i$ in an $\alpha$-MMS allocation of $M \backslash S$ to agents $N \backslash\set{i^*}$, then $\left(X_1, \ldots, X_{i^*-1}, S, X_{i^*+1}, \ldots, X_n\right)$ is an $\alpha$-MMS allocation in the original instance.
 
 <span style="color:#04c2b2">Algorithm.</span> for 1/2-MMS allocation, using valid reduction. 
 
 1. Normalize valutaions: $\sum_{j \in R} v_{ij} = n \implies \mu_i \leq 1$, where $R$ is the remaining items. 
 2. Valid reductions.
-   - If $v_{i^\*1} \geq 1/2$, then just give the item $1$ to agent $i^\*$. (Assume valuation sorted.)
+   - If $v_{i^*1} \geq 1/2$, then just give the item $1$ to agent $i^*$. (Assume valuation sorted.)
 3. Repeat 1 and 2 until we have $v_{ij} \leq 1/2$
 4. Bag filling algorithm
 
 <span style="color:#599eff">Claim.</span> Step 2 is a valid reduction.
 
-<span style="color:#eb861c">Proof.</span> Suppose, for some agent $k$, this item $v_{i^\*1}$ is in $k$’s maxmin share bundle. We know that $\mu_k \leq 1$, then the value of that item must also be less than $1$. After removing the item from $k$’s maxmin share bundle and giving it to agent $i^\*$, the rest of the bundle can be placed in $k$’s other bundles, where the MMS value in this reduced instance won’t be decreased. $\square$
+<span style="color:#eb861c">Proof.</span> Suppose, for some agent $k$, this item $v_{i^*1}$ is in $k$’s maxmin share bundle. We know that $\mu_k \leq 1$, then the value of that item must also be less than $1$. After removing the item from $k$’s maxmin share bundle and giving it to agent $i^*$, the rest of the bundle can be placed in $k$’s other bundles, where the MMS value in this reduced instance won’t be decreased. $\square$
 
 <span style="color:#04c2b2">Algorithm.</span> $2/3$-MMS allocation [GMT19]
 
 1. Normalize valuations
 2. Valid reductions:
-   - If $v_{i^\*1} \geq 2/3$ then just assign item $1$ to agent $i^\*$.  (First valid reduction rule)
-   - Else if $v_{i^\*n} + v_{i^\*(n+1)} \geq 2/3$ then assign $\set{n, n + 1}$ to $i^\*$. (CLEVER!!!)
+   - If $v_{i^*1} \geq 2/3$ then just assign item $1$ to agent $i^*$.  (First valid reduction rule)
+   - Else if $v_{i^*n} + v_{i^*(n+1)} \geq 2/3$ then assign $\set{n, n + 1}$ to $i^*$. (CLEVER!!!)
 3. Repeat 1 and 2 untill no valid reductions.
 4. Generalized bag filling with $\epsilon = 1/3$.
    - Initialize $n$ bags $\set{B_1, \ldots, B_n}$ with $B_k = \set{k}, \forall k$. 
@@ -216,13 +216,13 @@ If there exists $S \subseteq M$ and some $i^\* \in N$ such that:
 
 <span style="color:#eb861c">Proof.</span> After the first valid reduction rule, we have $v_{ij} \leq 2/3$ for all agents $i$ and all remaining item $j$. After this, it suffices to consider the two cases for the “CLEVER” step: 
 
-Case 1: if $\set{n, n + 1} \subseteq X_k$, for some agent $k$. That is, if agent $k$’s maxmin share bundle includes both of these two items, we can treat it as a single item, and give it to agent $i^\*$. The argument is the same as before (in the proof for valid reduction in $1/2$-MMS algorithm).
+Case 1: if $\set{n, n + 1} \subseteq X_k$, for some agent $k$. That is, if agent $k$’s maxmin share bundle includes both of these two items, we can treat it as a single item, and give it to agent $i^*$. The argument is the same as before (in the proof for valid reduction in $1/2$-MMS algorithm).
 
-Case 2: if $n \in X_k, \; n + 1 \in X_l$, for some agents $k, l$, where $X_k, X_l$ are their maxmin share bundle. Since the item $n, n + 1$ are about to be given to agent $i^\*$, for all $i \neq i^\*$, we can change their MMS allocations by the following rule: find the bundle $X_d$ with items $j_1, j_2$, where $j_1 < j_2 \leq (n + 1)$, then swap $j_1$ with $n$, and swap $j_2$ with $n + 1$. For other items in $X_d$, assign it to other bundle. The bundle $X_d$ is then given to agent $i^\*$. By this allocation, all agent’s MMS value will not decrease. $\square$
+Case 2: if $n \in X_k, \; n + 1 \in X_l$, for some agents $k, l$, where $X_k, X_l$ are their maxmin share bundle. Since the item $n, n + 1$ are about to be given to agent $i^*$, for all $i \neq i^*$, we can change their MMS allocations by the following rule: find the bundle $X_d$ with items $j_1, j_2$, where $j_1 < j_2 \leq (n + 1)$, then swap $j_1$ with $n$, and swap $j_2$ with $n + 1$. For other items in $X_d$, assign it to other bundle. The bundle $X_d$ is then given to agent $i^*$. By this allocation, all agent’s MMS value will not decrease. $\square$
 
-<span style="color:#599eff">Claim.</span> In the generalized bag filling algorithm, it agetn $i^\*$ is the first to shout, then for any agent $i \neq i^\*$, the bag is of value at most $1$.
+<span style="color:#599eff">Claim.</span> In the generalized bag filling algorithm, it agetn $i^*$ is the first to shout, then for any agent $i \neq i^*$, the bag is of value at most $1$.
 
-<span style="color:#eb861c">Proof.</span> First, by the valid reductions, we know that all items have value less than $2/3$. What’s more, after all the CLEVER valid reductions, it is impossible to have $v_{i^\*n} + v_{i^\*(n+1)} \geq 2/3$. Since the item $n$ is more valuable than item $n + 1$, we must have all item $n + 1, n + 2, \ldots$ being valued less than $1/3$. Combining with thes two facts, the generalized  bag filling algorithm works exactly as before after having the first $n$ items initialized: the observation is that after last item added to the bag, the total value is of that bag is $\leq 1$ for all agents. $\square$
+<span style="color:#eb861c">Proof.</span> First, by the valid reductions, we know that all items have value less than $2/3$. What’s more, after all the CLEVER valid reductions, it is impossible to have $v_{i^*n} + v_{i^*(n+1)} \geq 2/3$. Since the item $n$ is more valuable than item $n + 1$, we must have all item $n + 1, n + 2, \ldots$ being valued less than $1/3$. Combining with thes two facts, the generalized  bag filling algorithm works exactly as before after having the first $n$ items initialized: the observation is that after last item added to the bag, the total value is of that bag is $\leq 1$ for all agents. $\square$
 
 
 ---

@@ -20,6 +20,11 @@ $\mathfrak{ABCDEFG}$
 
 $\mathscr{ABCDEFG}$
 
+Testing the \* and \_: 
+1. $v_{i^* n} + v_{i^* (n + 1)} + v_{i^* (n + 2)}$; 
+2. $i^*$ gets $\alpha$-MMS value from $S$, i.e. $v_{i^*}(S) \geq \alpha \cdot \mu_{i^*}^n(M)$. 
+
+
 
 Hi `$z = x + y$`.
 

@@ -63,5 +63,6 @@ theme = 'hugo-PaperMod'
           ]
           # inline math delimiters
           inline = [
-            ['\\(', '\\)']
+            ['\\(', '\\)'], 
+            ['$', '$']
           ]
