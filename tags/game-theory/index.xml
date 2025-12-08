@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Game Theory on Yue's Notes</title><link>https://ofuro.me/tags/game-theory/</link><description>Recent content in Game Theory on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Sat, 06 Dec 2025 00:10:46 -0600</lastBuildDate><atom:link href="https://ofuro.me/tags/game-theory/index.xml" rel="self" type="application/rss+xml"/><item><title>580 Fair Division of Divisibles via Competitive Equilibrium</title><link>https://ofuro.me/posts/580-fair-division-divisibles/</link><pubDate>Sat, 06 Dec 2025 00:10:46 -0600</pubDate><guid>https://ofuro.me/posts/580-fair-division-divisibles/</guid><description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Game Theory on Yue's Notes</title><link>https://ofuro.me/tags/game-theory/</link><description>Recent content in Game Theory on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Sat, 06 Dec 2025 23:20:54 -0600</lastBuildDate><atom:link href="https://ofuro.me/tags/game-theory/index.xml" rel="self" type="application/rss+xml"/><item><title>580 Fair Division of Indivisibles</title><link>https://ofuro.me/posts/580-indivisibles/</link><pubDate>Sat, 06 Dec 2025 23:20:54 -0600</pubDate><guid>https://ofuro.me/posts/580-indivisibles/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Items are NOT divisible now!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;: Fair and efficient allocation&lt;/p&gt;
+&lt;h3 id="model"&gt;Model&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$A$: set of $n$ agents&lt;/li&gt;
+&lt;li&gt;$M$: set of $m$ indivisible goods&lt;/li&gt;
+&lt;li&gt;Each agent $i$ has
+&lt;ul&gt;
+&lt;li&gt;Valuation function: $V_i: 2^m \to R_+$ over subsets of items. This function is monotone, i.e. the more the happier.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Allocation $X = (X_1, \ldots, X_n)$ is the allocation of goods to agents, where they form a partition of $M$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="fairness"&gt;Fairness&lt;/h4&gt;
+&lt;p&gt;In the indivisible setting, we envy-free and proportional properties is hard to achieve in the divisible setting. We need new definitions.&lt;/p&gt;</description></item><item><title>580 Fair Division of Divisibles via Competitive Equilibrium</title><link>https://ofuro.me/posts/580-fair-division-divisibles/</link><pubDate>Sat, 06 Dec 2025 00:10:46 -0600</pubDate><guid>https://ofuro.me/posts/580-fair-division-divisibles/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Divisibles means that the item can be divided to any sizes. A cake is an example.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;: Fair and efficient allocation&lt;/p&gt;
