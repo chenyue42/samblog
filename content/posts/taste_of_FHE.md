@@ -19,14 +19,14 @@ $$
 
 
 FHE supports Addition AND Scalar Multiplicaiton:
-{{< math >}}
+
 $$
 \begin{cases}
 \text{Enc}(m_1) + \text{Enc}(m_2) = \text{Enc}(m_1 + m_2)\\
 \text{Enc}(m) \cdot c = \text{Enc}(m \cdot c)
 \end{cases}
 $$
-{{< /math >}}
+
 Fancy! And it exsists!
 
 ### LWE & Ring-LWE
@@ -66,14 +66,14 @@ BFV is a RLWE scheme that supports ct-ct multiplication. $(a_1, b_1) \cdot (a_2,
 #### Supporting larger message?
 
 Notice that in the general definition for LWE, the message we can encrypt is $m \in \mathbb{Z}_t$. This is typically not enough. What if we want a larger message $\mu \in \mathbb{Z}_t^m$? Hence, we typically use a random matrix $A$ for encryption:
-{{< math >}}
+
 $$
 \begin{align*}
 \text{LWE}(\mu) = (A, A \cdot s + \mu + e)\\
 A \in \mathbb{Z}_q^{m \times n}, s \in \mathbb{B}^n, \mu \in \mathbb{Z}_t^m
 \end{align*}
 $$
-{{< /math >}}
+
 This means that encrypting a vector in $\mathbb{Z}_t^m$ requires $mn$ many $\mathbb{Z}_q$. RLWE helps reduce this!
 
 #### Ring Learning With Error (RLWE)
@@ -115,7 +115,7 @@ $$
 #### Toy Example
 
 $m = 6, C = 3405, k = 4$
-{{< math >}}
+
 $$
 \begin{align*}
 \text{Decomp}(C) &= (3, 4, 0, 5)\\
@@ -123,7 +123,7 @@ $$
 C \cdot m &= 3 \cdot 6000  + 4 \cdot 600 +  5 \cdot 6 = 20430
 \end{align*}
 $$
-{{< /math >}}
+
 
 
 #### Generalization
@@ -142,7 +142,7 @@ $$
 $$
 
 Another level of generalization looks like: 
-{{< math >}}
+
 $$
 \begin{align*}
 G= I_k \otimes \vec{g} = 
@@ -158,7 +158,7 @@ B^0 & \ldots & 0 \\
 
 \end{align*}
 $$
-{{< /math >}}
+
 It turns out that this big $G$ here is also a gadget by definition 3.1 in [Building an Efficient Lattice Gadget Toolkit: Subgaussian Sampling and More](https://eprint.iacr.org/2018/946.pdf) if we treat each row as an  element. 
 
 
@@ -169,14 +169,14 @@ It turns out that this big $G$ here is also a gadget by definition 3.1 in [Build
 ### Ring-GSW
 
 This is another FHE scheme. The special thing about this scheme is that it uses RLWE and a special gadget matrix during the encryption stage.
-{{< math >}}
+
 $$
 \begin{align*}
 \text{RGSW}(m) = Z + m \cdot G && 
 Z = (\underbrace{\text{RLWE}(0), \ldots, \text{RLWE}(0)}_{2 \ell}), G = I_2 \otimes \vec{g}
 \end{align*}
 $$
-{{< /math >}}
+
 This is a Ring-GSW sample that encrypts the message $m$ (without scaling by any factor). This is a special case of RGSW (otherwise $G = I_k \otimes \vec{g}$ for any desired $k$. Check [TFHE](https:/print.iacr.org/2016/870)). And, we also have $2\ell$ rows of RLWE(0). This encryption is straight forward. However, I don't know any decryption methods. Why? Note that some gadget values are very small compared to the ciphertext coefficient modulus, which means $m \cdot g_i$ can be as small as the noise... 
 
 
@@ -186,14 +186,14 @@ This is a Ring-GSW sample that encrypts the message $m$ (without scaling by any 
 > Additive noise growth for ct-ct multiplication!!!
 
 External product using only one gadget decomposition: 
-{{< math >}}
+
 $$
 \begin{align*}
 \text{RGSW} \boxdot \text{RLWE} &\to \text{RLWE} \\
 (A, b) &\mapsto A \boxdot b = G^{-1}(b) \cdot A
 \end{align*}
 $$
-{{< /math >}}
+
 English: we first decompose the RLWE ciphertext, and then multiply it with RGSW.
 
 > In the context of external product, $\text{Decomp}_G(v) \in R^{1\times2l}, A \in R^{2l \times 2}$.
@@ -201,7 +201,7 @@ English: we first decompose the RLWE ciphertext, and then multiply it with RGSW.
 #### Proof sketch
 
 Let $\text{msg}(A) = \mu_A, \text{msg}(b) = \mu_b$. By definition of RLWE, $b = (a, a \cdot s + \mu_b + e) = (a, a \cdot s + 0 + e) + (0, \mu_b) = z_b + (0, \mu_b)$.
-{{< math >}}
+
 $$
 \begin{align*}
 A \boxdot b &= G^{-1}(b) \cdot A = G^{-1}(b) \cdot (Z_A + \mu_A \cdot G)\\
@@ -211,7 +211,7 @@ A \boxdot b &= G^{-1}(b) \cdot A = G^{-1}(b) \cdot (Z_A + \mu_A \cdot G)\\
 &= G^{-1}(b) \cdot Z_A + \mu_A \cdot \epsilon + \mu_A \cdot z_b + (0, \mu_A \cdot \mu_b)\\
 \end{align*}
 $$
-{{< /math >}}
+
 
 Decryption is to calculate the linear equation $\varphi_s(\;(a, b)\;) = b - a \cdot s$. Then, rounding the result, everything goes to zero except $\mu_A \cdot \mu_b$. 
 
@@ -219,7 +219,7 @@ Decryption is to calculate the linear equation $\varphi_s(\;(a, b)\;) = b - a \c
 
 Check the noise growth! The advantage for doing this is the first term $G^{-1}(b) \cdot A$. If we don't do the gadget decomposition, say $G^{-1}(b) = b$, and $A$ is a vector, then this term multiplies the error of two messages together. However, because of the gadget decomposition, the error term inside $b$ is upper bounded by $B$.  The total error looks like: 
 
-{{< math >}}
+
 $$
 \begin{align*}
 \| \text{Err}(A \boxdot b) \|_\infty\leq 
@@ -229,7 +229,7 @@ $$
 
 \end{align*}
 $$
-{{< /math >}}
+
 
 
 If we have small message $\mu_A$, then this multiplication is roughly free! I must quote this sentence I learnt from Jeremy Kun: "This is useful when the noise growth is asymmetric in the two arguments, and so basically you make the noise-heavy part as small as possible and move the powers of 2 to the other side."
@@ -241,14 +241,14 @@ The essence is that we separate RLWE, which is very sensitive to scaling, to sma
 ### Key Switching
 
 In RLWE, key switching is a technique that helps us change the underlying secret key without decrypting the ciphertext. Formally, we want to change the underlying secret key from $s$ to $t$: 
-{{< math >}}
+
 $$
 \begin{align*}
 c = (a, b) \;\;\; &\longrightarrow \;\;\; c' = (a', b')\\
 c = (a, a \cdot s + m + e) \;\;\; &\longrightarrow \;\;\; c' = (a', a' \cdot t + m + e')\\
 \end{align*}
 $$
-{{< /math >}}
+
 <span style="color:#28a745">Definition</span> Key Switching Key(KSK)
 $$
 \mathsf{KSK}(s, t) = \mathsf{RLWE}_t(s) = (x, x \cdot t + s + e_{\text{new}})
@@ -256,7 +256,7 @@ $$
 where $x \in \mathbb{Z}_q[X] / (x^n + 1)$ is another random polynomial. This is a new ciphertext encrypting the old secret key.
 
 Then, the new ciphertext $c'$ can be computed by:
-{{< math >}}
+
 $$
 \begin{align*}
 c' &= (0, b) - a \mathsf{KSK} \\
@@ -267,9 +267,9 @@ c' &= (0, b) - a \mathsf{KSK} \\
 &= (a', a't + m + e')
 \end{align*}
 $$
-{{< /math >}}
+
 Observe that this is still a valid RLWE ciphertext. Here is another way to to check if $c'$ has correctly encrypted the message $m$ under the key $t$. We check this by applying the phase function (or simply decrypt it): 
-{{< math >}}
+
 $$
 \begin{align*}
 \varphi_t(c') &= \varphi_t(\; (0, b) - a \cdot \mathsf{KSK}\;)\\
@@ -279,29 +279,29 @@ $$
 &= m + e - a \cdot e_{\text{new}}\\
 \end{align*}
 $$
-{{< /math >}}
+
 This is consistant with the aboved result. 
 
 **HOWEVER**, the error $a \cdot e_\text{new}$ can be too large! $a$ is randomly sampled in $\mathbb{Z}_q[X] / (x^n + 1)$. The trick is to use Gadget Decomposition! Decomposing $a$ into smaller chunks, and scaling the underlying message inside KSK into different levels, without scaling up the error.
-{{< math >}}
+
 $$
 \begin{align*}
 &\text{Scaling this up: }\mathsf{KSK}(s, t)'_i = \mathsf{RLWE}_t^*(sB^i) = (x, x \cdot t + sB_i + e_{\text{new}}), i = 0, \ldots, \ell - 1\\
 &\text{Decomposing this: }a \Rightarrow G^{-1}(a) = \set{a_i : i = 0, \ldots l-1}
 \end{align*}
 $$
-{{< /math >}}
+
 The new ciphertext is computed: 
-{{< math >}}
+
 $$
 \begin{align*}
 c' &= (0, b) - G^{-1}(a) \cdot \mathsf{KSK}(s, t)'\\
 &= (0, b) - \sum_{i = 0}^{\ell-1}G^{-1}(a)_i \cdot \mathsf{KSK}(s, t)'_i
 \end{align*}
 $$
-{{< /math >}}
+
 Check the phase of this ciphertext: 
-{{< math >}}
+
 $$
 \begin{align*}
 \varphi_t(c') &= \varphi(0, b) - \sum_{i = 0}^{\ell-1}G^{-1}(a)_i \cdot \varphi_t
@@ -311,7 +311,7 @@ $$
 &= b - a \cdot s + e'
 \end{align*}
 $$
-{{< /math >}}
+
 
 
 #### Substitution / Frobenius Automorphism

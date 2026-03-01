@@ -26,14 +26,14 @@ $$
 > Example: $B = 10, \ell = 3, g = (1/10^1, 1/10^2, 1/10^3)$.
 
 Then we use this vector to create TGSW gadget $G$. 
-{{< math >}}
+
 $$
 G=\mathbf{I}_2 \otimes g=\left[\begin{array}{ll}
 g & 0 \\
 0 & g
 \end{array}\right] \in \mathbb{T}_N[X]^{2 \ell \times 2}
 $$
-{{< /math >}}
+
 
 
 
@@ -96,7 +96,7 @@ The first thing to notice is is that we should not interpret each row of RGSW as
 In our case, since we can store each row or RGSW as RLWE, we can use a very specific trick to pack the query, and use the algorithm 3 in Onion-Ring ORAM as a subroutine to unpack the query. By doing this, we reduce the online communication. The following is an important observation. I will use the notation in the link above.
 
 In BFV scheme, we have: 
-{{< math >}}
+
 $$
 \operatorname{BFV}(0) =
 \begin{cases}
@@ -104,9 +104,9 @@ C_1 = [-(a \cdot SK + e)\cdot u + e_1]_q = [-a \cdot SK \cdot u - e\cdot u + e_1
 C_2 = [a \cdot u + e_2]_q
 \end{cases}
 $$
-{{< /math >}}
+
 Therefore, if we only look at the first $l$ rows of a RGSW ciphertext, the $i^{\text{th}}$ row looks like: 
-{{< math >}}
+
 $$
 \begin{align*}
 \operatorname{RGSW}(M)_i &= Z_i + M \cdot G_i = 
@@ -123,12 +123,12 @@ C_{i, 2}
 
 \end{align*}
 $$
-{{< /math >}}
+
 
 Here, I am using $\operatorname{BFV^*}( M g_i / \Delta)$  for a simpler expression. It is not "real" as we won't get the exact RGSW ciphertext if we encrypt $M g_i / \Delta$ when $\Delta > Mg_i$ for each row. The simple reason is: in a discrete case, this division would give 0.
 
 Next, the bottom $l$ rows. Let $j \in [l]$ but represent the index of the second $l$ rows. So, $Z_j$ actually means $Z_{j + l}$.
-{{< math >}}
+
 $$
 \begin{align*}
 \operatorname{RGSW}(M)_j 
@@ -145,9 +145,9 @@ a \cdot u + e_2 + Mg_i
 
 \end{align*}
 $$
-{{< /math >}}
+
 If we treat the second term as a new $C_{j, 2}'$, decrypting this row using BFV decryption gives us: 
-{{< math >}}
+
 $$
 \begin{align*}
 \text{message}(\operatorname{RGSW}(M)_j) &= 
@@ -168,17 +168,17 @@ C_{j, 1} + (C_{j, 2} + Mg_j) \cdot \mathrm{SK}
 
 \end{align*}
 $$
-{{< /math >}}
+
 
 
 
 Then the trick is to perform external product betweeen $\operatorname{RGSW}(\mathrm{SK})$ and the first $l$ rows, $\operatorname{BFV^*}(Mg_i/\Delta)$, to recreate the second $l$ rows of the query RGSW ciphertexts.
 
-{{< math >}}
+
 $$
 \operatorname{RGSW}(\mathrm{SK}) \boxdot \operatorname{BFV^*}(Mg_i/\Delta) = \operatorname{BFV^*}((Mg_i/\Delta) \cdot SK)
 $$
-{{< /math >}}
+
 
 
 
@@ -209,14 +209,14 @@ Details in BFV diff from TLWE:
 - Decrypting BFV $C=\left(C_1, C_2\right): \operatorname{Dec}(C)=\left[\frac{t\left[C_1+C_2 \cdot S K\right]_q}{q}\right]_t$
 - Enc in TLWE: $c=\left(c_1, c_2\right)=\left(c_1, c_1 \cdot s k+\mu+e\right), C_1$ random
 - Enc in BFV: 
-{{< math >}}
+
 $C=\left\{
   \begin{array}{l}{
     \left[-(a \cdot S K+e) r+e_1+\lfloor\frac{q}{t} \rceil\, \cdot \mu\right]_q} \\ {\left[a \cdot r+e_2\right]_q
   }\end{array}
   \right\}$
 $\Delta$ scaling factor
-{{< /math >}}
+
 
 
 

@@ -16,7 +16,7 @@ Solve $h_n=h_{n-1}+n^3,(n \geq 1)$ and $h_0=0$.
 Note that this is not a homegenous recurrence relation. 
 
 Unrolling gives us: 
-{{< math >}}
+
 $$
 \begin{align*}
 h_{n-1} &= (n-1)^3 + h_{n-2}\\
@@ -24,7 +24,7 @@ h_{n-1} &= (n-1)^3 + h_{n-2}\\
 h_n &= n^3 + (n-1)^3 + h_{n-2}
 \end{align*}
 $$
-{{< /math >}}
+
 And we can keep doing this. Using this as the intuition, we guess the closed form: 
 $$
 h_n = n^3 + (n-1)^3 + \ldots + 2^3 + 1
@@ -43,7 +43,7 @@ $$
 <span style="color:#eb861c">Proof</span> by induction
 
 This is obviously true for $n = 1$. Then assume this identity is true for some $n \in \mathbb{N}$. Let's prove $n+1$ case. 
-{{< math >}}
+
 $$
 \begin{align*}
 1 + 2^3 + \ldots + n^3 + (n+1)^3 &\overset{I.H.}{=} (1 + \ldots + n)^2 + (n+1)^3\\
@@ -54,9 +54,9 @@ $$
 (n+1)^3 &\overset{?}{=} (n+1)^2 + 2(1 + \ldots + n)\cdot (n+1)
 \end{align*}
 $$
-{{< /math >}}
+
 Start from the right side: 
-{{< math >}}
+
 $$
 \begin{align*}
 (n+1)^2 + 2(1 + \ldots + n)\cdot (n+1) &= (n+1)(2(1+\ldots+n) + (n+1))\\
@@ -65,7 +65,7 @@ $$
 &= (n+1)^3
 \end{align*}
 $$
-{{< /math >}}
+
 $\blacksquare$
 
 > I have learnt an interesting way of thinking the meaning of $(1+2+\ldots + n)$ from this proof.
@@ -101,7 +101,7 @@ $$
 b_n = sn + r
 $$
 for some constant $s$ and $r$. Since we hope that $b_n$ satisfies the recurrence relation $b_n = 3b_{n-1}-4n$, we can solve for $s$ and $r$:
-{{< math >}}
+
 $$
 \begin{align*}
 b_n &= 3(s(n-1)+r) - 4n\\
@@ -114,7 +114,7 @@ r=3
 \end{cases}
 \end{align*}
 $$
-{{< /math >}}
+
 
 - Solution to homogeneous recurrence relation: 
 $$
@@ -128,14 +128,14 @@ b_n = 2n + 3
 $$
 
 Combine them together to get: 
-{{< math >}}
+
 $$
 \begin{align*}
 h_n &= c \cdot a_n + b_n = 3h_{n-1} - 4n\\
 h_n &= c(3^n) + (2n+3), \quad h_0 = 2
 \end{align*}
 $$
-{{< /math >}}
+
 
 There is one important thing to learn here. Question: why do we want to combine $a_n$ and $b_n$ together? Why we multiply $a_n$ by a constant $c$ while we don't do this for $b_n$? The answer is that the 
 

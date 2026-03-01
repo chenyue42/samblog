@@ -97,7 +97,6 @@ $$
 Base case: $p = 0$, then $(h_n)\_{n \geq 0}$ is a constant sequence $\implies \Delta h_n = h_{n+1} - h_n = 0$.
 
 Induction step: Assume this holds for $p-1, p \geq 1$. Let's show that this holds for $p$ as well. We have: 
-{{< math >}}
 $$
 \begin{align*}
 \Delta h_n = h_{n+1} - h_n &= \left(a_p(n+1)^p+a_{p-1}(n+1)^{p-1}+\cdots+a_1 n+a_0\right)\\
@@ -105,7 +104,6 @@ $$
 &= (a_p(n+1)^p - a_p n^p) + \text{polynomial with degree }p-1
 \end{align*}
 $$
-{{< /math >}}
 By IH, the polynomial with degree $p-1$ goes to zero. Since we want to show that $\Delta^{p+1} h_n$ still goes to zero, we need to show that:
 
 $$
@@ -114,7 +112,7 @@ $$
 
 Now, to solve this, we can use binomial theorm: 
 
-{{< math >}}
+
 $$
 \begin{align*}
 a_p(n+1)^p - a_p n^p &= a_p\left( \sum_{i=0}^{p}\binom{p}{i}n^{i} \right) - a_pn^p\\
@@ -122,7 +120,7 @@ a_p(n+1)^p - a_p n^p &= a_p\left( \sum_{i=0}^{p}\binom{p}{i}n^{i} \right) - a_pn
 &= a_p\left( \sum_{i=0}^{p-1} \binom{p}{i}n^i \right)
 \end{align*}
 $$
-{{< /math >}}
+
 
 Which means that this polynomial also has degree $p-1$. Combining with the term above, we have: 
 $$
@@ -150,7 +148,7 @@ $$
 $$
 Expand this and use commutative property to show this: 
 
-{{< math >}}
+
 $$
 \begin{align*}
 \Delta h_n &=h_{n+1}-h_n \\ 
@@ -159,7 +157,7 @@ $$
 &=\Delta g_n+\Delta f_n
 \end{align*}
 $$
-{{< /math >}}
+
 
 ---
 

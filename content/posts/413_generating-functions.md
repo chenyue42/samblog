@@ -30,7 +30,7 @@ $$
 
 $|x| < 1$,
 `
-{{< math >}}
+
 $$
 \begin{align*}
 (1-x)(1 + x + x^2 + x^3 + \cdots + x^n) &= 1 - x^{n+1}\\
@@ -41,7 +41,7 @@ $$
 \sum_{j=0}^{\infty}x^j = \frac{1}{1-x}
 \end{align*}
 $$
-{{< /math >}}
+
 `
 #### <span style="color:#04c2b2">Example 2</span>
 
@@ -72,13 +72,13 @@ $$
 The goal is to convince ourself that expanding the function $g(x) = \frac{1}{(1-x)^k}$ give us special coefficients. (What is that? 🤔)
 
 Since we know that $\frac{1}{(1-x)} = 1 + x + x^2 + \ldots$, the expansion becomes: 
-{{< math >}}
+
 $$
 \begin{align*}
 \frac{1}{(1-x)^k} = \underbrace{(1 + x + x^2 + \ldots) \cdot (1 + x + x^2 + \ldots) \cdots (1 + x + x^2 + \ldots)}_{k}
 \end{align*}
 $$
-{{< /math >}}
+
 Note that there are $k$ pairs of parenthesis, and from each pair of parentheis, we can choose a $x^i$, for some $i \geq 0$. Multiplying these $x_i$'s, say $x^{i_1} \cdot x^{i_2}\cdots x^{i_k}$, which is equivalent to $x^{i_1 + i_2 + \ldots + i_k} = x^n$ for some $n$. Now, given a fixed $n$, we can think about the coefficients of the term $x^n$... Well, MAGIC !!! This is same as the number of nonnegative integral solutions of $x_1 + x_2 + \ldots + x_k = n$. Just in different notation!
 
 To make this clearer, just write out the definition of generating functions of this sequence: 
@@ -171,7 +171,7 @@ To calculate $h_n$ from this, we can use Taylor expansion:
 
 
 ⚠️ Calc review: 
-{{< math >}}
+
 $$
 \begin{aligned}
 & f \in \mathcal{C}^{\infty}, 0 \in \operatorname{Domain}(f) \\
@@ -184,9 +184,9 @@ $$
 &
 \end{aligned}
 $$
-{{< /math >}}
+
 For $n \in \mathbb{N}:$
-{{< math >}}
+
 $$
 \begin{aligned}
 & f^{(n)}(0)=(n+1) ! \\
@@ -194,20 +194,20 @@ $$
 & =1+\sum_{n \geqslant 1} \frac{f^{(n)}(0) x^n}{n !}=1+\sum_{n \geqslant 1}^1(n+1) x^n
 \end{aligned}
 $$
-{{< /math >}}
+
 Then our answer is simply $h_n = n+1$. $\blacksquare$
 
 **OR**
 
 We can solve this in another way:
-{{< math >}}
+
 $$
 \begin{align*}
 \left(\frac{1}{1-x}\right)^\prime &= (1 + x + x^2 + \ldots)^\prime\\
 \frac{1}{(1-x)^2} &= 0 + 1 + 2x + 3x^2 + \ldots
 \end{align*}
 $$
-{{< /math >}}
+
 Then we find out that $h_n = n+1$. $\blacksquare$
 
 ---
@@ -292,27 +292,27 @@ $$
 \frac{n!}{j_1! \cdots j_k!}
 $$
 
-{{< math >}}
+
 $$
 \begin{align*}
 \implies P_n = \sum_{(j_1, \ldots,j_k): \text{restriction}}\frac{n!}{j_1! \cdots j_k!}
 \end{align*}
 $$
-{{< /math >}}
+
 Consider the function: 
 $$
 g(x) = \left( \sum_{j_1 = 0}^{n_1} \frac{x^{j_1}}{j_1} \right) \cdots 
 \left( \sum_{j_k = 0}^{n_k} \frac{x^{j_k}}{j_k} \right)
 $$
 Goal: to show that the coef of $x^n$ in $g$ is equal to $P_n / n!$
-{{< math >}}
+
 $$
 \begin{align*}
 g(x) &= \sum_{0\leq j_i \leq n_i}\frac{x^{j_1}}{j_1!} \cdots\frac{x^{j_k}}{j_k!}\\
 &=\sum_{n=0}^{n_1+\ldots + n_k} \left( \sum_{(j_1,\ldots,j_k):\text{restriction}} \frac{1}{j_1! \cdots j_k!}\right)\cdot x^n
 \end{align*}
 $$
-{{< /math >}}
+
 This whole thing gives us:
 $$
 g(x) = \sum_{n=0}^{n_1 + \ldots + n_k} \frac{P_n}{n!}x^n
@@ -323,7 +323,7 @@ $$
 Let $h_n$ denote the number of $n$-digit numbers with digits 1,2, or 3 , where the number of 1 's is even, the number of 2 's is at least three, and the number of 3 's is at most four. Determine the exponential generating function $g^{(e)}(x)$ for the resulting sequence of numbers $\left(h_n\right)_{n \geq 0}$.
 
 **Solution**
-{{< math >}}
+
 $$
 \begin{align*}
 g^{(e)}(x) &= \left( 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \ldots \right) && \text{choice of num of 1's}\\
@@ -331,7 +331,7 @@ g^{(e)}(x) &= \left( 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \ldots \right) && \te
 &\cdot \left( 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} \right)&& \text{choice of num of 3's}
 \end{align*}
 $$
-{{< /math >}}
+
 The expansion becomes:
 $$
 g^{(e)}(x) = \sum \frac{x^{a_1}x^{a_2}x^{a_3}}{a_1!a_2!a_3!}
@@ -387,7 +387,7 @@ $$
 Where the first term correspondes to choices for number of 5's,7's, and 9's. Since they are all the same, the term is raised to power of 3. Similarly, the second term corrspondes to choices for 1's and 3's.
 
 Simplify this we get:
-{{< math >}}
+
 $$
 \begin{align*}
 g^{(e)}(x) &= \left( \frac{e^{-x}+e^x}{2} \right)^2 \cdot e^{3x}\\
@@ -395,7 +395,7 @@ g^{(e)}(x) &= \left( \frac{e^{-x}+e^x}{2} \right)^2 \cdot e^{3x}\\
 &= \frac{1}{4} \cdot \left( 2e^{3x} + e^x + e^{5x} \right)
 \end{align*}
 $$
-{{< /math >}}
+
 Now, want to find the coefficients of each term in the Taylor's Expansion.
 
 $e^x =  \left( 1 + x + \frac{x^2}{2!} +  \frac{x^3}{3!} + \cdots \right)$
@@ -443,7 +443,7 @@ $$
 g(x) = \frac{5}{1-2x} - \frac{4}{1-3x}
 $$
 Now, use the fact that $\frac{1}{1-x} = 1 + x + x^2 + x^3 + \ldots$, we have: 
-{{< math >}}
+
 $$
 \begin{align*}
 g(x) &= 5 \sum_{n \geq 0} (2x)^n - 4 \sum_{n \geq 0}(3x)^n\\
@@ -452,7 +452,7 @@ g(x) &= 5 \sum_{n \geq 0} (2x)^n - 4 \sum_{n \geq 0}(3x)^n\\
 h_n &= 5 \cdot 2^n - 4 \cdot 3^n
 \end{align*}
 $$
-{{< /math >}}
+
 $\blacksquare$
 
 #### <span style="color:#04c2b2">Towers of Hanoi puzzle revisited</span>
@@ -466,7 +466,7 @@ Let $h_n$ be the number of moves to transfer $n$ disk from one peg to a differen
 Note that this recurrence relation is non-homegeneous. (Definition below)
 
 Now, back to the solution. Define the following generating functions based on the expression $h_n - 2h_{n-1}-1 = 0$.
-{{< math >}}
+
 $$
 \begin{align*}
 g_1(x) &= h_0 + h_1x + h_2x^2 + h_3x^3 + \ldots && \text{As usual}\\
@@ -474,13 +474,13 @@ g_2(x) &= -2h_{-1} -2h_0x - 2h_1x^2 - 2h_2x^3 + \ldots && \text{using } h_{-1} =
 g_3(x) &= 0 -1x - 1x^2 - 1x^3 + \ldots && \text{using } a_0 = 0, a_i = -1,\forall i \geq 1
 \end{align*}
 $$
-{{< /math >}}
+
 
 
 Sum them up, we get a zero function: $(g_1 + g_2 + g_3)(x) = 0, \forall x \geq 0$
 
 Now, express $g_2, g_3$ in terms of $g_1$: 
-{{< math >}}
+
 $$
 \begin{align*}
 g_2(x) &= g(x) \cdot (-2x)\\
@@ -491,21 +491,21 @@ g_1(x) &\cdot (1-2x) + g_3(x) = 0\\
 g_1(x) &= \frac{x}{(1-x)(1-2x)}
 \end{align*}
 $$
-{{< /math >}}
+
 We want to find Taylor series of this thing. The starting point of breaking this to parts is to construct linear terms: 
-{{< math >}}
+
 $$
 \begin{align*}
 g_1(x) &= \frac{x}{(1-x)(1-2x)} = \frac{c_1}{1-x} + \frac{c_2}{1-2x}
 \end{align*}
 $$
-{{< /math >}}
+
 Solving for $c_1$ and $c_2$ we get: 
 $$
 g_1(x) = \frac{-1}{1-x} + \frac{1}{1-2x}
 $$
 As we have $\frac{1}{1-x} = 1 + x + x^2 + \ldots$, we conclude: 
-{{< math >}}
+
 $$
 \begin{align*}
 g_1(x) &= -\sum_{n \geq 0} x^n + \sum_{n \geq 0} (2x)^n\\
@@ -514,7 +514,7 @@ g_1(x) &= \sum_{n \geq 0}(2^n - 1)x^n\\
 h_n &= 2^n - 1
 \end{align*}
 $$
-{{< /math >}}
+
 Now we get THE function for Hanoi's Tower. 
 
 ---
@@ -526,14 +526,14 @@ $$
 Where $k$ and $a_i$'s are constants. 
 
 <span style="color:#28a745">Definition</span> The characteristic polynomial of the homogeneous linear recurrence:
-{{< math >}}
+
 $$
 \begin{align*}
 \frac{P(x)}{x^{n-k}} &= \frac{x^n - (a_1 x^{n-1} + a_2 x^{n-2} + \ldots + a_k x^{n-k})}{x^{n-k}}\\
 r(x) &= x^k - (a_1x^{k-1} + a_2x^{k-2} + \ldots + a_kx)
 \end{align*}
 $$
-{{< /math >}}
+
 $r(x)$ is the characteristic polynomial of the homogeneous linear recurrence.
 
 

@@ -26,7 +26,7 @@ Output: a list of points in $P$ that belongs to this convex set in CCW, starting
 Now, let's design some algorithms!
 
 ### Math properties
-{{< math >}}
+
 $$
 \begin{align*}
 \text{CH}(P) &= \bigcap_{\text{convex } S \supseteq P} S = 
@@ -35,14 +35,14 @@ $$
 &= \bigcup_{i, j, k} \set{\text{all convex triples $i, j, k$ (triangle)}}
 \end{align*}
 $$
-{{< /math >}}
+
 
 Convex combination:
-{{< math >}}
+
 $$
 \sum_{i = 1}^{n} a_i p_i, \; \sum_{i = 1}^{n} a_i = 1, a_i \geq 0. 
 $$
-{{< /math >}}
+
 
 
 <span style="color:#599eff">Lemma</span> $p_i$ is a vertex of $\text{CH}(P)$ iff $\exists$   line through $p_i$ such that $P$ lines on one side. (all other points on one side.)
@@ -90,7 +90,7 @@ We say $p_k$ below $p_ip_j$
 - iff $y_k - y_i < \frac{y_j - y_i}{x_j - x_i}(x_k - x_i)$ .
 - iff $(y_k - y_i)(x_j - x_i) < (y_j - y_i)(x_k - x_i)$. This is a cross product!
 - iff
-{{< math >}}
+
 $$
 2 \cdot \text{signed area of }\Delta  p_ip_jp_k
 \begin{vmatrix}
@@ -100,7 +100,7 @@ $$
 \end{vmatrix}
  < 0
 $$
-{{< /math >}}
+
 
 The good thing about the determinant test is that it extends to higher dimensions. 
 
@@ -155,10 +155,10 @@ I will skip the pseudocode.
 #### Analysis:
 
 Naively $O(n^2)$. But, what if we bound the number of iterations for relaxation? Observation, the total relaxation time is bounded by $O(n)$. 
-{{< math >}}
+
 $$
 O(n + \# \text{decrement}) \leq O(n + \# \text{increment}) = O(n)
 $$
-{{< /math >}}
+
 But we do have a sorting in $O(n \log n)$.
 

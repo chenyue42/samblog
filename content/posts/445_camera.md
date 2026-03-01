@@ -47,7 +47,7 @@ First, let's look at this projection from camera coordinate to image plane.
 
 
 In a matrix form, if we set the camera center at $(0, 0, 0)$, this is actually easy to express:
-{{< math >}}
+
 $$
 K =\left[\begin{array}{ccc}
 f & 0 & u_0 \\
@@ -55,10 +55,10 @@ f & 0 & u_0 \\
 0 & 0 & 1
 \end{array}\right]
 $$
-{{< /math >}}
+
 
 Now if we just use the default **R** and **t**, the model is:
-{{< math >}}
+
 $$
 w\left[\begin{array}{l}
 u \\
@@ -77,7 +77,7 @@ Z \\
 1
 \end{array}\right]
 $$
-{{< /math >}}
+
 Do some calculation, then you find out that this is exactly the same as the diagram above.
 
 
@@ -91,7 +91,7 @@ Do some calculation, then you find out that this is exactly the same as the diag
   </figure>
 </center>
 
-{{< math >}}
+
 $$
 \left[\begin{array}{ll} R & t \end{array}\right] = \left[\begin{array}{cccc}
 r_{11} & r_{12} & r_{13} & t_x \\
@@ -99,14 +99,14 @@ r_{21} & r_{22} & r_{23} & t_y \\
 r_{31} & r_{32} & r_{33} & t_z
 \end{array}\right]
 $$
-{{< /math >}}
+
 
 The **R** here is the rotation matrix for 3D coordinate. World coordinate $\xrightarrow{\text{rotate to }}$ Camera coordinate direction. This **R** is also orthonormal. 
 
 The **t** here traslates the world origin to the camera center. 
 
 If we know that position $(x, y, z)$ of the camera in the world coordinate, we can also set up this simple equation for calculating **R** and **t**.
-{{< math >}}
+
 $$
 X_c =\left[\begin{array}{ll}
 R & t
@@ -115,14 +115,14 @@ X_w \\
 1
 \end{array}\right]=RX_w+t=0 \\
 $$
-{{< /math >}}
+
 
 
 
 
 ### The Complete Model
 
-{{< math >}}
+
 $$
 x=\mathbf{K}\left[\begin{array}{ll}
 \mathbf{R} & \mathbf{t}
@@ -149,7 +149,7 @@ Z \\
 1
 \end{array}\right]
 $$
-{{< /math >}}
+
 
 
 
@@ -229,7 +229,7 @@ Then, we know that in the camera coordinate, the point is observed at $(u, v)$. 
 
 We want to solve for the position $X_{pw}$ of the point in the world coordinate. We also know that this point is on the ground, so its $y$ value is 0. As we have all the information we want, writing out the formula of the Pinhole Camera Model and we should be able to solve the problem: 
 
-{{< math >}}
+
 $$
 w\left[\begin{array}{l}
 u \\
@@ -250,7 +250,7 @@ z_{p m} \\
 1
 \end{array}\right]
 $$
-{{< /math >}}
+
 
 
 
