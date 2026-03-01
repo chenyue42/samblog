@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cryptography on Yue's Notes</title><link>https://ofuro.me/tags/cryptography/</link><description>Recent content in Cryptography on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Tue, 11 Feb 2025 02:36:16 -0600</lastBuildDate><atom:link href="https://ofuro.me/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding SimplePIR &amp; DoublePIR</title><link>https://ofuro.me/posts/simple-double/</link><pubDate>Tue, 11 Feb 2025 02:36:16 -0600</pubDate><guid>https://ofuro.me/posts/simple-double/</guid><description>&lt;h3 id="notations"&gt;Notations&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cryptography on Yue's Notes</title><link>https://ofuro.me/tags/cryptography/</link><description>Recent content in Cryptography on Yue's Notes</description><generator>Hugo -- 0.157.0</generator><language>en-us</language><managingEditor>yuec12@illinois.edu (Yue Chen)</managingEditor><webMaster>yuec12@illinois.edu (Yue Chen)</webMaster><lastBuildDate>Sun, 01 Mar 2026 17:11:47 -0600</lastBuildDate><atom:link href="https://ofuro.me/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Key Switching Techniques</title><link>https://ofuro.me/posts/key-switching-techniques/</link><pubDate>Sun, 01 Mar 2026 17:11:47 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/key-switching-techniques/</guid><description>&lt;h3 id="basics"&gt;Basics&lt;/h3&gt;
+&lt;h4 id="rlwe-ciphertext"&gt;RLWE ciphertext&lt;/h4&gt;
+$$
+\begin{align*}
+(a, b) &amp;= (a, -as + \Delta m + e)\\
+R_q &amp;= \mathbb{Z}_q[x]/(x^d + 1)\\
+\Delta &amp;= \lfloor q/p\rfloor
+\end{align*}
+$$&lt;h4 id="key-switching"&gt;Key-switching&lt;/h4&gt;
+$$
+\begin{align*}
+\mathsf{KS.setup}(s,s')&amp;=[w, -s' \cdot w + s \cdot g_z + e] \to K\\
+\mathsf{KS.switch}(K, (a, b)) &amp;= (0, b) + g_z^{-1}(a) \cdot k\\
+&amp;= (0, b) + g_z^{-1}(a) \cdot [w, -s' \cdot w + s \cdot g_z + e]\\
+&amp;= (g_z^{-1}(a) \cdot w, -g_z^{-1}(a) \cdot w \cdot s'+ g_z^{-1}(a) \cdot s \cdot g_z+g_z^{-1}(a) \cdot e)\\
+&amp;=(a', -s'a' + s \cdot g_z^{-1}(a)g_z + e')\\
+&amp;=(a', -s'a' + sa + e') + (0, -as + m + e)\\
+&amp;=(a', -s'a' + m + e'')
+\end{align*}
+$$&lt;p&gt;$K\in R_q^{\ell \times 2}$ is two columns of polys. This is pretty large. Say $q$ is stored in &lt;code&gt;uint64_t&lt;/code&gt;, $d = 2048$, then each polynomial in $R_q$ is &lt;code&gt;16KB&lt;/code&gt;. We can use pseudorandom $w$ to save some time, but still quite large.&lt;/p&gt;</description></item><item><title>Understanding SimplePIR &amp; DoublePIR</title><link>https://ofuro.me/posts/simple-double/</link><pubDate>Tue, 11 Feb 2025 02:36:16 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/simple-double/</guid><description>&lt;h3 id="notations"&gt;Notations&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Database size: $N$&lt;/p&gt;
@@ -22,7 +41,7 @@
 &lt;p&gt;LWE Randomized matrix $A \gets \mathbb{Z}_q^{m \times n}$, where $m$ is the number of samples you want to encrypt.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Plain message vector: $\vec{\mu} \in \mathbb{Z}_p^m$. In simplePIR, we also write $\mu_i$ to denote the vector with all zero entries except a single $1$ at index $i$.&lt;/p&gt;</description></item><item><title>Commitment and Signatures</title><link>https://ofuro.me/posts/commitment-and-signatures/</link><pubDate>Fri, 13 Dec 2024 00:03:24 -0600</pubDate><guid>https://ofuro.me/posts/commitment-and-signatures/</guid><description>&lt;h3 id="definition-commitment"&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; Commitment&lt;/h3&gt;
+&lt;p&gt;Plain message vector: $\vec{\mu} \in \mathbb{Z}_p^m$. In simplePIR, we also write $\mu_i$ to denote the vector with all zero entries except a single $1$ at index $i$.&lt;/p&gt;</description></item><item><title>Commitment and Signatures</title><link>https://ofuro.me/posts/commitment-and-signatures/</link><pubDate>Fri, 13 Dec 2024 00:03:24 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/commitment-and-signatures/</guid><description>&lt;h3 id="definition-commitment"&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; Commitment&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Parameters $\mathsf{pp} \gets \mathsf{Gen}(1^n)$.&lt;/li&gt;
 &lt;li&gt;$\mathsf{com} \gets \mathsf{Commit}(m, r)$&lt;/li&gt;
@@ -39,7 +58,7 @@
 &lt;li&gt;$\mathsf{Commit}(m, r)$: pick a random $r \gets \mathbb{Z}_q$, compute $\mathsf{com} = g^mh^r$.&lt;/li&gt;
 &lt;li&gt;$\mathsf{Open}(\mathsf{com}, m, r)$: check if $\mathsf{com} = g^mh^r$.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;This scheme is computationally binding: if we express $h = g^x$ for some $x$, then finding $m' \neq m$ such that $g^mh^r = g^{m+rx} = g^{m' + r'x} = g^{m'}h^{r'}$ is hard by discrete log assumption.&lt;/p&gt;</description></item><item><title>RSA in pure number theory</title><link>https://ofuro.me/posts/some_rsa/</link><pubDate>Tue, 29 Oct 2024 17:02:49 -0500</pubDate><guid>https://ofuro.me/posts/some_rsa/</guid><description>&lt;h3 id="binomial-theorem"&gt;Binomial Theorem&lt;/h3&gt;
+&lt;p&gt;This scheme is computationally binding: if we express $h = g^x$ for some $x$, then finding $m' \neq m$ such that $g^mh^r = g^{m+rx} = g^{m' + r'x} = g^{m'}h^{r'}$ is hard by discrete log assumption.&lt;/p&gt;</description></item><item><title>RSA in pure number theory</title><link>https://ofuro.me/posts/some_rsa/</link><pubDate>Tue, 29 Oct 2024 17:02:49 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/some_rsa/</guid><description>&lt;h3 id="binomial-theorem"&gt;Binomial Theorem&lt;/h3&gt;
 &lt;p&gt;Given $a, b \in \mathbb{R}, n \in \mathbb{N}$, then
 &lt;/p&gt;
 $$
@@ -50,7 +69,7 @@ $$&lt;p&gt;
 $$
 (a+b)^p \equiv a^p + b^p \mod p
 $$&lt;p&gt;
-&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt; It suffices to show that $\binom{p}{k} \equiv 0 \mod p$ if $0 &lt; k &lt; p$. Observe: $p \mid p!, p \nmid k!, p \nmid (p-k)!$, hence $p \mid \binom{p}{k}$. $\blacksquare$&lt;/p&gt;</description></item><item><title>Taste of Fully Homomorphic Encryption</title><link>https://ofuro.me/posts/taste_of_fhe/</link><pubDate>Wed, 18 Sep 2024 17:56:58 -0600</pubDate><guid>https://ofuro.me/posts/taste_of_fhe/</guid><description>&lt;blockquote&gt;
+&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt; It suffices to show that $\binom{p}{k} \equiv 0 \mod p$ if $0 &lt; k &lt; p$. Observe: $p \mid p!, p \nmid k!, p \nmid (p-k)!$, hence $p \mid \binom{p}{k}$. $\blacksquare$&lt;/p&gt;</description></item><item><title>Taste of Fully Homomorphic Encryption</title><link>https://ofuro.me/posts/taste_of_fhe/</link><pubDate>Wed, 18 Sep 2024 17:56:58 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/taste_of_fhe/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;The following is a note for my talk during Ling&amp;rsquo;s group meeting.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id="what-is-fhe"&gt;What is FHE?&lt;/h3&gt;
@@ -59,18 +78,9 @@ $$&lt;p&gt;
 &lt;/p&gt;
 $$
 \text{Enc}(m_1) \cdot \text{Enc}(m_2) = m_1^e \cdot m_2^e = (m_1 \cdot m_2)^e = \text{Enc}(m_1 \cdot m_2)
-$$&lt;p&gt;FHE supports Addition AND Scalar Multiplicaiton:
-&lt;div&gt;
-$$
-\begin{cases}
-\text{Enc}(m_1) + \text{Enc}(m_2) = \text{Enc}(m_1 + m_2)\\
-\text{Enc}(m) \cdot c = \text{Enc}(m \cdot c)
-\end{cases}
-$$
-&lt;/div&gt;
-Fancy! And it exsists!&lt;/p&gt;</description></item><item><title>Understanding GSW</title><link>https://ofuro.me/posts/understanding-gsw/</link><pubDate>Fri, 23 Aug 2024 21:56:04 -0600</pubDate><guid>https://ofuro.me/posts/understanding-gsw/</guid><description>&lt;p&gt;The goal of this file is to help understand the GSW scheme and the implementation of &lt;code&gt;GSWCiphertext&lt;/code&gt;in OnionPIR code. Let&amp;rsquo;s start with my understanding of GSW scheme.&lt;/p&gt;
+$$&lt;p&gt;FHE supports Addition AND Scalar Multiplicaiton:&lt;/p&gt;</description></item><item><title>Understanding GSW</title><link>https://ofuro.me/posts/understanding-gsw/</link><pubDate>Fri, 23 Aug 2024 21:56:04 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/understanding-gsw/</guid><description>&lt;p&gt;The goal of this file is to help understand the GSW scheme and the implementation of &lt;code&gt;GSWCiphertext&lt;/code&gt;in OnionPIR code. Let&amp;rsquo;s start with my understanding of GSW scheme.&lt;/p&gt;
 &lt;h3 id="from-tgsw-to-rgsw"&gt;From TGSW to RGSW&lt;/h3&gt;
-&lt;p&gt;RGSW is a ring variation of &lt;a href="https://eprint.iacr.org/2013/340"&gt;GSW scheme&lt;/a&gt;. I do not see any formal paper defining RGSW. However, I do find this particular paper helpful: &lt;a href="https:/print.iacr.org/2016/870"&gt;Faster Fully Homomorphic Encryption: Bootstrapping in less than 0.1 Seconds&lt;/a&gt;. This paper defines TLWE and TGSW.&lt;/p&gt;</description></item><item><title>Comparisons on Keyword Support Methods</title><link>https://ofuro.me/posts/keyword-support-methods/</link><pubDate>Wed, 03 Jul 2024 18:29:54 -0600</pubDate><guid>https://ofuro.me/posts/keyword-support-methods/</guid><description>&lt;p&gt;The goal is to compare three methods for supporting keyword feature in PIR: Key-value filter in ChalametPIR, Sparse PIR, and the Cuckoo hashing method. In the beginning, we don&amp;rsquo;t want to start by comparing the detailed experimental performances, but we want to list their properties. What they are good / bad at.&lt;/p&gt;
+&lt;p&gt;RGSW is a ring variation of &lt;a href="https://eprint.iacr.org/2013/340"&gt;GSW scheme&lt;/a&gt;. I do not see any formal paper defining RGSW. However, I do find this particular paper helpful: &lt;a href="https:/print.iacr.org/2016/870"&gt;Faster Fully Homomorphic Encryption: Bootstrapping in less than 0.1 Seconds&lt;/a&gt;. This paper defines TLWE and TGSW.&lt;/p&gt;</description></item><item><title>Comparisons on Keyword Support Methods</title><link>https://ofuro.me/posts/keyword-support-methods/</link><pubDate>Wed, 03 Jul 2024 18:29:54 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/keyword-support-methods/</guid><description>&lt;p&gt;The goal is to compare three methods for supporting keyword feature in PIR: Key-value filter in ChalametPIR, Sparse PIR, and the Cuckoo hashing method. In the beginning, we don&amp;rsquo;t want to start by comparing the detailed experimental performances, but we want to list their properties. What they are good / bad at.&lt;/p&gt;
 &lt;h3 id="metrics"&gt;Metrics&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Client storage&lt;/li&gt;

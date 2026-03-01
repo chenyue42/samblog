@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Computational Photography on Yue's Notes</title><link>https://ofuro.me/tags/computational-photography/</link><description>Recent content in Computational Photography on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Mon, 30 Oct 2023 10:36:20 -0500</lastBuildDate><atom:link href="https://ofuro.me/tags/computational-photography/index.xml" rel="self" type="application/rss+xml"/><item><title>445_camera</title><link>https://ofuro.me/posts/445_camera/</link><pubDate>Mon, 30 Oct 2023 10:36:20 -0500</pubDate><guid>https://ofuro.me/posts/445_camera/</guid><description>&lt;h1 id="world-coordinates-and-image-coordinates"&gt;World Coordinates and Image coordinates&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Computational Photography on Yue's Notes</title><link>https://ofuro.me/tags/computational-photography/</link><description>Recent content in Computational Photography on Yue's Notes</description><generator>Hugo -- 0.157.0</generator><language>en-us</language><managingEditor>yuec12@illinois.edu (Yue Chen)</managingEditor><webMaster>yuec12@illinois.edu (Yue Chen)</webMaster><lastBuildDate>Mon, 30 Oct 2023 10:36:20 -0500</lastBuildDate><atom:link href="https://ofuro.me/tags/computational-photography/index.xml" rel="self" type="application/rss+xml"/><item><title>445_camera</title><link>https://ofuro.me/posts/445_camera/</link><pubDate>Mon, 30 Oct 2023 10:36:20 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/445_camera/</guid><description>&lt;h1 id="world-coordinates-and-image-coordinates"&gt;World Coordinates and Image coordinates&lt;/h1&gt;
 &lt;h2 id="pinhole-camera-model"&gt;Pinhole Camera Model&lt;/h2&gt;
 $$
 x = K \left[
@@ -11,7 +11,7 @@ $$&lt;p&gt;&lt;strong&gt;x&lt;/strong&gt;: Image Coordinates: $(u, v, 1)$
 &lt;strong&gt;R&lt;/strong&gt;: Rotation $(3 \times 3)$
 &lt;strong&gt;t&lt;/strong&gt;: Translation $(3 \times 1)$
 &lt;strong&gt;X&lt;/strong&gt;: World Coordinates: $(X, Y, Z, 1)$&lt;/p&gt;
-&lt;p&gt;Basically, from the right side to the leftside, it is transforming a point (1) from the world coordinates to camera coordinates, and then project the point (2) from camera coordinates down to the image plane.&lt;/p&gt;</description></item><item><title>445_Blending</title><link>https://ofuro.me/posts/445_blending-warping/</link><pubDate>Mon, 30 Oct 2023 10:34:53 -0500</pubDate><guid>https://ofuro.me/posts/445_blending-warping/</guid><description>&lt;h3 id="pasting-images"&gt;Pasting Images&lt;/h3&gt;
+&lt;p&gt;Basically, from the right side to the leftside, it is transforming a point (1) from the world coordinates to camera coordinates, and then project the point (2) from camera coordinates down to the image plane.&lt;/p&gt;</description></item><item><title>445_Blending</title><link>https://ofuro.me/posts/445_blending-warping/</link><pubDate>Mon, 30 Oct 2023 10:34:53 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/445_blending-warping/</guid><description>&lt;h3 id="pasting-images"&gt;Pasting Images&lt;/h3&gt;
 &lt;h4 id="method-1--cut-and-paste-the-images"&gt;Method 1 — Cut and paste the images.&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -51,7 +51,7 @@ $$&lt;ol start="4"&gt;
 &lt;li&gt;Collapse the pyramid to get the final blended image&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id="method-3-poisson-blending"&gt;Method 3: Poisson Blending&lt;/h4&gt;
-&lt;p&gt;A good blend should preserve gradient of source region withough changing the background&lt;/p&gt;</description></item><item><title>445_Synthesizing and Cutting</title><link>https://ofuro.me/posts/445_synthesizing-cutting/</link><pubDate>Mon, 30 Oct 2023 10:33:26 -0500</pubDate><guid>https://ofuro.me/posts/445_synthesizing-cutting/</guid><description>&lt;h2 id="texture-synthesis-and-hole-filling"&gt;Texture Synthesis and Hole-Filling&lt;/h2&gt;
+&lt;p&gt;A good blend should preserve gradient of source region withough changing the background&lt;/p&gt;</description></item><item><title>445_Synthesizing and Cutting</title><link>https://ofuro.me/posts/445_synthesizing-cutting/</link><pubDate>Mon, 30 Oct 2023 10:33:26 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/445_synthesizing-cutting/</guid><description>&lt;h2 id="texture-synthesis-and-hole-filling"&gt;Texture Synthesis and Hole-Filling&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;How do we cut something out of an image, and fill the hole naturally?&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -65,14 +65,14 @@ $$&lt;ol start="4"&gt;
 &lt;li&gt;Compute statistics of input texture&lt;/li&gt;
 &lt;li&gt;Generate a new texture that keeps those same statistics.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;But it is hard to model those probabilities distributions.&lt;/p&gt;</description></item><item><title>445_color_basics</title><link>https://ofuro.me/posts/445_color_basics/</link><pubDate>Mon, 30 Oct 2023 10:32:37 -0500</pubDate><guid>https://ofuro.me/posts/445_color_basics/</guid><description>&lt;h3 id="how-do-you-view-the-world"&gt;How do you view the world&lt;/h3&gt;
+&lt;p&gt;But it is hard to model those probabilities distributions.&lt;/p&gt;</description></item><item><title>445_color_basics</title><link>https://ofuro.me/posts/445_color_basics/</link><pubDate>Mon, 30 Oct 2023 10:32:37 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/445_color_basics/</guid><description>&lt;h3 id="how-do-you-view-the-world"&gt;How do you view the world&lt;/h3&gt;
 &lt;img src="https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231009180859272.png" alt="image-20231009180859272" style="zoom: 33%;" /&gt;
 &lt;p&gt;&lt;strong&gt;Cones:&lt;/strong&gt; cone-shaped, less sensitive, operate in high light, color vision&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Rods:&lt;/strong&gt; rod-shaped, highly sensitive, operate at night, gray-scale vision, slower to respond&lt;/p&gt;
 &lt;img src="https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231009181400266.png" alt="image-20231009181400266" style="zoom:50%;" /&gt;
 &lt;p&gt;&lt;span style="color:#9650af"&gt;Observation&lt;/span&gt; In a clear night, there are more stars off-center. This is because you have more rods in the middle, while more cones elsewhere.&lt;/p&gt;
 &lt;h3 id="how-to-express-colors"&gt;How to express colors?&lt;/h3&gt;
-&lt;p&gt;Basically, the most intuitive expression is the RGB color space. But it is not a linear color space. We perfer expressing using CIE-XYZ color space, which makes the calculation much easier.&lt;/p&gt;</description></item><item><title>445_texture</title><link>https://ofuro.me/posts/445_texture/</link><pubDate>Sun, 17 Sep 2023 15:24:34 -0500</pubDate><guid>https://ofuro.me/posts/445_texture/</guid><description>&lt;h1 id="texture-synthesis--hole-filling"&gt;Texture Synthesis &amp;amp; Hole Filling&lt;/h1&gt;
+&lt;p&gt;Basically, the most intuitive expression is the RGB color space. But it is not a linear color space. We perfer expressing using CIE-XYZ color space, which makes the calculation much easier.&lt;/p&gt;</description></item><item><title>445_texture</title><link>https://ofuro.me/posts/445_texture/</link><pubDate>Sun, 17 Sep 2023 15:24:34 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/445_texture/</guid><description>&lt;h1 id="texture-synthesis--hole-filling"&gt;Texture Synthesis &amp;amp; Hole Filling&lt;/h1&gt;
 &lt;h4 id="texture"&gt;Texture&lt;/h4&gt;
 &lt;p&gt;Texture depicts spacially repeating patterns.&lt;/p&gt;
 &lt;h3 id="texture-synthesis"&gt;Texture Synthesis&lt;/h3&gt;

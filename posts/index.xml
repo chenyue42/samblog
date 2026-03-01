@@ -1,5 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Yue's Notes</title><link>https://ofuro.me/posts/</link><description>Recent content in Posts on Yue's Notes</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Wed, 10 Dec 2025 13:27:56 -0600</lastBuildDate><atom:link href="https://ofuro.me/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hell's Kitchen</title><link>https://ofuro.me/posts/kitchen/</link><pubDate>Wed, 10 Dec 2025 13:27:56 -0600</pubDate><guid>https://ofuro.me/posts/kitchen/</guid><description>&lt;p&gt;Inviting Javi~~&lt;/p&gt;
-&lt;p&gt;Linearizability v.s. Sequential consistency can be explained through a Hell&amp;rsquo;s Kitchen example where there are two teams of cooks cooking for a shared set of customers dining. Main idea is to get accross ordering of dishes (i.e. first course, then second, then third, &amp;hellip;) for individual customers (sequential) and entire tables (linearizable).&lt;/p&gt;</description></item><item><title>539 Distributed Shared Memory</title><link>https://ofuro.me/posts/539-dsm/</link><pubDate>Sun, 07 Dec 2025 22:30:31 -0600</pubDate><guid>https://ofuro.me/posts/539-dsm/</guid><description>&lt;p&gt;Think about the communication model in the distributed system. We have either message passing(fundamental) or shared memory(convenient, but more abstract). The goal is to mimic &lt;strong&gt;single-process memory&lt;/strong&gt; interfece so that higher-level algorithms can use this shared memory as a black-box. A read returns the value of the &lt;em&gt;most recent&lt;/em&gt; write. However, in distributed system, operations may overlap. In this note, we build &lt;strong&gt;shared memory&lt;/strong&gt; in the message passing communication model.&lt;/p&gt;</description></item><item><title>580 Fair Division of Indivisibles</title><link>https://ofuro.me/posts/580-indivisibles/</link><pubDate>Sat, 06 Dec 2025 23:20:54 -0600</pubDate><guid>https://ofuro.me/posts/580-indivisibles/</guid><description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Yue's Notes</title><link>https://ofuro.me/posts/</link><description>Recent content in Posts on Yue's Notes</description><generator>Hugo -- 0.157.0</generator><language>en-us</language><managingEditor>yuec12@illinois.edu (Yue Chen)</managingEditor><webMaster>yuec12@illinois.edu (Yue Chen)</webMaster><lastBuildDate>Sun, 01 Mar 2026 17:11:47 -0600</lastBuildDate><atom:link href="https://ofuro.me/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Key Switching Techniques</title><link>https://ofuro.me/posts/key-switching-techniques/</link><pubDate>Sun, 01 Mar 2026 17:11:47 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/key-switching-techniques/</guid><description>&lt;h3 id="basics"&gt;Basics&lt;/h3&gt;
+&lt;h4 id="rlwe-ciphertext"&gt;RLWE ciphertext&lt;/h4&gt;
+$$
+\begin{align*}
+(a, b) &amp;= (a, -as + \Delta m + e)\\
+R_q &amp;= \mathbb{Z}_q[x]/(x^d + 1)\\
+\Delta &amp;= \lfloor q/p\rfloor
+\end{align*}
+$$&lt;h4 id="key-switching"&gt;Key-switching&lt;/h4&gt;
+$$
+\begin{align*}
+\mathsf{KS.setup}(s,s')&amp;=[w, -s' \cdot w + s \cdot g_z + e] \to K\\
+\mathsf{KS.switch}(K, (a, b)) &amp;= (0, b) + g_z^{-1}(a) \cdot k\\
+&amp;= (0, b) + g_z^{-1}(a) \cdot [w, -s' \cdot w + s \cdot g_z + e]\\
+&amp;= (g_z^{-1}(a) \cdot w, -g_z^{-1}(a) \cdot w \cdot s'+ g_z^{-1}(a) \cdot s \cdot g_z+g_z^{-1}(a) \cdot e)\\
+&amp;=(a', -s'a' + s \cdot g_z^{-1}(a)g_z + e')\\
+&amp;=(a', -s'a' + sa + e') + (0, -as + m + e)\\
+&amp;=(a', -s'a' + m + e'')
+\end{align*}
+$$&lt;p&gt;$K\in R_q^{\ell \times 2}$ is two columns of polys. This is pretty large. Say $q$ is stored in &lt;code&gt;uint64_t&lt;/code&gt;, $d = 2048$, then each polynomial in $R_q$ is &lt;code&gt;16KB&lt;/code&gt;. We can use pseudorandom $w$ to save some time, but still quite large.&lt;/p&gt;</description></item><item><title>Hell's Kitchen</title><link>https://ofuro.me/posts/kitchen/</link><pubDate>Wed, 10 Dec 2025 13:27:56 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/kitchen/</guid><description>&lt;p&gt;Inviting Javi~~&lt;/p&gt;
+&lt;p&gt;Linearizability v.s. Sequential consistency can be explained through a Hell&amp;rsquo;s Kitchen example where there are two teams of cooks cooking for a shared set of customers dining. Main idea is to get accross ordering of dishes (i.e. first course, then second, then third, &amp;hellip;) for individual customers (sequential) and entire tables (linearizable).&lt;/p&gt;</description></item><item><title>539 Distributed Shared Memory</title><link>https://ofuro.me/posts/539-dsm/</link><pubDate>Sun, 07 Dec 2025 22:30:31 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/539-dsm/</guid><description>&lt;p&gt;Think about the communication model in the distributed system. We have either message passing(fundamental) or shared memory(convenient, but more abstract). The goal is to mimic &lt;strong&gt;single-process memory&lt;/strong&gt; interfece so that higher-level algorithms can use this shared memory as a black-box. A read returns the value of the &lt;em&gt;most recent&lt;/em&gt; write. However, in distributed system, operations may overlap. In this note, we build &lt;strong&gt;shared memory&lt;/strong&gt; in the message passing communication model.&lt;/p&gt;</description></item><item><title>580 Fair Division of Indivisibles</title><link>https://ofuro.me/posts/580-indivisibles/</link><pubDate>Sat, 06 Dec 2025 23:20:54 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/580-indivisibles/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Items are NOT divisible now!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;: Fair and efficient allocation&lt;/p&gt;
@@ -15,7 +34,7 @@
 &lt;li&gt;Allocation $X = (X_1, \ldots, X_n)$ is the allocation of goods to agents, where they form a partition of $M$.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id="fairness"&gt;Fairness&lt;/h4&gt;
-&lt;p&gt;In the indivisible setting, we envy-free and proportional properties is hard to achieve in the divisible setting. We need new definitions.&lt;/p&gt;</description></item><item><title>580 Fair Division of Divisibles via Competitive Equilibrium</title><link>https://ofuro.me/posts/580-fair-division-divisibles/</link><pubDate>Sat, 06 Dec 2025 00:10:46 -0600</pubDate><guid>https://ofuro.me/posts/580-fair-division-divisibles/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;In the indivisible setting, we envy-free and proportional properties is hard to achieve in the divisible setting. We need new definitions.&lt;/p&gt;</description></item><item><title>580 Fair Division of Divisibles via Competitive Equilibrium</title><link>https://ofuro.me/posts/580-fair-division-divisibles/</link><pubDate>Sat, 06 Dec 2025 00:10:46 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/580-fair-division-divisibles/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Divisibles means that the item can be divided to any sizes. A cake is an example.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;: Fair and efficient allocation&lt;/p&gt;
@@ -43,7 +62,7 @@
 &lt;h4 id="efficientnon-wasteful"&gt;Efficient(non-wasteful)&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Pareto-optimal&lt;/strong&gt;: no other allocation is better for all.&lt;/p&gt;</description></item><item><title>Understanding SimplePIR &amp; DoublePIR</title><link>https://ofuro.me/posts/simple-double/</link><pubDate>Tue, 11 Feb 2025 02:36:16 -0600</pubDate><guid>https://ofuro.me/posts/simple-double/</guid><description>&lt;h3 id="notations"&gt;Notations&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Pareto-optimal&lt;/strong&gt;: no other allocation is better for all.&lt;/p&gt;</description></item><item><title>Understanding SimplePIR &amp; DoublePIR</title><link>https://ofuro.me/posts/simple-double/</link><pubDate>Tue, 11 Feb 2025 02:36:16 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/simple-double/</guid><description>&lt;h3 id="notations"&gt;Notations&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Database size: $N$&lt;/p&gt;
@@ -67,7 +86,7 @@
 &lt;p&gt;LWE Randomized matrix $A \gets \mathbb{Z}_q^{m \times n}$, where $m$ is the number of samples you want to encrypt.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Plain message vector: $\vec{\mu} \in \mathbb{Z}_p^m$. In simplePIR, we also write $\mu_i$ to denote the vector with all zero entries except a single $1$ at index $i$.&lt;/p&gt;</description></item><item><title>Commitment and Signatures</title><link>https://ofuro.me/posts/commitment-and-signatures/</link><pubDate>Fri, 13 Dec 2024 00:03:24 -0600</pubDate><guid>https://ofuro.me/posts/commitment-and-signatures/</guid><description>&lt;h3 id="definition-commitment"&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; Commitment&lt;/h3&gt;
+&lt;p&gt;Plain message vector: $\vec{\mu} \in \mathbb{Z}_p^m$. In simplePIR, we also write $\mu_i$ to denote the vector with all zero entries except a single $1$ at index $i$.&lt;/p&gt;</description></item><item><title>Commitment and Signatures</title><link>https://ofuro.me/posts/commitment-and-signatures/</link><pubDate>Fri, 13 Dec 2024 00:03:24 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/commitment-and-signatures/</guid><description>&lt;h3 id="definition-commitment"&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; Commitment&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Parameters $\mathsf{pp} \gets \mathsf{Gen}(1^n)$.&lt;/li&gt;
 &lt;li&gt;$\mathsf{com} \gets \mathsf{Commit}(m, r)$&lt;/li&gt;
@@ -84,7 +103,7 @@
 &lt;li&gt;$\mathsf{Commit}(m, r)$: pick a random $r \gets \mathbb{Z}_q$, compute $\mathsf{com} = g^mh^r$.&lt;/li&gt;
 &lt;li&gt;$\mathsf{Open}(\mathsf{com}, m, r)$: check if $\mathsf{com} = g^mh^r$.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;This scheme is computationally binding: if we express $h = g^x$ for some $x$, then finding $m' \neq m$ such that $g^mh^r = g^{m+rx} = g^{m' + r'x} = g^{m'}h^{r'}$ is hard by discrete log assumption.&lt;/p&gt;</description></item><item><title>RSA in pure number theory</title><link>https://ofuro.me/posts/some_rsa/</link><pubDate>Tue, 29 Oct 2024 17:02:49 -0500</pubDate><guid>https://ofuro.me/posts/some_rsa/</guid><description>&lt;h3 id="binomial-theorem"&gt;Binomial Theorem&lt;/h3&gt;
+&lt;p&gt;This scheme is computationally binding: if we express $h = g^x$ for some $x$, then finding $m' \neq m$ such that $g^mh^r = g^{m+rx} = g^{m' + r'x} = g^{m'}h^{r'}$ is hard by discrete log assumption.&lt;/p&gt;</description></item><item><title>RSA in pure number theory</title><link>https://ofuro.me/posts/some_rsa/</link><pubDate>Tue, 29 Oct 2024 17:02:49 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/some_rsa/</guid><description>&lt;h3 id="binomial-theorem"&gt;Binomial Theorem&lt;/h3&gt;
 &lt;p&gt;Given $a, b \in \mathbb{R}, n \in \mathbb{N}$, then
 &lt;/p&gt;
 $$
@@ -95,7 +114,7 @@ $$&lt;p&gt;
 $$
 (a+b)^p \equiv a^p + b^p \mod p
 $$&lt;p&gt;
-&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt; It suffices to show that $\binom{p}{k} \equiv 0 \mod p$ if $0 &lt; k &lt; p$. Observe: $p \mid p!, p \nmid k!, p \nmid (p-k)!$, hence $p \mid \binom{p}{k}$. $\blacksquare$&lt;/p&gt;</description></item><item><title>Taste of Fully Homomorphic Encryption</title><link>https://ofuro.me/posts/taste_of_fhe/</link><pubDate>Wed, 18 Sep 2024 17:56:58 -0600</pubDate><guid>https://ofuro.me/posts/taste_of_fhe/</guid><description>&lt;blockquote&gt;
+&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt; It suffices to show that $\binom{p}{k} \equiv 0 \mod p$ if $0 &lt; k &lt; p$. Observe: $p \mid p!, p \nmid k!, p \nmid (p-k)!$, hence $p \mid \binom{p}{k}$. $\blacksquare$&lt;/p&gt;</description></item><item><title>Taste of Fully Homomorphic Encryption</title><link>https://ofuro.me/posts/taste_of_fhe/</link><pubDate>Wed, 18 Sep 2024 17:56:58 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/taste_of_fhe/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;The following is a note for my talk during Ling&amp;rsquo;s group meeting.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id="what-is-fhe"&gt;What is FHE?&lt;/h3&gt;
@@ -104,16 +123,7 @@ $$&lt;p&gt;
 &lt;/p&gt;
 $$
 \text{Enc}(m_1) \cdot \text{Enc}(m_2) = m_1^e \cdot m_2^e = (m_1 \cdot m_2)^e = \text{Enc}(m_1 \cdot m_2)
-$$&lt;p&gt;FHE supports Addition AND Scalar Multiplicaiton:
-&lt;div&gt;
-$$
-\begin{cases}
-\text{Enc}(m_1) + \text{Enc}(m_2) = \text{Enc}(m_1 + m_2)\\
-\text{Enc}(m) \cdot c = \text{Enc}(m \cdot c)
-\end{cases}
-$$
-&lt;/div&gt;
-Fancy! And it exsists!&lt;/p&gt;</description></item><item><title>Convex Hull in 2D</title><link>https://ofuro.me/posts/convex_hull/</link><pubDate>Thu, 29 Aug 2024 17:02:49 -0500</pubDate><guid>https://ofuro.me/posts/convex_hull/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; Problem: Given $n$ points $P = \set{p_1, \ldots, p_n} \subset \mathbb{R}^2$, compute $\text{CH}(P) = $ smallest convex set contining $P$.&lt;/p&gt;
+$$&lt;p&gt;FHE supports Addition AND Scalar Multiplicaiton:&lt;/p&gt;</description></item><item><title>Convex Hull in 2D</title><link>https://ofuro.me/posts/convex_hull/</link><pubDate>Thu, 29 Aug 2024 17:02:49 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/convex_hull/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; Problem: Given $n$ points $P = \set{p_1, \ldots, p_n} \subset \mathbb{R}^2$, compute $\text{CH}(P) = $ smallest convex set contining $P$.&lt;/p&gt;
 &lt;p&gt;Input: a list of points all the points in $P$.&lt;/p&gt;
 &lt;p&gt;Output: a list of points in $P$ that belongs to this convex set in CCW, starting from the left most point.&lt;/p&gt;
 &lt;h4 id="applications"&gt;Applications&lt;/h4&gt;
@@ -122,7 +132,7 @@ Fancy! And it exsists!&lt;/p&gt;</description></item><item><title>Convex Hull in
 &lt;p&gt;Given a huge point cloud, convex hull helps find the &amp;ldquo;shape&amp;rdquo;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Bounding volume. Makes ray shooting tasks faster.&lt;/p&gt;</description></item><item><title>Fast Fourier Transform</title><link>https://ofuro.me/posts/473_fft/</link><pubDate>Thu, 29 Aug 2024 15:30:07 -0500</pubDate><guid>https://ofuro.me/posts/473_fft/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Bounding volume. Makes ray shooting tasks faster.&lt;/p&gt;</description></item><item><title>Fast Fourier Transform</title><link>https://ofuro.me/posts/473_fft/</link><pubDate>Thu, 29 Aug 2024 15:30:07 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473_fft/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;I know this name for a long time. But never learnt it. Now it&amp;rsquo;s time.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id="recap"&gt;Recap&lt;/h4&gt;
@@ -133,9 +143,9 @@ $$
 p(x) = \sum_{i = 0}^{n}p_ix^i
 $$&lt;p&gt;
 And we can represent this polynomial using an array of size $n$.&lt;/p&gt;
-&lt;p&gt;Evaluations and additions of polynomials are straightforward computation. Can be done in $O(n)$ time. Naive multiplication is slow, however. It takes $O(n^2)$ time to compute all the coefficient multiplications. FFT helps us speed up this multiplication.&lt;/p&gt;</description></item><item><title>Understanding GSW</title><link>https://ofuro.me/posts/understanding-gsw/</link><pubDate>Fri, 23 Aug 2024 21:56:04 -0600</pubDate><guid>https://ofuro.me/posts/understanding-gsw/</guid><description>&lt;p&gt;The goal of this file is to help understand the GSW scheme and the implementation of &lt;code&gt;GSWCiphertext&lt;/code&gt;in OnionPIR code. Let&amp;rsquo;s start with my understanding of GSW scheme.&lt;/p&gt;
+&lt;p&gt;Evaluations and additions of polynomials are straightforward computation. Can be done in $O(n)$ time. Naive multiplication is slow, however. It takes $O(n^2)$ time to compute all the coefficient multiplications. FFT helps us speed up this multiplication.&lt;/p&gt;</description></item><item><title>Understanding GSW</title><link>https://ofuro.me/posts/understanding-gsw/</link><pubDate>Fri, 23 Aug 2024 21:56:04 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/understanding-gsw/</guid><description>&lt;p&gt;The goal of this file is to help understand the GSW scheme and the implementation of &lt;code&gt;GSWCiphertext&lt;/code&gt;in OnionPIR code. Let&amp;rsquo;s start with my understanding of GSW scheme.&lt;/p&gt;
 &lt;h3 id="from-tgsw-to-rgsw"&gt;From TGSW to RGSW&lt;/h3&gt;
-&lt;p&gt;RGSW is a ring variation of &lt;a href="https://eprint.iacr.org/2013/340"&gt;GSW scheme&lt;/a&gt;. I do not see any formal paper defining RGSW. However, I do find this particular paper helpful: &lt;a href="https:/print.iacr.org/2016/870"&gt;Faster Fully Homomorphic Encryption: Bootstrapping in less than 0.1 Seconds&lt;/a&gt;. This paper defines TLWE and TGSW.&lt;/p&gt;</description></item><item><title>Comparisons on Keyword Support Methods</title><link>https://ofuro.me/posts/keyword-support-methods/</link><pubDate>Wed, 03 Jul 2024 18:29:54 -0600</pubDate><guid>https://ofuro.me/posts/keyword-support-methods/</guid><description>&lt;p&gt;The goal is to compare three methods for supporting keyword feature in PIR: Key-value filter in ChalametPIR, Sparse PIR, and the Cuckoo hashing method. In the beginning, we don&amp;rsquo;t want to start by comparing the detailed experimental performances, but we want to list their properties. What they are good / bad at.&lt;/p&gt;
+&lt;p&gt;RGSW is a ring variation of &lt;a href="https://eprint.iacr.org/2013/340"&gt;GSW scheme&lt;/a&gt;. I do not see any formal paper defining RGSW. However, I do find this particular paper helpful: &lt;a href="https:/print.iacr.org/2016/870"&gt;Faster Fully Homomorphic Encryption: Bootstrapping in less than 0.1 Seconds&lt;/a&gt;. This paper defines TLWE and TGSW.&lt;/p&gt;</description></item><item><title>Comparisons on Keyword Support Methods</title><link>https://ofuro.me/posts/keyword-support-methods/</link><pubDate>Wed, 03 Jul 2024 18:29:54 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/keyword-support-methods/</guid><description>&lt;p&gt;The goal is to compare three methods for supporting keyword feature in PIR: Key-value filter in ChalametPIR, Sparse PIR, and the Cuckoo hashing method. In the beginning, we don&amp;rsquo;t want to start by comparing the detailed experimental performances, but we want to list their properties. What they are good / bad at.&lt;/p&gt;
 &lt;h3 id="metrics"&gt;Metrics&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Client storage&lt;/li&gt;
@@ -149,7 +159,7 @@ And we can represent this polynomial using an array of size $n$.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h3 id="notations"&gt;Notations:&lt;/h3&gt;
-&lt;p&gt;$m$: the number of key-value pairs.&lt;/p&gt;</description></item><item><title>473 NP</title><link>https://ofuro.me/posts/473-np/</link><pubDate>Tue, 16 Apr 2024 20:29:53 -0600</pubDate><guid>https://ofuro.me/posts/473-np/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;$m$: the number of key-value pairs.&lt;/p&gt;</description></item><item><title>473 NP</title><link>https://ofuro.me/posts/473-np/</link><pubDate>Tue, 16 Apr 2024 20:29:53 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-np/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -332,7 +342,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Linear Programming IV</title><link>https://ofuro.me/posts/473-l21/</link><pubDate>Tue, 09 Apr 2024 20:29:43 -0600</pubDate><guid>https://ofuro.me/posts/473-l21/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Linear Programming IV</title><link>https://ofuro.me/posts/473-l21/</link><pubDate>Tue, 09 Apr 2024 20:29:43 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l21/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -515,7 +525,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Linear Programming II</title><link>https://ofuro.me/posts/473-l19/</link><pubDate>Thu, 28 Mar 2024 20:29:37 -0600</pubDate><guid>https://ofuro.me/posts/473-l19/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Linear Programming II</title><link>https://ofuro.me/posts/473-l19/</link><pubDate>Thu, 28 Mar 2024 20:29:37 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l19/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -698,7 +708,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Linear Programming I</title><link>https://ofuro.me/posts/473-l18/</link><pubDate>Tue, 26 Mar 2024 20:29:35 -0600</pubDate><guid>https://ofuro.me/posts/473-l18/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Linear Programming I</title><link>https://ofuro.me/posts/473-l18/</link><pubDate>Tue, 26 Mar 2024 20:29:35 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l18/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -881,7 +891,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms VI</title><link>https://ofuro.me/posts/473-l17/</link><pubDate>Thu, 21 Mar 2024 20:29:33 -0600</pubDate><guid>https://ofuro.me/posts/473-l17/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms VI</title><link>https://ofuro.me/posts/473-l17/</link><pubDate>Thu, 21 Mar 2024 20:29:33 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l17/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -1064,7 +1074,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms V</title><link>https://ofuro.me/posts/473-l16/</link><pubDate>Wed, 20 Mar 2024 20:29:31 -0600</pubDate><guid>https://ofuro.me/posts/473-l16/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms V</title><link>https://ofuro.me/posts/473-l16/</link><pubDate>Wed, 20 Mar 2024 20:29:31 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l16/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -1247,7 +1257,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms IV</title><link>https://ofuro.me/posts/473-l15/</link><pubDate>Thu, 07 Mar 2024 20:29:30 -0600</pubDate><guid>https://ofuro.me/posts/473-l15/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms IV</title><link>https://ofuro.me/posts/473-l15/</link><pubDate>Thu, 07 Mar 2024 20:29:30 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l15/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -1430,7 +1440,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms III</title><link>https://ofuro.me/posts/473-l14/</link><pubDate>Tue, 05 Mar 2024 20:29:27 -0600</pubDate><guid>https://ofuro.me/posts/473-l14/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms III</title><link>https://ofuro.me/posts/473-l14/</link><pubDate>Tue, 05 Mar 2024 20:29:27 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l14/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -1613,7 +1623,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms I</title><link>https://ofuro.me/posts/473-l12/</link><pubDate>Tue, 27 Feb 2024 20:29:22 -0600</pubDate><guid>https://ofuro.me/posts/473-l12/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Randomized Algorithms I</title><link>https://ofuro.me/posts/473-l12/</link><pubDate>Tue, 27 Feb 2024 20:29:22 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l12/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -1796,7 +1806,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Flows III</title><link>https://ofuro.me/posts/473-l9/</link><pubDate>Tue, 13 Feb 2024 20:29:10 -0600</pubDate><guid>https://ofuro.me/posts/473-l9/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Flows III</title><link>https://ofuro.me/posts/473-l9/</link><pubDate>Tue, 13 Feb 2024 20:29:10 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l9/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -1979,7 +1989,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Flows II</title><link>https://ofuro.me/posts/473-l8/</link><pubDate>Thu, 08 Feb 2024 20:29:08 -0600</pubDate><guid>https://ofuro.me/posts/473-l8/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Flows II</title><link>https://ofuro.me/posts/473-l8/</link><pubDate>Thu, 08 Feb 2024 20:29:08 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l8/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -2162,7 +2172,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Flows I</title><link>https://ofuro.me/posts/473-l7/</link><pubDate>Tue, 06 Feb 2024 20:29:06 -0600</pubDate><guid>https://ofuro.me/posts/473-l7/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Flows I</title><link>https://ofuro.me/posts/473-l7/</link><pubDate>Tue, 06 Feb 2024 20:29:06 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l7/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -2345,7 +2355,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming IV</title><link>https://ofuro.me/posts/473-l6/</link><pubDate>Thu, 01 Feb 2024 20:29:03 -0600</pubDate><guid>https://ofuro.me/posts/473-l6/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming IV</title><link>https://ofuro.me/posts/473-l6/</link><pubDate>Thu, 01 Feb 2024 20:29:03 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l6/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -2528,7 +2538,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming III</title><link>https://ofuro.me/posts/473-l5/</link><pubDate>Tue, 30 Jan 2024 20:28:59 -0600</pubDate><guid>https://ofuro.me/posts/473-l5/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming III</title><link>https://ofuro.me/posts/473-l5/</link><pubDate>Tue, 30 Jan 2024 20:28:59 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l5/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -2711,7 +2721,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming II</title><link>https://ofuro.me/posts/473-l4/</link><pubDate>Thu, 25 Jan 2024 20:28:56 -0600</pubDate><guid>https://ofuro.me/posts/473-l4/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming II</title><link>https://ofuro.me/posts/473-l4/</link><pubDate>Thu, 25 Jan 2024 20:28:56 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l4/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -2894,7 +2904,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming I</title><link>https://ofuro.me/posts/473-l3/</link><pubDate>Tue, 23 Jan 2024 20:28:54 -0600</pubDate><guid>https://ofuro.me/posts/473-l3/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Dynmaic Programming I</title><link>https://ofuro.me/posts/473-l3/</link><pubDate>Tue, 23 Jan 2024 20:28:54 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l3/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -3077,7 +3087,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Divide and Conquer</title><link>https://ofuro.me/posts/473-l2/</link><pubDate>Thu, 18 Jan 2024 20:28:53 -0600</pubDate><guid>https://ofuro.me/posts/473-l2/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Divide and Conquer</title><link>https://ofuro.me/posts/473-l2/</link><pubDate>Thu, 18 Jan 2024 20:28:53 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l2/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -3260,7 +3270,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Intro, Divide and Conquer</title><link>https://ofuro.me/posts/473-l1/</link><pubDate>Tue, 16 Jan 2024 20:28:47 -0600</pubDate><guid>https://ofuro.me/posts/473-l1/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>473 Intro, Divide and Conquer</title><link>https://ofuro.me/posts/473-l1/</link><pubDate>Tue, 16 Jan 2024 20:28:47 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/473-l1/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -3443,7 +3453,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>413_difference Sequence</title><link>https://ofuro.me/posts/413_difference-sequence/</link><pubDate>Mon, 11 Dec 2023 16:01:49 -0600</pubDate><guid>https://ofuro.me/posts/413_difference-sequence/</guid><description>&lt;!-- ## &lt;span style="color:#ff0000"&gt;⚠️THIS NOTE IS NOT FINISHED YET&lt;/span&gt;
+&lt;p&gt;UIUC CS473 Algorithms Spring 2024 taught by Prof. &lt;a href="https://miforbes.cs.illinois.edu/"&gt;Michael A. Forbes&lt;/a&gt;&lt;/p&gt;</description></item><item><title>413_difference Sequence</title><link>https://ofuro.me/posts/413_difference-sequence/</link><pubDate>Mon, 11 Dec 2023 16:01:49 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_difference-sequence/</guid><description>&lt;!-- ## &lt;span style="color:#ff0000"&gt;⚠️THIS NOTE IS NOT FINISHED YET&lt;/span&gt;
 ### TODO:
 - stirling number definitions
 - stirling number of the first and the second type
@@ -3454,26 +3464,23 @@ renderPage(pageNum);
 $$
 h_n=a_p n^p+a_{p-1} n^{p-1}+\cdots+a_1 n+a_0, \quad(n \geq 0)
 $$&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The method is to use difference sequences. We already know the following:&lt;/p&gt;</description></item><item><title>413_None Homogeneous Recurrence Relation</title><link>https://ofuro.me/posts/413_nhrr/</link><pubDate>Mon, 11 Dec 2023 14:59:52 -0600</pubDate><guid>https://ofuro.me/posts/413_nhrr/</guid><description>&lt;p&gt;&lt;span style="color:#04c2b2"&gt;Example&lt;/span&gt; sums of cubes&lt;/p&gt;
+&lt;p&gt;The method is to use difference sequences. We already know the following:&lt;/p&gt;</description></item><item><title>413_None Homogeneous Recurrence Relation</title><link>https://ofuro.me/posts/413_nhrr/</link><pubDate>Mon, 11 Dec 2023 14:59:52 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_nhrr/</guid><description>&lt;p&gt;&lt;span style="color:#04c2b2"&gt;Example&lt;/span&gt; sums of cubes&lt;/p&gt;
 &lt;p&gt;Solve $h_n=h_{n-1}+n^3,(n \geq 1)$ and $h_0=0$.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Note that this is not a homegenous recurrence relation.&lt;/p&gt;
-&lt;p&gt;Unrolling gives us:
-&lt;div&gt;
+&lt;p&gt;Unrolling gives us:&lt;/p&gt;
 $$
 \begin{align*}
 h_{n-1} &amp;= (n-1)^3 + h_{n-2}\\
 \implies
 h_n &amp;= n^3 + (n-1)^3 + h_{n-2}
 \end{align*}
-$$
-&lt;/div&gt;
-And we can keep doing this. Using this as the intuition, we guess the closed form:
+$$&lt;p&gt;And we can keep doing this. Using this as the intuition, we guess the closed form:
 &lt;/p&gt;
 $$
 h_n = n^3 + (n-1)^3 + \ldots + 2^3 + 1
 $$&lt;p&gt;
-To formally prove this, we can use induction! Assume it holds for some $n \geq 1$, we want to show that $h_{n+1} = h_n + (n+1)^3 = 1 + 2^3 + \ldots + (n+1)^3$.&lt;/p&gt;</description></item><item><title>413_generating Functions</title><link>https://ofuro.me/posts/413_generating-functions/</link><pubDate>Wed, 01 Nov 2023 22:48:35 -0500</pubDate><guid>https://ofuro.me/posts/413_generating-functions/</guid><description>&lt;h1 id="generating-functions"&gt;Generating Functions&lt;/h1&gt;
+To formally prove this, we can use induction! Assume it holds for some $n \geq 1$, we want to show that $h_{n+1} = h_n + (n+1)^3 = 1 + 2^3 + \ldots + (n+1)^3$.&lt;/p&gt;</description></item><item><title>413_generating Functions</title><link>https://ofuro.me/posts/413_generating-functions/</link><pubDate>Wed, 01 Nov 2023 22:48:35 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_generating-functions/</guid><description>&lt;h1 id="generating-functions"&gt;Generating Functions&lt;/h1&gt;
 &lt;p&gt;Generating functions can be regarded as algebraic objects whose formal manipulation allows us to count the number of possibilities for a problem by means of algebra.&lt;/p&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Let $h_0, h_1, h_2, h_3, \ldots$ be an infinite sequence of numbers. Its generating function is defined to be the infinite series:
@@ -3482,7 +3489,7 @@ $$
 g(x) = h_0 + h_1x + h_2x^2 + \cdots + h_nx^n + \cdots
 $$&lt;h4 id="example-1"&gt;&lt;span style="color:#04c2b2"&gt;Example 1&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;The generating function of the infinite sequence $1, 1, 1, \ldots$ is:
-&lt;/p&gt;</description></item><item><title>445_camera</title><link>https://ofuro.me/posts/445_camera/</link><pubDate>Mon, 30 Oct 2023 10:36:20 -0500</pubDate><guid>https://ofuro.me/posts/445_camera/</guid><description>&lt;h1 id="world-coordinates-and-image-coordinates"&gt;World Coordinates and Image coordinates&lt;/h1&gt;
+&lt;/p&gt;</description></item><item><title>445_camera</title><link>https://ofuro.me/posts/445_camera/</link><pubDate>Mon, 30 Oct 2023 10:36:20 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/445_camera/</guid><description>&lt;h1 id="world-coordinates-and-image-coordinates"&gt;World Coordinates and Image coordinates&lt;/h1&gt;
 &lt;h2 id="pinhole-camera-model"&gt;Pinhole Camera Model&lt;/h2&gt;
 $$
 x = K \left[
@@ -3495,7 +3502,7 @@ $$&lt;p&gt;&lt;strong&gt;x&lt;/strong&gt;: Image Coordinates: $(u, v, 1)$
 &lt;strong&gt;R&lt;/strong&gt;: Rotation $(3 \times 3)$
 &lt;strong&gt;t&lt;/strong&gt;: Translation $(3 \times 1)$
 &lt;strong&gt;X&lt;/strong&gt;: World Coordinates: $(X, Y, Z, 1)$&lt;/p&gt;
-&lt;p&gt;Basically, from the right side to the leftside, it is transforming a point (1) from the world coordinates to camera coordinates, and then project the point (2) from camera coordinates down to the image plane.&lt;/p&gt;</description></item><item><title>445_Blending</title><link>https://ofuro.me/posts/445_blending-warping/</link><pubDate>Mon, 30 Oct 2023 10:34:53 -0500</pubDate><guid>https://ofuro.me/posts/445_blending-warping/</guid><description>&lt;h3 id="pasting-images"&gt;Pasting Images&lt;/h3&gt;
+&lt;p&gt;Basically, from the right side to the leftside, it is transforming a point (1) from the world coordinates to camera coordinates, and then project the point (2) from camera coordinates down to the image plane.&lt;/p&gt;</description></item><item><title>445_Blending</title><link>https://ofuro.me/posts/445_blending-warping/</link><pubDate>Mon, 30 Oct 2023 10:34:53 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/445_blending-warping/</guid><description>&lt;h3 id="pasting-images"&gt;Pasting Images&lt;/h3&gt;
 &lt;h4 id="method-1--cut-and-paste-the-images"&gt;Method 1 — Cut and paste the images.&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -3535,7 +3542,7 @@ $$&lt;ol start="4"&gt;
 &lt;li&gt;Collapse the pyramid to get the final blended image&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id="method-3-poisson-blending"&gt;Method 3: Poisson Blending&lt;/h4&gt;
-&lt;p&gt;A good blend should preserve gradient of source region withough changing the background&lt;/p&gt;</description></item><item><title>445_Synthesizing and Cutting</title><link>https://ofuro.me/posts/445_synthesizing-cutting/</link><pubDate>Mon, 30 Oct 2023 10:33:26 -0500</pubDate><guid>https://ofuro.me/posts/445_synthesizing-cutting/</guid><description>&lt;h2 id="texture-synthesis-and-hole-filling"&gt;Texture Synthesis and Hole-Filling&lt;/h2&gt;
+&lt;p&gt;A good blend should preserve gradient of source region withough changing the background&lt;/p&gt;</description></item><item><title>445_Synthesizing and Cutting</title><link>https://ofuro.me/posts/445_synthesizing-cutting/</link><pubDate>Mon, 30 Oct 2023 10:33:26 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/445_synthesizing-cutting/</guid><description>&lt;h2 id="texture-synthesis-and-hole-filling"&gt;Texture Synthesis and Hole-Filling&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;How do we cut something out of an image, and fill the hole naturally?&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3549,14 +3556,14 @@ $$&lt;ol start="4"&gt;
 &lt;li&gt;Compute statistics of input texture&lt;/li&gt;
 &lt;li&gt;Generate a new texture that keeps those same statistics.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;But it is hard to model those probabilities distributions.&lt;/p&gt;</description></item><item><title>445_color_basics</title><link>https://ofuro.me/posts/445_color_basics/</link><pubDate>Mon, 30 Oct 2023 10:32:37 -0500</pubDate><guid>https://ofuro.me/posts/445_color_basics/</guid><description>&lt;h3 id="how-do-you-view-the-world"&gt;How do you view the world&lt;/h3&gt;
+&lt;p&gt;But it is hard to model those probabilities distributions.&lt;/p&gt;</description></item><item><title>445_color_basics</title><link>https://ofuro.me/posts/445_color_basics/</link><pubDate>Mon, 30 Oct 2023 10:32:37 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/445_color_basics/</guid><description>&lt;h3 id="how-do-you-view-the-world"&gt;How do you view the world&lt;/h3&gt;
 &lt;img src="https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231009180859272.png" alt="image-20231009180859272" style="zoom: 33%;" /&gt;
 &lt;p&gt;&lt;strong&gt;Cones:&lt;/strong&gt; cone-shaped, less sensitive, operate in high light, color vision&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Rods:&lt;/strong&gt; rod-shaped, highly sensitive, operate at night, gray-scale vision, slower to respond&lt;/p&gt;
 &lt;img src="https://raw.githubusercontent.com/helloboyxxx/images-for-notes/master/uPic/image-20231009181400266.png" alt="image-20231009181400266" style="zoom:50%;" /&gt;
 &lt;p&gt;&lt;span style="color:#9650af"&gt;Observation&lt;/span&gt; In a clear night, there are more stars off-center. This is because you have more rods in the middle, while more cones elsewhere.&lt;/p&gt;
 &lt;h3 id="how-to-express-colors"&gt;How to express colors?&lt;/h3&gt;
-&lt;p&gt;Basically, the most intuitive expression is the RGB color space. But it is not a linear color space. We perfer expressing using CIE-XYZ color space, which makes the calculation much easier.&lt;/p&gt;</description></item><item><title>413_Multinomial Coefficient</title><link>https://ofuro.me/posts/413_multinomial/</link><pubDate>Mon, 30 Oct 2023 10:30:51 -0500</pubDate><guid>https://ofuro.me/posts/413_multinomial/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; A multinomial coefficient is:&lt;/p&gt;
+&lt;p&gt;Basically, the most intuitive expression is the RGB color space. But it is not a linear color space. We perfer expressing using CIE-XYZ color space, which makes the calculation much easier.&lt;/p&gt;</description></item><item><title>413_Multinomial Coefficient</title><link>https://ofuro.me/posts/413_multinomial/</link><pubDate>Mon, 30 Oct 2023 10:30:51 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_multinomial/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; A multinomial coefficient is:&lt;/p&gt;
 $$
 \binom{n}{n_1 n_2 \cdots n_t}
 =\frac{n !}{n_{1} ! n_{2} ! \cdots n_{t} !}
@@ -3576,7 +3583,7 @@ $$
 \binom{n}{n_1, n_2, \ldots, n_k} =
 \binom{n-1}{n_1-1, n_2, \ldots, n_k} + \ldots +
 \binom{n-1}{n_1, n_2, \ldots, n_k-1}
-$$&lt;p&gt;&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;</description></item><item><title>413_Unimodality of binomial coef &amp; Sperner's theorem</title><link>https://ofuro.me/posts/413_unimodality/</link><pubDate>Tue, 10 Oct 2023 22:55:46 -0500</pubDate><guid>https://ofuro.me/posts/413_unimodality/</guid><description>&lt;h1 id="unimodality-of-binomial-coefficients-and-sperners-theorem"&gt;Unimodality of Binomial Coefficients and Sperner&amp;rsquo;s Theorem&lt;/h1&gt;
+$$&lt;p&gt;&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;</description></item><item><title>413_Unimodality of binomial coef &amp; Sperner's theorem</title><link>https://ofuro.me/posts/413_unimodality/</link><pubDate>Tue, 10 Oct 2023 22:55:46 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_unimodality/</guid><description>&lt;h1 id="unimodality-of-binomial-coefficients-and-sperners-theorem"&gt;Unimodality of Binomial Coefficients and Sperner&amp;rsquo;s Theorem&lt;/h1&gt;
 &lt;p&gt;If we examine the binomial coefficients in a row of Pascal&amp;rsquo;s triangle, we notice that the numbers increase for a while and then decrease. A sequence of numbers with this property is called &lt;strong&gt;unimodal&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Let $n$ be a positive integer. The sequence of binomial coefficients
@@ -3585,7 +3592,7 @@ $$
 {{n} \choose {0}}, {{n} \choose {1}}, \ldots, {{n} \choose {n}}
 $$&lt;p&gt;
 is a unimodal sequence. Mor precisely,
-&lt;/p&gt;</description></item><item><title>413_lower bounded Ramsey</title><link>https://ofuro.me/posts/413_lower-bounded-ramsey/</link><pubDate>Wed, 04 Oct 2023 17:28:53 -0500</pubDate><guid>https://ofuro.me/posts/413_lower-bounded-ramsey/</guid><description>&lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
+&lt;/p&gt;</description></item><item><title>413_lower bounded Ramsey</title><link>https://ofuro.me/posts/413_lower-bounded-ramsey/</link><pubDate>Wed, 04 Oct 2023 17:28:53 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_lower-bounded-ramsey/</guid><description>&lt;h3 id="theorem"&gt;&lt;span style="color:#3c66b5"&gt;Theorem&lt;/span&gt;&lt;/h3&gt;
 $$
 \text{For every } k \in \mathbb{N}, \text{we have } R(k)\ge 2^{k/2}
 $$&lt;p&gt;Before we start the proof, let&amp;rsquo;s look at 3 ingredients we need:&lt;/p&gt;
@@ -3601,11 +3608,11 @@ $$
 \text{If } \operatorname{Prob}(A) &lt; 1 \text{, then } \operatorname{Prob}(A^c) &gt; 0
 $$&lt;h4 id="union-bound"&gt;&lt;span style="color:#599eff"&gt;Union Bound&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Let $\Omega$ be the set of all possible outcome of an experiment. Suppose that each outcome is equally likely. Let $A_1, \ldots, A_t \subseteq \Omega$ be some events. Then:
-&lt;/p&gt;</description></item><item><title>413_General Ramsey Theories</title><link>https://ofuro.me/posts/413_general_ramsey-theories/</link><pubDate>Mon, 02 Oct 2023 15:00:37 -0500</pubDate><guid>https://ofuro.me/posts/413_general_ramsey-theories/</guid><description>&lt;h3 id="general-ramsey-on-normal-graph"&gt;General Ramsey on normal graph&lt;/h3&gt;
+&lt;/p&gt;</description></item><item><title>413_General Ramsey Theories</title><link>https://ofuro.me/posts/413_general_ramsey-theories/</link><pubDate>Mon, 02 Oct 2023 15:00:37 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_general_ramsey-theories/</guid><description>&lt;h3 id="general-ramsey-on-normal-graph"&gt;General Ramsey on normal graph&lt;/h3&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Notation&lt;/span&gt; &lt;strong&gt;General notation for Ramsey theory:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;$K_n \to (K_s,K_t)$ is the assertion that for any coloring of the edges of $K_n$ with red and blue, we can always find a red $K_s$ or a blue $K_t$.&lt;/p&gt;
 &lt;p&gt;$K_n \not \to (K_s,K_t)$ is the assertion that there exists a coloring of the edges of $K_n$ with red and blue with no red $K_s$ nor blue $K_t$.&lt;/p&gt;
-&lt;p&gt;&lt;span style="color:#28a745"&gt;Notation&lt;/span&gt; &lt;strong&gt;Off-diagonal Ramsey numbers:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>413_Erdos-Szekeres Theorem and Ramsey Theory</title><link>https://ofuro.me/posts/413_erdos-szekeres-theorem-and-ramsey-theory/</link><pubDate>Wed, 27 Sep 2023 20:56:13 -0500</pubDate><guid>https://ofuro.me/posts/413_erdos-szekeres-theorem-and-ramsey-theory/</guid><description>&lt;h3 id="erdos-szekeres-theorem"&gt;&lt;span style="color:#3c66b5"&gt;Erdos-Szekeres Theorem&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;span style="color:#28a745"&gt;Notation&lt;/span&gt; &lt;strong&gt;Off-diagonal Ramsey numbers:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>413_Erdos-Szekeres Theorem and Ramsey Theory</title><link>https://ofuro.me/posts/413_erdos-szekeres-theorem-and-ramsey-theory/</link><pubDate>Wed, 27 Sep 2023 20:56:13 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_erdos-szekeres-theorem-and-ramsey-theory/</guid><description>&lt;h3 id="erdos-szekeres-theorem"&gt;&lt;span style="color:#3c66b5"&gt;Erdos-Szekeres Theorem&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Given $r, s$ any sequence of distinct real numbers with length at least $(r-1)(s-1)+1$ contains a monotonically increasing subsequence of length $r$ or a monotonically decreasing subsequece of length $s$.&lt;/p&gt;
 &lt;p&gt;That is, given the subsequence: $a_1, a_2, ..., a_{(s-1)(r-1)+1}$, we can find:&lt;/p&gt;
 &lt;ul&gt;
@@ -3615,13 +3622,13 @@ $$&lt;h4 id="union-bound"&gt;&lt;span style="color:#599eff"&gt;Union Bound&lt;/s
 &lt;ul&gt;
 &lt;li&gt;Indicies $j_1 &lt; j_2 &lt; ...&lt; j_r$ so that $a_{j1} &gt; a_{j2} &gt; ... &gt; a_{jr}$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; $s = 3, r = 3$, Sequence: $10, 11, 7, 8$ has no such property.&lt;/p&gt;</description></item><item><title>413_permutation</title><link>https://ofuro.me/posts/413_permutation/</link><pubDate>Mon, 18 Sep 2023 13:45:07 -0500</pubDate><guid>https://ofuro.me/posts/413_permutation/</guid><description>&lt;h1 id="permutation-of-sets"&gt;Permutation of Sets&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; $s = 3, r = 3$, Sequence: $10, 11, 7, 8$ has no such property.&lt;/p&gt;</description></item><item><title>413_permutation</title><link>https://ofuro.me/posts/413_permutation/</link><pubDate>Mon, 18 Sep 2023 13:45:07 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_permutation/</guid><description>&lt;h1 id="permutation-of-sets"&gt;Permutation of Sets&lt;/h1&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; permutation
 A permutation of a set $S$ can be thought of as a listing of the elements $S$ in some order.&lt;/p&gt;
 &lt;p&gt;$P(n, r)$ denotes the number of $r$-permutations of an $n$-element set.&lt;/p&gt;
 &lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt; $r$-permutation&lt;/p&gt;
 &lt;p&gt;An $r$-permutation of a set $S$ is a string $a_1, a_2, ... a_r$ where $a_i \in S, \forall i \in [r]$ and $a_i \neq a_j$ for $i \neq j$.&lt;/p&gt;
-&lt;p&gt;Note: $[r] = {1, 2, ..., r}$&lt;/p&gt;</description></item><item><title>445_texture</title><link>https://ofuro.me/posts/445_texture/</link><pubDate>Sun, 17 Sep 2023 15:24:34 -0500</pubDate><guid>https://ofuro.me/posts/445_texture/</guid><description>&lt;h1 id="texture-synthesis--hole-filling"&gt;Texture Synthesis &amp;amp; Hole Filling&lt;/h1&gt;
+&lt;p&gt;Note: $[r] = {1, 2, ..., r}$&lt;/p&gt;</description></item><item><title>445_texture</title><link>https://ofuro.me/posts/445_texture/</link><pubDate>Sun, 17 Sep 2023 15:24:34 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/445_texture/</guid><description>&lt;h1 id="texture-synthesis--hole-filling"&gt;Texture Synthesis &amp;amp; Hole Filling&lt;/h1&gt;
 &lt;h4 id="texture"&gt;Texture&lt;/h4&gt;
 &lt;p&gt;Texture depicts spacially repeating patterns.&lt;/p&gt;
 &lt;h3 id="texture-synthesis"&gt;Texture Synthesis&lt;/h3&gt;
@@ -3634,17 +3641,17 @@ A permutation of a set $S$ can be thought of as a listing of the elements $S$ in
 &lt;li&gt;Generate a new texture that keeps those same statistics.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;But it is hard to model those probabilities distributions.&lt;/p&gt;
-&lt;p&gt;Another idea: ==Efros &amp;amp; Leung algorithm==&lt;/p&gt;</description></item><item><title>413_Pigeonhole Principle</title><link>https://ofuro.me/posts/413_pigeonhole/</link><pubDate>Fri, 15 Sep 2023 17:28:11 -0500</pubDate><guid>https://ofuro.me/posts/413_pigeonhole/</guid><description>&lt;h1 id="pigeonhole-principle"&gt;Pigeonhole Principle&lt;/h1&gt;
+&lt;p&gt;Another idea: ==Efros &amp;amp; Leung algorithm==&lt;/p&gt;</description></item><item><title>413_Pigeonhole Principle</title><link>https://ofuro.me/posts/413_pigeonhole/</link><pubDate>Fri, 15 Sep 2023 17:28:11 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_pigeonhole/</guid><description>&lt;h1 id="pigeonhole-principle"&gt;Pigeonhole Principle&lt;/h1&gt;
 &lt;p&gt;If $n+1$ objects are distributed into $n$ boxes, then at least one box contains two or more of the objects.&lt;/p&gt;
 &lt;p&gt;&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;For each $i\in \set{1, ..., n}$, let $a_i = $ number of objects in box $i$. Then, $a_1 + ... + a_n = n+1$ Let $a_j = \text{max } a_i$. Then,
 &lt;code&gt;\begin{align*} n+1 &amp;amp;\leq n\cdot a_j \\ \frac{n+1}{n} &amp;amp;\leq a_j \\ 1 &amp;lt; \frac{n+1}{n} &amp;amp;\leq a_j\\ 1 &amp;amp;&amp;lt; a_j \end{align*}&lt;/code&gt;
-Note that this conclusion doesn&amp;rsquo;t hole if you have $n$ objects or less.&lt;/p&gt;</description></item><item><title>413_binomial</title><link>https://ofuro.me/posts/413_binomial/</link><pubDate>Tue, 12 Sep 2023 17:35:33 -0500</pubDate><guid>https://ofuro.me/posts/413_binomial/</guid><description>&lt;h1 id="binomial-coefficient-and-binomial-identity"&gt;Binomial Coefficient and Binomial Identity&lt;/h1&gt;
+Note that this conclusion doesn&amp;rsquo;t hole if you have $n$ objects or less.&lt;/p&gt;</description></item><item><title>413_binomial</title><link>https://ofuro.me/posts/413_binomial/</link><pubDate>Tue, 12 Sep 2023 17:35:33 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_binomial/</guid><description>&lt;h1 id="binomial-coefficient-and-binomial-identity"&gt;Binomial Coefficient and Binomial Identity&lt;/h1&gt;
 &lt;h3 id="pascals-triangle"&gt;&lt;span style="color:#3c66b5"&gt;Pascal&amp;rsquo;s Triangle&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;\begin{matrix} {0 \choose 0}\\ {1 \choose 0} &amp;amp; {1 \choose 1}\\ {2 \choose 0} &amp;amp; {2 \choose 1} &amp;amp; {2 \choose 2}\\ {3 \choose 0} &amp;amp; {3 \choose 1} &amp;amp; {3 \choose 2} &amp;amp; {3 \choose 3}\\ {4 \choose 0} &amp;amp; {4 \choose 1} &amp;amp; {4 \choose 2} &amp;amp; {4 \choose 3} &amp;amp; {4 \choose 4}\\ .\\ .\\ . \end{matrix}&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id="pascals-formula"&gt;&lt;span style="color:#3c66b5"&gt;Pascal&amp;rsquo;s Formula&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;For all integers $n$ and $k$ with $1 \leq k \leq n - 1$, we have:
-&lt;/p&gt;</description></item><item><title>413_combinations</title><link>https://ofuro.me/posts/413_combinations/</link><pubDate>Fri, 08 Sep 2023 13:23:54 -0500</pubDate><guid>https://ofuro.me/posts/413_combinations/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt;&lt;/p&gt;
+&lt;/p&gt;</description></item><item><title>413_combinations</title><link>https://ofuro.me/posts/413_combinations/</link><pubDate>Fri, 08 Sep 2023 13:23:54 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_combinations/</guid><description>&lt;p&gt;&lt;span style="color:#28a745"&gt;Definition&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;A &lt;strong&gt;combination&lt;/strong&gt; of a set $S$ is a term usually used to denote an unordered selection of the element of $S$. It is simply a selection of a subset of $S$.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$r$-combination = $r$-subset.&lt;/li&gt;
@@ -3657,7 +3664,7 @@ $$
 P(n, r) = r! {n \choose r} \text{ and }
 {n \choose r} = \frac{n!}{r!(n-r)!}
 $$&lt;p&gt;
-&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;</description></item><item><title>Interesting DFA</title><link>https://ofuro.me/posts/interesting_dfa/</link><pubDate>Wed, 30 Aug 2023 13:10:06 -0500</pubDate><guid>https://ofuro.me/posts/interesting_dfa/</guid><description>&lt;h3 id="deterministic-finite-automaition"&gt;Deterministic Finite Automaition&lt;/h3&gt;
+&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;</description></item><item><title>Interesting DFA</title><link>https://ofuro.me/posts/interesting_dfa/</link><pubDate>Wed, 30 Aug 2023 13:10:06 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/interesting_dfa/</guid><description>&lt;h3 id="deterministic-finite-automaition"&gt;Deterministic Finite Automaition&lt;/h3&gt;
 &lt;p&gt;Definition: $(Q, s, A, \delta)$&lt;/p&gt;
 &lt;p&gt;$Q$: A set of all the possible state.&lt;/p&gt;
 &lt;p&gt;$s \in Q$ : starting state. The state to start the machine.&lt;/p&gt;
@@ -3665,7 +3672,7 @@ $$&lt;p&gt;
 &lt;p&gt;$\delta$: A function $Q \times \Sigma \rightarrow Q$. The set of all transition functions.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;There is an interesting DFA design question. The question is as follows:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Given a bit-string (a string that contains only 0s and 1s), design a DFA that accepts the string if and only if the number represented by the string is divisible by 5.&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>413_chessboard</title><link>https://ofuro.me/posts/413_chessboard/</link><pubDate>Tue, 29 Aug 2023 17:24:30 -0500</pubDate><guid>https://ofuro.me/posts/413_chessboard/</guid><description>&lt;h3 id="gomorys-theorem"&gt;&lt;span style="color:#3c66b5"&gt;Gomory&amp;rsquo;s Theorem&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Given a bit-string (a string that contains only 0s and 1s), design a DFA that accepts the string if and only if the number represented by the string is divisible by 5.&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>413_chessboard</title><link>https://ofuro.me/posts/413_chessboard/</link><pubDate>Tue, 29 Aug 2023 17:24:30 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_chessboard/</guid><description>&lt;h3 id="gomorys-theorem"&gt;&lt;span style="color:#3c66b5"&gt;Gomory&amp;rsquo;s Theorem&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;If you move two cells of a $8 \times 8$ chessboard of opposite colors, the remaining cells can be fully domino tiled.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span style="color:#eb861c"&gt;Proof&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Draw a closed path that passes through every square exactly once. (Draw a big C and then draw back and forth horizontally)&lt;/p&gt;
@@ -3675,10 +3682,10 @@ $$&lt;p&gt;
 &lt;/figure&gt;
 &lt;/center&gt;
 &lt;p&gt;Choose the two cells to be removed, and the closed path we have will be sperated into two paths.&lt;/p&gt;
-&lt;p&gt;If we lable the close path we chose in the beginning from 1 to 64 in the order we drew it, white cells have odd numbers, and black cells have even numbers (or reversed).&lt;/p&gt;</description></item><item><title>Some latex tests</title><link>https://ofuro.me/posts/latex_test/</link><pubDate>Mon, 28 Aug 2023 22:39:19 -0500</pubDate><guid>https://ofuro.me/posts/latex_test/</guid><description>&lt;p&gt;Consider a $n \times m$ chessboard&amp;hellip;&lt;/p&gt;
+&lt;p&gt;If we lable the close path we chose in the beginning from 1 to 64 in the order we drew it, white cells have odd numbers, and black cells have even numbers (or reversed).&lt;/p&gt;</description></item><item><title>Some latex tests</title><link>https://ofuro.me/posts/latex_test/</link><pubDate>Mon, 28 Aug 2023 22:39:19 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/latex_test/</guid><description>&lt;p&gt;Consider a $n \times m$ chessboard&amp;hellip;&lt;/p&gt;
 $$
 \int{f(x)dx}
-$$&lt;p&gt;Since $94 = 4 + 5x$ for some $x \in \mathbb{N}$, my claim is that the first player wins when it chooses $4$ in the beginning. Then, whenever the second player choose $a, x \in\set{1, 2, 3, 4}$, the first player just add it to 5. So choose $5-a$. By doing this, the first player always reaches $10x + 9$ or $10x + 4$ for $x \in \mathbb{N}$. Since $94$ is included, the first player must win.&lt;/p&gt;</description></item><item><title>My Math 417 review notes</title><link>https://ofuro.me/posts/417_review/</link><pubDate>Mon, 28 Aug 2023 15:50:48 -0500</pubDate><guid>https://ofuro.me/posts/417_review/</guid><description>&lt;p&gt;I have had a wonderful summer as I have been able to take Math 417 with Professor Chales Rezk. He is a very very good teacher and I have learnt a lot from him. Thanks!&lt;/p&gt;
+$$&lt;p&gt;Since $94 = 4 + 5x$ for some $x \in \mathbb{N}$, my claim is that the first player wins when it chooses $4$ in the beginning. Then, whenever the second player choose $a, x \in\set{1, 2, 3, 4}$, the first player just add it to 5. So choose $5-a$. By doing this, the first player always reaches $10x + 9$ or $10x + 4$ for $x \in \mathbb{N}$. Since $94$ is included, the first player must win.&lt;/p&gt;</description></item><item><title>My Math 417 review notes</title><link>https://ofuro.me/posts/417_review/</link><pubDate>Mon, 28 Aug 2023 15:50:48 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/417_review/</guid><description>&lt;p&gt;I have had a wonderful summer as I have been able to take Math 417 with Professor Chales Rezk. He is a very very good teacher and I have learnt a lot from him. Thanks!&lt;/p&gt;
 &lt;p&gt;These are the notes I have taken during the course. It includes the greate Theorems, Lemmas and Propositions that we have learnt in the course.&lt;/p&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
@@ -3861,14 +3868,14 @@ pageNum = numPages
 renderPage(pageNum);
 });
 })();
-&lt;/script&gt;</description></item><item><title>413_basic counting</title><link>https://ofuro.me/posts/413_basic_counting/</link><pubDate>Mon, 28 Aug 2023 14:35:27 -0500</pubDate><guid>https://ofuro.me/posts/413_basic_counting/</guid><description>&lt;h1 id="the-four-basic-counting-principle"&gt;The four basic counting principle&lt;/h1&gt;
+&lt;/script&gt;</description></item><item><title>413_basic counting</title><link>https://ofuro.me/posts/413_basic_counting/</link><pubDate>Mon, 28 Aug 2023 14:35:27 -0500</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/413_basic_counting/</guid><description>&lt;h1 id="the-four-basic-counting-principle"&gt;The four basic counting principle&lt;/h1&gt;
 &lt;p&gt;Suppose that a set $S$ is partitioned into pairwise disjoint parts $S_1, S_2, ..., S_n$.&lt;/p&gt;
 &lt;h3 id="addition-principle"&gt;&lt;strong&gt;Addition principle:&lt;/strong&gt;&lt;/h3&gt;
 $$
 |S| = |S_1| + |S_2| + ... + |S_m|
 $$&lt;p&gt;Ex:&lt;/p&gt;
 &lt;p&gt;Path counting: In a $3 \times 3$ grid, if you can move 1 step upward or 1 step to the right. How many ways do we have to move from bottom-left to top-right corner?&lt;/p&gt;
-&lt;p&gt;The idea is to break this problem into smaller problems. Addition principle guarrantees that we can add the numbers together.&lt;/p&gt;</description></item><item><title>341 Networking Epoll</title><link>https://ofuro.me/posts/341-33-networking-epoll/</link><pubDate>Fri, 21 Apr 2023 19:35:39 -0600</pubDate><guid>https://ofuro.me/posts/341-33-networking-epoll/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;The idea is to break this problem into smaller problems. Addition principle guarrantees that we can add the numbers together.&lt;/p&gt;</description></item><item><title>341 Networking Epoll</title><link>https://ofuro.me/posts/341-33-networking-epoll/</link><pubDate>Fri, 21 Apr 2023 19:35:39 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-33-networking-epoll/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -4051,7 +4058,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Scheduling</title><link>https://ofuro.me/posts/341-32-scheduling/</link><pubDate>Thu, 20 Apr 2023 19:35:33 -0600</pubDate><guid>https://ofuro.me/posts/341-32-scheduling/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Scheduling</title><link>https://ofuro.me/posts/341-32-scheduling/</link><pubDate>Thu, 20 Apr 2023 19:35:33 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-32-scheduling/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -4234,7 +4241,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Files 1 to 5</title><link>https://ofuro.me/posts/341-files-1-to-5/</link><pubDate>Fri, 31 Mar 2023 19:35:05 -0600</pubDate><guid>https://ofuro.me/posts/341-files-1-to-5/</guid><description>&lt;p&gt;&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Files 1 to 5</title><link>https://ofuro.me/posts/341-files-1-to-5/</link><pubDate>Fri, 31 Mar 2023 19:35:05 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-files-1-to-5/</guid><description>&lt;p&gt;&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -4840,7 +4847,7 @@ renderPage(pageNum);
 });
 })();
 &lt;/script&gt;
-&lt;/p&gt;</description></item><item><title>341 TCP Server</title><link>https://ofuro.me/posts/341-26-tcp-server/</link><pubDate>Wed, 29 Mar 2023 19:34:04 -0600</pubDate><guid>https://ofuro.me/posts/341-26-tcp-server/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;/p&gt;</description></item><item><title>341 TCP Server</title><link>https://ofuro.me/posts/341-26-tcp-server/</link><pubDate>Wed, 29 Mar 2023 19:34:04 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-26-tcp-server/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -5023,7 +5030,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 TCP Client Http</title><link>https://ofuro.me/posts/341-25-tcp-client-http/</link><pubDate>Mon, 27 Mar 2023 19:33:53 -0600</pubDate><guid>https://ofuro.me/posts/341-25-tcp-client-http/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 TCP Client Http</title><link>https://ofuro.me/posts/341-25-tcp-client-http/</link><pubDate>Mon, 27 Mar 2023 19:33:53 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-25-tcp-client-http/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -5206,7 +5213,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Errors Packets UDP TCP</title><link>https://ofuro.me/posts/341-24-errors-packets-udp-tcp/</link><pubDate>Sun, 26 Mar 2023 19:33:34 -0600</pubDate><guid>https://ofuro.me/posts/341-24-errors-packets-udp-tcp/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Errors Packets UDP TCP</title><link>https://ofuro.me/posts/341-24-errors-packets-udp-tcp/</link><pubDate>Sun, 26 Mar 2023 19:33:34 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-24-errors-packets-udp-tcp/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -5389,7 +5396,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 C Files Pipes Seeks</title><link>https://ofuro.me/posts/341-23-c-files-pipes-seeks/</link><pubDate>Wed, 22 Mar 2023 19:33:21 -0600</pubDate><guid>https://ofuro.me/posts/341-23-c-files-pipes-seeks/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 C Files Pipes Seeks</title><link>https://ofuro.me/posts/341-23-c-files-pipes-seeks/</link><pubDate>Wed, 22 Mar 2023 19:33:21 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-23-c-files-pipes-seeks/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -5572,7 +5579,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Pipes and Seeks</title><link>https://ofuro.me/posts/341-22-pipes-and-seeks/</link><pubDate>Mon, 20 Mar 2023 19:31:59 -0600</pubDate><guid>https://ofuro.me/posts/341-22-pipes-and-seeks/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Pipes and Seeks</title><link>https://ofuro.me/posts/341-22-pipes-and-seeks/</link><pubDate>Mon, 20 Mar 2023 19:31:59 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-22-pipes-and-seeks/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -5755,7 +5762,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Page Tables and IPC</title><link>https://ofuro.me/posts/341-21-page-tables-and-ipc/</link><pubDate>Mon, 13 Mar 2023 19:31:45 -0600</pubDate><guid>https://ofuro.me/posts/341-21-page-tables-and-ipc/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Page Tables and IPC</title><link>https://ofuro.me/posts/341-21-page-tables-and-ipc/</link><pubDate>Mon, 13 Mar 2023 19:31:45 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-21-page-tables-and-ipc/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -5938,7 +5945,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Dining Philosophers</title><link>https://ofuro.me/posts/341-20-dining-philosophers/</link><pubDate>Sat, 11 Mar 2023 19:31:35 -0600</pubDate><guid>https://ofuro.me/posts/341-20-dining-philosophers/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Dining Philosophers</title><link>https://ofuro.me/posts/341-20-dining-philosophers/</link><pubDate>Sat, 11 Mar 2023 19:31:35 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-20-dining-philosophers/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -6121,7 +6128,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Reader Writer Deadlock II</title><link>https://ofuro.me/posts/341-19-reader-writer-deadlock-ii/</link><pubDate>Wed, 08 Mar 2023 19:26:37 -0600</pubDate><guid>https://ofuro.me/posts/341-19-reader-writer-deadlock-ii/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Reader Writer Deadlock II</title><link>https://ofuro.me/posts/341-19-reader-writer-deadlock-ii/</link><pubDate>Wed, 08 Mar 2023 19:26:37 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-19-reader-writer-deadlock-ii/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -6304,7 +6311,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Reader Writer Deadlock</title><link>https://ofuro.me/posts/341-18-reader-writer-deadlock/</link><pubDate>Tue, 07 Mar 2023 19:26:21 -0600</pubDate><guid>https://ofuro.me/posts/341-18-reader-writer-deadlock/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Reader Writer Deadlock</title><link>https://ofuro.me/posts/341-18-reader-writer-deadlock/</link><pubDate>Tue, 07 Mar 2023 19:26:21 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-18-reader-writer-deadlock/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -6487,7 +6494,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Producer Consumer Barrier</title><link>https://ofuro.me/posts/341-17-producer-consumer-barrier/</link><pubDate>Mon, 27 Feb 2023 19:26:08 -0600</pubDate><guid>https://ofuro.me/posts/341-17-producer-consumer-barrier/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Producer Consumer Barrier</title><link>https://ofuro.me/posts/341-17-producer-consumer-barrier/</link><pubDate>Mon, 27 Feb 2023 19:26:08 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-17-producer-consumer-barrier/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -6670,7 +6677,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Counting Semaphores</title><link>https://ofuro.me/posts/341-16-counting-semaphores/</link><pubDate>Fri, 24 Feb 2023 19:25:46 -0600</pubDate><guid>https://ofuro.me/posts/341-16-counting-semaphores/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Counting Semaphores</title><link>https://ofuro.me/posts/341-16-counting-semaphores/</link><pubDate>Fri, 24 Feb 2023 19:25:46 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-16-counting-semaphores/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -6853,7 +6860,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Cond Variables</title><link>https://ofuro.me/posts/341-15-cond-variables/</link><pubDate>Wed, 22 Feb 2023 19:25:30 -0600</pubDate><guid>https://ofuro.me/posts/341-15-cond-variables/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Cond Variables</title><link>https://ofuro.me/posts/341-15-cond-variables/</link><pubDate>Wed, 22 Feb 2023 19:25:30 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-15-cond-variables/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -7036,7 +7043,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 PTreads and Locks</title><link>https://ofuro.me/posts/341-14-ptreads-and-locks/</link><pubDate>Tue, 21 Feb 2023 19:25:14 -0600</pubDate><guid>https://ofuro.me/posts/341-14-ptreads-and-locks/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 PTreads and Locks</title><link>https://ofuro.me/posts/341-14-ptreads-and-locks/</link><pubDate>Tue, 21 Feb 2023 19:25:14 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-14-ptreads-and-locks/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -7219,7 +7226,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 PTreads</title><link>https://ofuro.me/posts/341-13-ptreads/</link><pubDate>Sun, 19 Feb 2023 19:25:02 -0600</pubDate><guid>https://ofuro.me/posts/341-13-ptreads/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 PTreads</title><link>https://ofuro.me/posts/341-13-ptreads/</link><pubDate>Sun, 19 Feb 2023 19:25:02 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-13-ptreads/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -7402,7 +7409,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Treads Memory</title><link>https://ofuro.me/posts/341-12-treads-memory/</link><pubDate>Sat, 18 Feb 2023 19:24:48 -0600</pubDate><guid>https://ofuro.me/posts/341-12-treads-memory/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Treads Memory</title><link>https://ofuro.me/posts/341-12-treads-memory/</link><pubDate>Sat, 18 Feb 2023 19:24:48 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-12-treads-memory/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -7585,7 +7592,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Treads</title><link>https://ofuro.me/posts/341-11-treads/</link><pubDate>Sat, 18 Feb 2023 19:24:38 -0600</pubDate><guid>https://ofuro.me/posts/341-11-treads/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Treads</title><link>https://ofuro.me/posts/341-11-treads/</link><pubDate>Sat, 18 Feb 2023 19:24:38 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-11-treads/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -7768,7 +7775,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Allocator II</title><link>https://ofuro.me/posts/341-10-allocator-ii/</link><pubDate>Wed, 15 Feb 2023 19:24:31 -0600</pubDate><guid>https://ofuro.me/posts/341-10-allocator-ii/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Allocator II</title><link>https://ofuro.me/posts/341-10-allocator-ii/</link><pubDate>Wed, 15 Feb 2023 19:24:31 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-10-allocator-ii/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -7951,7 +7958,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Allocator</title><link>https://ofuro.me/posts/341-09-allocator/</link><pubDate>Mon, 13 Feb 2023 19:24:14 -0600</pubDate><guid>https://ofuro.me/posts/341-09-allocator/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Allocator</title><link>https://ofuro.me/posts/341-09-allocator/</link><pubDate>Mon, 13 Feb 2023 19:24:14 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-09-allocator/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -8134,7 +8141,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Heap</title><link>https://ofuro.me/posts/341-08-heap/</link><pubDate>Mon, 06 Feb 2023 19:24:09 -0600</pubDate><guid>https://ofuro.me/posts/341-08-heap/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Heap</title><link>https://ofuro.me/posts/341-08-heap/</link><pubDate>Mon, 06 Feb 2023 19:24:09 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-08-heap/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -8317,7 +8324,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Signals</title><link>https://ofuro.me/posts/341-07-signals/</link><pubDate>Sat, 04 Feb 2023 19:46:03 -0600</pubDate><guid>https://ofuro.me/posts/341-07-signals/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Signals</title><link>https://ofuro.me/posts/341-07-signals/</link><pubDate>Sat, 04 Feb 2023 19:46:03 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-07-signals/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
@@ -8500,7 +8507,7 @@ renderPage(pageNum);
 })();
 &lt;/script&gt;
 &lt;h3 id="reference"&gt;Reference&lt;/h3&gt;
-&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Forkexecwait</title><link>https://ofuro.me/posts/341-06-forkexecwait/</link><pubDate>Mon, 30 Jan 2023 19:23:11 -0600</pubDate><guid>https://ofuro.me/posts/341-06-forkexecwait/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+&lt;p&gt;UIUC CS341 System Programming Spring 2023 taught by Prof. &lt;a href="https://siebelschool.illinois.edu/about/people/faculty/angrave"&gt;Lawrence Angrave&lt;/a&gt;&lt;/p&gt;</description></item><item><title>341 Forkexecwait</title><link>https://ofuro.me/posts/341-06-forkexecwait/</link><pubDate>Mon, 30 Jan 2023 19:23:11 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/341-06-forkexecwait/</guid><description>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js" integrity="sha512-i+UmpoqoJqHkpXQ3mQfaIF8UZ2RAGoyqJvMzAKTadhBVhRk883EHluxdPsMf7c5/43D5tVpwIE8KLE1kQa0uCg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js" integrity="sha512-NuVK4+sDE809oDhbdAABRO1nTe80t56vXda8dg1UQ+RcQ8x7WakwTzKE7LOosoNCKi7EH7FXo7mritFNWpZiLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
 &lt;style&gt;
 #embed-pdf-container {
