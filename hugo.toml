@@ -7,6 +7,10 @@ theme = 'hugo-PaperMod'
   ShowCodeCopyButtons = true
   math = true  # enable math for all pages by default
 
+  [params.author]
+    name = "Yue Chen"
+    email = "yuec12@illinois.edu"
+
   [params.homeInfoParams]
     Title = "Stay 😎. Be 😊. Keep 📚"
     Content = 'おふろ🛁 => Bathe in the sea of knowledge.'
