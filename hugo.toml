@@ -6,6 +6,7 @@ theme = 'hugo-PaperMod'
 [params]
   ShowCodeCopyButtons = true
   math = true  # enable math for all pages by default
+  hideAuthor = true
 
   [params.author]
     name = "Yue Chen"
