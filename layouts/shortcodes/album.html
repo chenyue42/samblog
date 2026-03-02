@@ -1,0 +1,217 @@
+{{ $albumName := .Get 0 }}
+{{ $width := .Get 1 | default "70%" }}
+{{ $albumPath := print "static/myimg/" $albumName }}
+{{ $images := readDir $albumPath }}
+{{ $imageURLs := slice }}
+
+{{ range $images }}
+  {{ if and (not .IsDir) (ne .Name ".DS_Store") }}
+    {{ $imgURL := print "myimg/" $albumName "/" .Name | absURL }}
+    {{ $imageURLs = $imageURLs | append $imgURL }}
+  {{ end }}
+{{ end }}
+
+<style>
+/* Container styling */
+#photo-viewer {
+  display: none; 
+  position: fixed; 
+  top: 0; left: 0; 
+  width: 100%; height: 100%; 
+  background-color: rgba(0,0,0,1); 
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* The displayed image */
+#photo-viewer-img {
+  max-width: 100%; 
+  max-height: 100%; 
+  margin: auto; 
+  position: absolute; 
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+/* Close button */
+#photo-viewer-close {
+  color: white;
+  font-size: 40px;
+  position: absolute; 
+  top: 10px; 
+  right: 20px; 
+  background: none; 
+  border: none; 
+  padding: 10px; 
+  cursor: pointer; 
+  z-index: 10000;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s;
+}
+
+/* Arrows */
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  z-index: 10000;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s;
+}
+
+.arrow.right {
+  right: 20px;
+  transform: rotate(-45deg);
+}
+
+.arrow.left {
+  left: 20px;
+  transform: rotate(135deg);
+}
+
+/* Show controls on desktop when .show-controls is added */
+#photo-viewer.show-controls .arrow,
+#photo-viewer.show-controls #photo-viewer-close {
+  opacity: 1;
+}
+
+/* Hide arrows on mobile screens */
+@media (max-width: 768px) {
+  .arrow {
+    display: none;
+  }
+}
+</style>
+
+<center>
+  <figure>
+    {{ range $imageURLs }}
+      <img src="{{ . }}" style="width:{{ $width }}; margin: 5px; cursor: pointer;" class="album-image" />
+    {{ end }}
+    <button id="photo-viewer-btn" style="margin-top: 10px;"></button>
+  </figure>
+</center>
+
+<div id="photo-viewer">
+  <div class="arrow left"></div>
+  <div class="arrow right"></div>
+  <img id="photo-viewer-img" />
+  <button id="photo-viewer-close">&times;</button>
+</div>
+
+<script>
+  const images = {{ $imageURLs }};
+  let currentIndex = 0;
+
+  const photoViewer = document.getElementById('photo-viewer');
+  const photoViewerImg = document.getElementById('photo-viewer-img');
+  const closeBtn = document.getElementById('photo-viewer-close');
+  const photoViewerBtn = document.getElementById('photo-viewer-btn');
+  const arrowLeft = photoViewer.querySelector('.arrow.left');
+  const arrowRight = photoViewer.querySelector('.arrow.right');
+
+  function showImage(index) {
+    if (index >= 0 && index < images.length) {
+      currentIndex = index;
+      photoViewerImg.src = images[currentIndex];
+    }
+  }
+
+  // Show/hide controls on mouse movement (desktop)
+  let controlsTimeout;
+  function showControls() {
+    photoViewer.classList.add('show-controls');
+    clearTimeout(controlsTimeout);
+    controlsTimeout = setTimeout(() => {
+      photoViewer.classList.remove('show-controls');
+    }, 1500); // hide after 2s of inactivity
+  }
+
+  // Desktop arrow navigation
+  arrowLeft.addEventListener('click', () => {
+    showImage((currentIndex - 1 + images.length) % images.length);
+  });
+  arrowRight.addEventListener('click', () => {
+    showImage((currentIndex + 1) % images.length);
+  });
+
+  // Close button
+  closeBtn.addEventListener('click', () => {
+    photoViewer.style.display = 'none';
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (event) => {
+    if (photoViewer.style.display === 'block') {
+      if (event.key === 'ArrowRight') {
+        showImage((currentIndex + 1) % images.length);
+      } else if (event.key === 'ArrowLeft') {
+        showImage((currentIndex - 1 + images.length) % images.length);
+      } else if (event.key === 'Escape') {
+        photoViewer.style.display = 'none';
+      }
+    }
+  });
+
+  // Open viewer from button
+  photoViewerBtn.addEventListener('click', () => {
+    photoViewer.style.display = 'block';
+    showImage(0);
+    showControls();
+  });
+
+  // Open viewer from thumbnails
+  document.querySelectorAll('.album-image').forEach((img, index) => {
+    img.addEventListener('click', () => {
+      photoViewer.style.display = 'block';
+      showImage(index);
+      showControls();
+    });
+  });
+
+  // Show controls on mousemove (desktop)
+  photoViewer.addEventListener('mousemove', showControls);
+
+  // Touch (mobile) swipe detection
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+
+  photoViewer.addEventListener('touchstart', (e) => {
+    const touch = e.changedTouches[0];
+    touchStartX = touch.pageX;
+    touchStartY = touch.pageY;
+  });
+
+  photoViewer.addEventListener('touchmove', (e) => {
+    const touch = e.changedTouches[0];
+    touchEndX = touch.pageX;
+    touchEndY = touch.pageY;
+  });
+
+  photoViewer.addEventListener('touchend', () => {
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    // Mostly horizontal swipe
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX < 0) {
+        // Swipe left → next image
+        showImage((currentIndex + 1) % images.length);
+      } else {
+        // Swipe right → previous image
+        showImage((currentIndex - 1 + images.length) % images.length);
+      }
+    } else {
+      // Vertical swipe
+      if (diffY > 50) {
+        // Swipe down → close viewer
+        photoViewer.style.display = 'none';
+      }
+    }
+  });
+</script>
