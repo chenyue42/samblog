@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Game Theory on Yue's Notes</title><link>https://ofuro.me/tags/game-theory/</link><description>Recent content in Game Theory on Yue's Notes</description><generator>Hugo -- 0.157.0</generator><language>en-us</language><managingEditor>yuec12@illinois.edu (Yue Chen)</managingEditor><webMaster>yuec12@illinois.edu (Yue Chen)</webMaster><lastBuildDate>Sat, 06 Dec 2025 23:20:54 -0600</lastBuildDate><atom:link href="https://ofuro.me/tags/game-theory/index.xml" rel="self" type="application/rss+xml"/><item><title>580 Fair Division of Indivisibles</title><link>https://ofuro.me/posts/580-indivisibles/</link><pubDate>Sat, 06 Dec 2025 23:20:54 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/580-indivisibles/</guid><description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Game Theory on Yue's Notes</title><link>https://ofuro.me/tags/game-theory/</link><description>Recent content in Game Theory on Yue's Notes</description><generator>Hugo -- 0.169.0</generator><language>en-us</language><managingEditor>yuec12@illinois.edu (Yue Chen)</managingEditor><webMaster>yuec12@illinois.edu (Yue Chen)</webMaster><lastBuildDate>Sat, 06 Dec 2025 23:20:54 -0600</lastBuildDate><atom:link href="https://ofuro.me/tags/game-theory/index.xml" rel="self" type="application/rss+xml"/><item><title>580 Fair Division of Indivisibles</title><link>https://ofuro.me/posts/580-indivisibles/</link><pubDate>Sat, 06 Dec 2025 23:20:54 -0600</pubDate><author>yuec12@illinois.edu (Yue Chen)</author><guid>https://ofuro.me/posts/580-indivisibles/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Items are NOT divisible now!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;: Fair and efficient allocation&lt;/p&gt;
@@ -42,4 +42,15 @@
 &lt;h4 id="efficientnon-wasteful"&gt;Efficient(non-wasteful)&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Pareto-optimal&lt;/strong&gt;: no other allocation is better for all.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;&lt;strong&gt;Pareto-optimal&lt;/strong&gt;: no other allocation is better for all.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There is no allocation $Y$ such taht $V_i(Y_i)\geq V_i(X_i), \forall i \in [n]$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Welfare Maximizing&lt;/strong&gt;: $\max \sum_{i}V_i$ . Doesn&amp;rsquo;t makes sense sometimes. If a person has very huge values on one thing, should we just give the item to the person?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;(Nash) Welfare Maximizing:&lt;/strong&gt; $ \max \prod_i V_i$. This is the alternative using multipilcations.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
